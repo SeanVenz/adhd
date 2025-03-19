@@ -188,22 +188,6 @@ $wellBeing = [
 
     </section>
 
-    <!-- <section class="testimonials">
-        <div class="min-width">
-            <div class="testimonials-holder">
-                <div class="text-holder">
-                    <div class="header">
-                        <span>Opinie</span>
-                        <h2>Budowanie wsparcia poprzez <br> wspólne doświadczenia</h2>
-                    </div>
-                    <span class="growth">Prawdziwe historie wzrostu, odporności i wsparcia społeczności</span>
-                </div>
-
-                <?php echo do_shortcode('[testimonial_view id="1"]'); ?>
-            </div>
-        </div>
-    </section> -->
-
     <section class="accordions">
         <div class="min-width">
             <div class="accordions-holder">

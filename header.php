@@ -57,21 +57,21 @@
                 główna</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page($activePages))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
+              <a class="nav-link <?php if (is_page('o-nas'))
+                echo 'active'; ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page($activePages))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij
-                ocenę</a>
+              <a class="nav-link <?php if (is_page('rozpocznij-ocene'))
+                echo 'active'; ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij ocenę</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php
-              if (is_page('baza-wiedzy') || is_single()) {
-                echo 'active';
-              }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum Wiedzy</a>
+              <a class="nav-link <?php if (is_page('centrum-wiedzy'))
+                echo 'active'; ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum Wiedzy</a>
             </li>
+
           </ul>
         </div>
 
@@ -81,37 +81,37 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  const navbarToggler = document.querySelector(".navbar-toggler");
-  const burgerIcon = document.querySelector(".burger-icon");
-  const xIcon = document.querySelector(".x-icon");
+      const header = document.querySelector("header");
+      const navbarToggler = document.querySelector(".navbar-toggler");
+      const burgerIcon = document.querySelector(".burger-icon");
+      const xIcon = document.querySelector(".x-icon");
 
-  // Scroll event to toggle 'scrolled' class
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 0) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
+      // Scroll event to toggle 'scrolled' class
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 0) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
 
-  // Navbar toggler event
-  navbarToggler.addEventListener("click", function () {
-    const isOpen = navbarToggler.getAttribute("aria-expanded") === "true";
-    burgerIcon.style.display = isOpen ? "none" : "block";
-    xIcon.style.display = isOpen ? "block" : "none";
-  });
+      // Navbar toggler event
+      navbarToggler.addEventListener("click", function () {
+        const isOpen = navbarToggler.getAttribute("aria-expanded") === "true";
+        burgerIcon.style.display = isOpen ? "none" : "block";
+        xIcon.style.display = isOpen ? "block" : "none";
+      });
 
-  // Reset icons when navbar is closed
-  const navbarCollapse = document.getElementById("navbarText");
-  navbarCollapse.addEventListener("hidden.bs.collapse", function () {
-    burgerIcon.style.display = "block";
-    xIcon.style.display = "none";
-  });
-  navbarCollapse.addEventListener("shown.bs.collapse", function () {
-    burgerIcon.style.display = "none";
-    xIcon.style.display = "block";
-  });
-});
+      // Reset icons when navbar is closed
+      const navbarCollapse = document.getElementById("navbarText");
+      navbarCollapse.addEventListener("hidden.bs.collapse", function () {
+        burgerIcon.style.display = "block";
+        xIcon.style.display = "none";
+      });
+      navbarCollapse.addEventListener("shown.bs.collapse", function () {
+        burgerIcon.style.display = "none";
+        xIcon.style.display = "block";
+      });
+    });
 
   </script>

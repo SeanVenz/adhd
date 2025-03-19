@@ -1,5 +1,5 @@
 /*
-Theme Name: permenmedforte
+Theme Name: ADHD
 Theme URI: 
 Author: odysse
 Author URI: https://odysse.io/
@@ -107,7 +107,6 @@ header.scrolled {
   padding-left: 7%;
   padding-right: 7%;
 }
-
 @media (max-width: 768px){
   .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
     flex-direction: row-reverse;
@@ -148,6 +147,9 @@ header.scrolled {
   font-weight: 400 !important;
 }
 
+header ul .active{
+  font-weight: 700 !important;
+}
 
 
 /* MAIN HERO */
@@ -1156,8 +1158,8 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   background-color: var(--testimonials-bg);
-  padding-bottom: 94px;
-  padding-top: 94px;
+  padding-bottom: 128px;
+  padding-top: 128px;
 }
 
 .testimonials .text-holder {
@@ -1213,7 +1215,7 @@ header.scrolled {
   padding-left: 0 !important;
   font-family: "Manrope";
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
   color: #17462b;
 }
 
@@ -1222,6 +1224,7 @@ header.scrolled {
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
+  word-wrap: break-word;
 }
 
 .strong-view.wpmtst-default .wpmtst-testimonial-field {
@@ -1261,6 +1264,63 @@ header.scrolled {
   text-decoration: none !important;
   font-size: 20px !important;
 }
+
+.strong-view.wpmtst-default .wpmtst-testimonial{
+  border: none !important;
+}
+
+@media (max-width: 1024px){
+  .testimonials{
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .testimonials .testimonials-holder{
+    gap: 64px;
+  }
+
+  .testimonials .header h2{
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px){
+  .testimonials{
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+
+  .strong-view.wpmtst-default .wpmtst-testimonial-heading {
+    font-size: 16px;
+  }
+
+  .strong-view.wpmtst-default .readmore-page{
+    width: 100%;
+  }
+  
+
+  .strong-view .strong-content.strong-grid .wpmtst-testimonial{
+    width: 100% !important;
+  }
+
+  .testimonials .header h2{
+    font-size: 32px;
+  }
+
+  .testimonials .testimonials-holder{
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px){
+  .testimonials .testimonials-holder{
+    gap: 24px;
+  }
+  .testimonials .header h2{
+    font-size: 20px;
+  }
+}
+
 
 /* STEP */
 .step {

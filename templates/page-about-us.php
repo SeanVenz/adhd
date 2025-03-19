@@ -55,24 +55,6 @@ $hero = [
         </div>
     </section>
 
-    <!-- <section class="awareness">
-        <div class="min-width">
-            <div class="awareness-holder">
-                <div class="text-holder">
-                    <span class="header">Blogi, aktualności i przewodniki</span>
-                    <h2>ADHD: Przewodnik po <br>świadomości i wsparciu</h2>
-                    <span class="info">Bądź na bieżąco dzięki eksperckim artykułom, szczegółowym przewodnikom i
-                        najnowszym wiadomościom o ADHD.Od diagnozy po codzienne zarządzanie – odkryjcenne informacje,
-                        które pomogą osobom z ADHD, ich rodzinom i specjalistom
-
-                                       </div>
-
-                <?php get_template_part('template-parts/blogs'); ?>
-            </div>
-        </div>
-
-    </section> -->
-
     <section class="history">
         <div class="min-width">
             <div class="history-holder">
@@ -81,7 +63,7 @@ $hero = [
                 <div class="desc">
                     <div class="header">
                         <span>Nasza Historia</span>
-                        <h2>Wspieramy Umysły, UpraszczamyOcenę ADHD</h2>
+                        <h2>Wspieramy Umysły, Upraszczamy Ocenę ADHD</h2>
                         <p>Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p>
                     </div>
                     <p>Założona na zasadach innowacji, wiedzy i empatii, nasza podróż rozpoczęła się od prostego celu:
