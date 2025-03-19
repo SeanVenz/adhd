@@ -79,18 +79,12 @@ body {
 
 @media (max-width: 768px) {
 
-  header{
-    padding-left: 7%;
-    padding-right: 7%;
-  }
-
   .bg{
     gap: 54px;
   }
 }
 
 /* HEADER */
-
 header {
   background-color: transparent !important;
   height: 94px;
@@ -104,15 +98,108 @@ header {
 header.scrolled {
   background-color: #f8f8e7 !important;
   padding: 10px 0;
+}
+
+header .container{
+  margin: 0;
   padding-left: 7%;
   padding-right: 7%;
 }
+
+/* Make sure the burger and X icons are styled properly */
+.navbar-toggler {
+  position: relative;
+  z-index: 1001; /* Higher than the navbar-collapse */
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.burger-icon, .x-icon {
+  transition: display 0.2s ease;
+}
+@media (max-width: 1024px){
+  .navbar{
+    justify-content: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  header .container{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 @media (max-width: 768px){
   .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
     flex-direction: row-reverse;
   }
-}
 
+  .navbar{
+    justify-content: center !important;
+    padding-left: 7% !important;
+    padding-right: 7% !important;
+  }
+
+  .navbar-collapse .navbar-nav{
+    height: 100svh;
+    background-color: white;
+    align-items: flex-start;
+  }
+
+  .navbar > .container {
+    flex-direction: row-reverse;
+  }
+
+  /* Full-screen mobile menu */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 20px;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+
+  /* Mobile menu items */
+  .navbar-collapse .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    font-weight: 500;
+    color: #17462B;
+  }
+
+  /* Ensure the X icon is visible when menu is open */
+  .navbar-collapse.show ~ .navbar-toggler .burger-icon {
+    display: none !important;
+  }
+
+  .navbar-collapse.show ~ .navbar-toggler .x-icon {
+    display: block !important;
+  }
+}
 
 .default-header {
   width: 100%;
@@ -120,6 +207,10 @@ header.scrolled {
 
 .navbar {
   height: 100%;
+}
+
+.page-template-page-about-us .step{
+  padding-top: 256px !important;
 }
 
 .navbar-nav {
@@ -237,10 +328,14 @@ header ul .active{
     height: auto;
   }
 
+  .page-template-page-about-us .step{
+    padding-top: 128px !important;
+  }
+
   .main-hero-holder {
     flex-direction: column;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 135px;
   }
 
   .main-hero-holder .img-holder {
@@ -278,6 +373,16 @@ header ul .active{
     height: 100svh;
   }
 
+  .main-hero-holder{
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 185px;
+  }
+
+  .page-template-page-about-us .step{
+    padding-top: 64px !important;
+  }
+
   .main-hero-holder h1{
     font-size: 24px;
     text-align: left;
@@ -286,6 +391,11 @@ header ul .active{
 
   .main-hero-holder .text-holder{
     width: 100%;
+    max-width: 100%;
+  }
+
+  .main-hero-holder .img-holder{
+    max-width: 100%;
   }
 
   .main-hero-holder ul li{

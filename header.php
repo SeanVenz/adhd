@@ -47,10 +47,14 @@
           </svg>
         </button>
         <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-          test
+          ADHD
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
+            <a class="navbar-brand d-block d-md-none" style="padding:0px" href="<?php echo get_home_url(); ?>"
+              aria-label="Go to Home Page">
+              ADHD
+            </a>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())
                 echo 'active'; ?>" aria-current="page" style="padding:5px;" href="<?php echo get_home_url(); ?>">Strona
@@ -58,8 +62,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_page('o-nas'))
-                echo 'active'; ?>" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
+                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_page('rozpocznij-ocene'))
@@ -68,8 +71,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_page('centrum-wiedzy'))
-                echo 'active'; ?>" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum Wiedzy</a>
+                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum
+                Wiedzy</a>
             </li>
 
           </ul>
@@ -80,38 +83,46 @@
   </header>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const header = document.querySelector("header");
-      const navbarToggler = document.querySelector(".navbar-toggler");
-      const burgerIcon = document.querySelector(".burger-icon");
-      const xIcon = document.querySelector(".x-icon");
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header");
+  const navbarToggler = document.querySelector(".navbar-toggler");
+  const navbarCollapse = document.getElementById("navbarText");
+  const burgerIcon = document.querySelector(".burger-icon");
+  const xIcon = document.querySelector(".x-icon");
 
-      // Scroll event to toggle 'scrolled' class
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 0) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
+  // Scroll event to toggle 'scrolled' class
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
 
-      // Navbar toggler event
-      navbarToggler.addEventListener("click", function () {
-        const isOpen = navbarToggler.getAttribute("aria-expanded") === "true";
-        burgerIcon.style.display = isOpen ? "none" : "block";
-        xIcon.style.display = isOpen ? "block" : "none";
-      });
+  // Force initial state
+  xIcon.style.display = "none";
+  burgerIcon.style.display = "block";
 
-      // Reset icons when navbar is closed
-      const navbarCollapse = document.getElementById("navbarText");
-      navbarCollapse.addEventListener("hidden.bs.collapse", function () {
-        burgerIcon.style.display = "block";
+  // Navbar toggler event
+  navbarToggler.addEventListener("click", function () {
+    if (navbarCollapse.classList.contains("show")) {
+      // Close menu
+      navbarCollapse.classList.remove("show");
+      setTimeout(() => {
         xIcon.style.display = "none";
-      });
-      navbarCollapse.addEventListener("shown.bs.collapse", function () {
-        burgerIcon.style.display = "none";
+        burgerIcon.style.display = "block";
+      }, 10);
+    } else {
+      // Open menu
+      navbarCollapse.classList.add("show");
+      setTimeout(() => {
         xIcon.style.display = "block";
-      });
-    });
-
+        burgerIcon.style.display = "none";
+      }, 10);
+    }
+    // Toggle aria-expanded attribute
+    const isExpanded = navbarToggler.getAttribute("aria-expanded") === "true";
+    navbarToggler.setAttribute("aria-expanded", !isExpanded);
+  });
+});
   </script>

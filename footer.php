@@ -267,7 +267,7 @@ $contact = [
   <div class="min-width">
     <div class="footer-holder">
       <div class="logo-holder">
-        logo
+        ADHD
         <div class="socials-holder">
           <span>Media społecznościowe:</span>
           <ul class="socials">
