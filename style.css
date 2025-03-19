@@ -1,0 +1,1030 @@
+/*
+Theme Name: permenmedforte
+Theme URI: 
+Author: odysse
+Author URI: https://odysse.io/
+Description: Wordpress Theme
+Version: 1.0
+*/
+
+/* VARIABLES */
+
+:root {
+  --white: #ffffff;
+  --hero-bg: #f7f5cc;
+  --dark-green: #17462b;
+  --light-green: #44674f;
+  --testimonials-bg: #f8f8e7;
+}
+
+/* COMMON */
+.min-width {
+  width: 100%;
+  max-width: 1720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+@media (max-width: 1200px) {
+  .min-width {
+    min-width: unset;
+    width: 90%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .min-width {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* BODY */
+
+body {
+  background-color: var(--white) !important;
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+}
+
+/* FRONT */
+.front {
+  display: flex;
+  flex-direction: column;
+  gap: 256px;
+}
+
+/* HEADER */
+
+header {
+  background-color: transparent !important;
+  height: 94px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #f8f8e7 !important;
+  padding: 10px 0;
+}
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
+  flex-direction: row-reverse;
+}
+
+.default-header {
+  width: 100%;
+}
+
+.navbar {
+  height: 100%;
+}
+
+.navbar-nav {
+  gap: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1720px !important;
+  }
+}
+
+.nav-link {
+  color: var(--dark-green) !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+}
+
+/* MAIN HERO */
+
+.main-hero {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 0 5%; /* Adds padding to maintain layout */
+}
+
+.main-hero-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.main-hero-holder .img-holder {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 40%; /* Ensures image doesn't take too much space */
+  display: flex;
+  align-items: flex-end;
+}
+
+.main-hero img {
+  height: 85svh;
+  width: auto;
+  object-fit: cover;
+}
+
+.main-hero-holder .text-holder {
+  max-width: 50%;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.main-hero-holder h1 {
+  font-family: "Manrope";
+  font-weight: 800;
+  font-size: 74px;
+  color: #17462b;
+}
+
+.main-hero-holder ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.main-hero-holder ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px 24px;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #17462b;
+  border-radius: 12px;
+}
+
+.main-hero-holder ul li:first-child {
+  background-color: #17462b;
+  color: white;
+}
+
+.main-hero-holder ul li:nth-child(2) {
+  background-color: transparent;
+  color: #17462b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .main-hero {
+    flex-direction: column;
+    padding: 0 3%;
+    height: auto;
+  }
+
+  .main-hero-holder {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .main-hero-holder .img-holder {
+    position: relative;
+    max-width: 80%;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .main-hero img {
+    height: auto;
+    width: 100%;
+  }
+
+  .main-hero-holder .text-holder {
+    max-width: 90%;
+    margin-right: 0;
+    gap: 30px;
+  }
+
+  .main-hero-holder h1 {
+    font-size: 48px;
+  }
+
+  .main-hero-holder ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+/* WHAT */
+
+.what {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.what .what-holder {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.what .text-holder {
+  max-width: 725px;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.what .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.what .texts .header {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.what .texts h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 64px;
+  color: #17462b;
+}
+
+.what .texts .desc {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 20px;
+  color: #17462b;
+}
+
+.what .texts p {
+  font-family: Manrope;
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+.what .text-holder a {
+  background-color: #17462b;
+  padding: 12px 24px;
+  border-radius: 12px;
+  width: max-content;
+  font-family: Manrope;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .what .what-holder {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .what .text-holder {
+    max-width: 100%;
+    padding: 20px; /* Add some spacing */
+    gap: 32px; /* Reduce gap for better spacing */
+  }
+
+  .what .texts h2 {
+    font-size: 48px; /* Adjust heading size for smaller screens */
+  }
+
+  .what .texts .desc {
+    font-size: 18px; /* Reduce description size */
+  }
+
+  .what .texts p {
+    font-size: 14px; /* Make paragraph text smaller */
+  }
+
+  .what .text-holder a {
+    font-size: 18px; /* Adjust button text size */
+    padding: 10px 20px; /* Adjust button padding */
+  }
+
+  .what .img-holder img {
+    width: 100%; /* Make image responsive */
+    max-width: 500px; /* Set a reasonable max width */
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .what .texts h2 {
+    font-size: 36px; /* Further reduce heading size */
+  }
+
+  .what .texts .desc {
+    font-size: 16px;
+  }
+
+  .what .texts p {
+    font-size: 14px;
+  }
+
+  .what .text-holder {
+    gap: 24px; /* Reduce spacing further */
+  }
+
+  .what .text-holder a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .what {
+    padding: 20px;
+  }
+
+  .what .texts h2 {
+    font-size: 28px;
+  }
+
+  .what .texts .desc {
+    font-size: 14px;
+  }
+
+  .what .texts p {
+    font-size: 12px;
+  }
+
+  .what .text-holder a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+
+/* DEVELOPMENT */
+
+.development {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.development-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 74px;
+}
+
+.development-holder .text-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.development-holder ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 43px;
+}
+
+.development-holder li {
+  display: flex;
+  flex-direction: column;
+  max-width: 544px;
+  width: 100%;
+  max-height: 532px;
+  height: 100%;
+  padding: 24px;
+  background-color: white;
+  border-radius: 28px;
+  box-shadow: 4px 4px 12px 0px #00000014;
+  gap: 24px;
+}
+
+.development-holder .svg-holder {
+  height: 270px;
+  background-color: #0082360f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.development-holder .svg-holder .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.development-holder .svg-holder .texts span {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 34px;
+  color: #17462b;
+}
+
+.development-holder .svg-holder .texts p {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+.development-holder .header-holder {
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.development-holder .header-holder h5 {
+  font-family: Manrope;
+  font-weight: 600;
+  font-size: 24px;
+  color: #17462b;
+}
+
+.development-holder .header-holder p {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+.development-holder a {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background-color: #17462b;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.development-holder .text-holder h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 64px;
+  color: #17462b;
+}
+
+.development-holder .text-holder span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+  text-align: center;
+}
+
+/* WELL BEING */
+
+.well-being {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.well-being-holder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 74px;
+}
+
+.well-being-holder .text-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.well-being-holder .text-holder span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.well-being-holder .text-holder h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 64px;
+  color: #17462b;
+  max-width: 429px;
+}
+
+.well-being-holder .text-holder p {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+  max-width: 845px;
+}
+
+.well-being-holder ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 128px;
+}
+
+.well-being-holder li {
+  display: flex;
+  flex-direction: column;
+  max-width: 488px;
+  width: 100%;
+  gap: 54px;
+}
+
+.well-being .header-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.well-being .header-holder h5 {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-size: 34px;
+  color: #17462b;
+  max-width: 205px;
+}
+
+.well-being .header-holder p {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+.well-being .well-being-holder a {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background-color: #17462b;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* KNOWLEDGE CENTER */
+.knowledge-center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.knowledge-center-holder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 74px;
+}
+
+.knowledge-center-holder .text-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 947px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.knowledge-center-holder .header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.knowledge-center-holder .header span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.knowledge-center-holder .header h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 63px;
+  color: #17462b;
+}
+
+.knowledge-center-holder .header p {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 20px;
+  color: #17462b;
+}
+
+.knowledge-center-holder .text-holder .desc {
+  font-family: Manrope;
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--testimonials-bg);
+  padding-bottom: 94px;
+  padding-top: 94px;
+}
+
+.testimonials .text-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.testimonials .header span {
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.testimonials .header h2 {
+  font-weight: 600;
+  font-size: 64px;
+  text-align: center;
+  color: #17462b;
+}
+
+.testimonials .testimonials-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+}
+
+.testimonials .growth {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #44674f;
+}
+
+.strong-view.wpmtst-default .wpmtst-testimonial-inner {
+  padding: 24px !important;
+  border-radius: 28px;
+  box-shadow: 4px 4px 12px 0px #00000014;
+}
+
+.strong-view.wpmtst-default .wpmtst-testimonial-heading {
+  background: none !important;
+  padding-left: 0 !important;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.strong-view.wpmtst-default .wpmtst-testimonial-content p:last-of-type {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+}
+
+.strong-view.wpmtst-default .wpmtst-testimonial-field {
+  text-align: left !important;
+  font-family: "Nunito Sans";
+  font-weight: 400;
+  font-size: 14px;
+  color: #44674f;
+}
+
+.strong-view .strong-content.strong-grid .wpmtst-testimonial-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+}
+
+.strong-view.wpmtst-default {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 128px !important;
+}
+
+.strong-view.wpmtst-default .readmore-page {
+  margin-top: 0px !important;
+  border: none !important;
+  background: #17462b;
+  width: max-content;
+  align-self: center;
+  border-radius: 12px !important;
+  cursor: pointer;
+}
+
+.strong-view.wpmtst-default .readmore-page a {
+  color: white !important;
+  font-family: "Manrope" !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  font-size: 20px !important;
+}
+
+/* STEP */
+.step {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 228px;
+  padding-top: 28px;
+  max-height: 789px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.step h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 64px;
+  text-align: center;
+  color: #17462b;
+}
+
+.step .text-holder span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+}
+
+.step .text-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.step a {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #17462b;
+  align-self: center;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.step .step-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
+}
+
+/* ACCORDION */
+
+.accordions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.accordions-holder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 74px;
+}
+
+.accordion {
+  width: 100%;
+  --bs-accordion-btn-focus-box-shadow: none !important;
+}
+
+.accordion-item {
+  border: none !important;
+  border-bottom: 1px solid #17462b !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #17462b !important;
+  font-family: "Manrope" !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-button {
+  color: #17462b !important;
+  font-family: "Manrope" !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  padding-left: 0px !important;
+}
+
+.accordion-body {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+  padding-left: 0px !important;
+}
+.accordion-item:last-of-type {
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.accordions h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 64px;
+  color: #17462b;
+  text-align: left;
+}
+
+.accordions .header {
+  width: 100%;
+  align-self: flex-start;
+}
+
+/* RESULTS PAGE */
+.qsm-results-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.qsm-results-page h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 34px;
+  text-align: center;
+  color: #17462b;
+}
+
+.qsm-results-page h3 {
+  font-family: "Manrope";
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #44674f;
+  max-width: 375px;
+}
+
+.result-score-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 44px;
+  border-radius: 14px;
+  background-color: #f8fafc;
+  box-shadow: 4px 4px 12px 0px #00000014;
+  margin-top: 40px;
+}
+
+.result-score-holder .header {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #44674f;
+}
+
+.result-score-holder h5{
+  font-family: 'Manrope';
+font-weight: 700;
+font-size: 24px;
+text-align: center;
+color: #17462B;
+margin-top: 44px;
+max-width: 603px;
+}
+
+.result-score-holder .explain{
+  font-family: 'Manrope';
+font-weight: 400;
+font-size: 16px;
+text-align: center;
+vertical-align: middle;
+color: #44674F;
+margin-top: 14px;
+max-width: 603px;
+}
+
+.result-score-holder .score{
+  display: flex;
+  height: 205px;
+  width: 205px;
+  flex-direction: column;
+  background: linear-gradient(180deg, #093119 0%, #215336 100%);
+  box-shadow: 0px 4px 12px 0px #113922 inset;
+  padding: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-score-holder .score .initial{
+  font-family: 'Manrope';
+font-weight: 800;
+font-size: 96px;
+color: #FFFFFF;
+}
+
+.result-score-holder .over{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Manrope';
+font-weight: 400;
+font-size: 12px;
+text-align: center;
+color: #F5F7FA;
+}
