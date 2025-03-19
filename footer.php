@@ -90,12 +90,133 @@
     color: #17462B;
   }
 
-  .privacy a{
+  .privacy a {
     text-decoration: none;
     font-family: 'Manrope';
     font-weight: 400;
     font-size: 16px;
     color: #17462B;
+  }
+
+  @media (max-width: 1024px) {
+    .footer {
+      padding-top: 48px;
+      /* Reduce padding */
+      gap: 40px;
+    }
+
+    .footer-holder {
+      gap: 40px;
+      /* Reduce spacing */
+    }
+
+    .logo-holder {
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    
+    .socials-holder span{
+      display: none;
+    }
+
+    .socials-holder {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ql-holder {
+      flex-direction: column;
+      gap: 32px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .ql-holder .navigation {
+      align-items: center;
+    }
+
+    .navigation h5 {
+      font-size: 24px;
+      /* Reduce heading size */
+    }
+
+    .navigation a {
+      font-size: 14px;
+      /* Reduce font size */
+    }
+
+    .privacy {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding-top: 32px;
+      gap: 32px;
+    }
+
+    .ql-holder .navigation{
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .footer ul{
+      margin-bottom: 0;
+    }
+
+    .footer-holder {
+      gap: 32px;
+    }
+
+    .ql-holder {
+      gap: 24px;
+    }
+
+    .navigation h5 {
+      font-size: 20px;
+    }
+
+    .navigation a {
+      font-size: 14px;
+    }
+
+    .privacy {
+      gap: 44px;
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding-top: 24px;
+      gap: 24px;
+    }
+
+    .ql-holder {
+      gap: 64px;
+    }
+
+    .navigation h5 {
+      font-size: 18px;
+    }
+
+    .navigation a {
+      font-size: 12px;
+    }
+
+    .privacy {
+      font-size: 14px;
+    }
   }
 </style>
 

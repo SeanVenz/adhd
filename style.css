@@ -28,6 +28,8 @@ Version: 1.0
   flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 1;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 @media (max-width: 1200px) {
@@ -42,8 +44,8 @@ Version: 1.0
 @media (max-width: 768px) {
   .min-width {
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 7%;
+    padding-right: 7%;
   }
 }
 
@@ -57,11 +59,34 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+.bg{
+  display: flex;
+  flex-direction: column;
+}
+
 /* FRONT */
 .front {
   display: flex;
   flex-direction: column;
-  gap: 256px;
+}
+
+@media (max-width: 1024px){
+
+  .bg{
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  header{
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .bg{
+    gap: 54px;
+  }
 }
 
 /* HEADER */
@@ -79,11 +104,16 @@ header {
 header.scrolled {
   background-color: #f8f8e7 !important;
   padding: 10px 0;
+  padding-left: 7%;
+  padding-right: 7%;
 }
 
-.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
-  flex-direction: row-reverse;
+@media (max-width: 768px){
+  .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
+    flex-direction: row-reverse;
+  }
 }
+
 
 .default-header {
   width: 100%;
@@ -118,6 +148,8 @@ header.scrolled {
   font-weight: 400 !important;
 }
 
+
+
 /* MAIN HERO */
 
 .main-hero {
@@ -127,7 +159,6 @@ header.scrolled {
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding: 0 5%; /* Adds padding to maintain layout */
 }
 
 .main-hero-holder {
@@ -201,7 +232,6 @@ header.scrolled {
 @media (max-width: 1024px) {
   .main-hero {
     flex-direction: column;
-    padding: 0 3%;
     height: auto;
   }
 
@@ -215,7 +245,6 @@ header.scrolled {
     position: relative;
     max-width: 80%;
     justify-content: center;
-    margin-bottom: 20px;
     align-items: center;
   }
 
@@ -241,6 +270,27 @@ header.scrolled {
   }
 }
 
+@media (max-width: 768px){
+
+  .main-hero{
+    height: 100svh;
+  }
+
+  .main-hero-holder h1{
+    font-size: 24px;
+    text-align: left;
+    max-width: 178px;
+  }
+
+  .main-hero-holder .text-holder{
+    width: 100%;
+  }
+
+  .main-hero-holder ul li{
+    width: 100%;
+  }
+}
+
 /* WHAT */
 
 .what {
@@ -249,6 +299,8 @@ header.scrolled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 256px;
+  padding-bottom: 128px;
 }
 
 .what .what-holder {
@@ -277,6 +329,13 @@ header.scrolled {
   font-weight: 400;
   font-size: 16px;
   color: #17462b;
+}
+
+.what .img-holder img {
+  width: 100%;
+  max-width: 705px; /* Limits image size on large screens */
+  height: auto;
+  object-fit: cover; /* Ensures the image looks good without distortion */
 }
 
 .what .texts h2 {
@@ -312,17 +371,75 @@ header.scrolled {
   text-decoration: none;
 }
 
+@media (max-width: 1554px) {
+
+  .what .text-holder{
+    max-width: 650px;
+  }
+  /* .what .img-holder img {
+    max-width: 600px;
+  } */
+}
+
+@media (max-width: 1324px) {
+  .what .text-holder{
+    max-width: 600px;
+  }
+
+  .what .img-holder img {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .what .text-holder{
+    max-width: 500px;
+  }
+
+  .what .img-holder img {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .what .text-holder{
+    max-width: 450px;
+  }
+
+  .what .img-holder img {
+    max-width: 600px;
+  }
+}
+
+
+
 @media (max-width: 1024px) {
   .what .what-holder {
     flex-direction: column; /* Stack elements vertically */
     align-items: center;
     text-align: center;
+    gap: 20px;
+  }
+
+  .what{
+    padding-top: 124px;
+    padding-bottom: 64px;
+  }
+
+  .what .img-holder {
+    width: 100%;
+  }
+
+  .what .img-holder img{
+    max-width: 705px;
+    width: 100%;
   }
 
   .what .text-holder {
     max-width: 100%;
-    padding: 20px; /* Add some spacing */
-    gap: 32px; /* Reduce gap for better spacing */
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
   }
 
   .what .texts h2 {
@@ -339,12 +456,11 @@ header.scrolled {
 
   .what .text-holder a {
     font-size: 18px; /* Adjust button text size */
-    padding: 10px 20px; /* Adjust button padding */
+    width: 100%;
   }
 
   .what .img-holder img {
     width: 100%; /* Make image responsive */
-    max-width: 500px; /* Set a reasonable max width */
     height: auto;
   }
 }
@@ -354,12 +470,27 @@ header.scrolled {
     font-size: 36px; /* Further reduce heading size */
   }
 
+  .what{
+    padding-top: 64px;
+    padding-bottom: 32px;
+  }
+
+  .what .texts .header{
+    text-align: left;
+  }
+
+  .what .texts h2{
+    text-align: left;
+  }
+
   .what .texts .desc {
     font-size: 16px;
+    text-align: left;
   }
 
   .what .texts p {
     font-size: 14px;
+    text-align: left;
   }
 
   .what .text-holder {
@@ -368,17 +499,18 @@ header.scrolled {
 
   .what .text-holder a {
     font-size: 16px;
-    padding: 8px 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .what {
-    padding: 20px;
+
+  .what .texts .header{
+    font-size: 10px;
   }
 
   .what .texts h2 {
-    font-size: 28px;
+    font-size: 20px;
+    max-width: 143px;
   }
 
   .what .texts .desc {
@@ -403,6 +535,8 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
 
 .development-holder {
@@ -429,12 +563,14 @@ header.scrolled {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 43px;
+  justify-content: center;
+  align-items: center;
 }
 
 .development-holder li {
   display: flex;
   flex-direction: column;
-  max-width: 544px;
+  max-width: 500px;
   width: 100%;
   max-height: 532px;
   height: 100%;
@@ -523,6 +659,138 @@ header.scrolled {
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+
+  .development{
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  
+  .development-holder {
+    gap: 48px;
+  }
+
+  .development-holder .text-holder h2 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .development-holder .text-holder span {
+    font-size: 14px;
+  }
+
+  .development-holder ul {
+    gap: 24px;
+  }
+
+  .development-holder .svg-holder {
+    height: 200px;
+  }
+
+  .development-holder .svg-holder .texts span {
+    font-size: 28px;
+  }
+
+  .development-holder .header-holder h5 {
+    font-size: 20px;
+  }
+
+  .development-holder .header-holder p {
+    font-size: 14px;
+  }
+
+  .development-holder a {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .development{
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .development-holder {
+    gap: 32px;
+  }
+
+  .development-holder .text-holder h2 {
+    font-size: 36px;
+  }
+
+  .development-holder .text-holder span {
+    font-size: 14px;
+  }
+
+  .development-holder ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .development-holder .svg-holder .texts span {
+    font-size: 24px;
+  }
+
+  .development-holder .header-holder h5 {
+    font-size: 18px;
+  }
+
+  .development-holder .header-holder p {
+    font-size: 12px;
+  }
+
+  .development-holder a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .development-holder {
+    gap: 24px;
+  }
+
+  .development-holder .svg-holder .texts p{
+    font-size: 12px;
+  }
+
+  .development-holder .text-holder h2 {
+    font-size: 20px;
+  }
+
+  .development-holder .text-holder span {
+    font-size: 12px;
+  }
+
+  .development-holder ul {
+    gap: 12px;
+  }
+
+  .development-holder li {
+    max-width: 100%;
+  }
+
+  .development-holder .svg-holder .texts span {
+    font-size: 20px;
+  }
+
+  .development-holder .header-holder h5 {
+    font-size: 20px;
+  }
+
+  .development-holder .header-holder p {
+    font-size: 12px;
+  }
+
+  .development-holder a {
+    font-size: 14px;
+    padding: 12px 24px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* WELL BEING */
 
 .well-being {
@@ -531,6 +799,8 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
 
 .well-being-holder {
@@ -584,7 +854,7 @@ header.scrolled {
 .well-being-holder li {
   display: flex;
   flex-direction: column;
-  max-width: 488px;
+  max-width: 450px;
   width: 100%;
   gap: 54px;
 }
@@ -621,6 +891,160 @@ header.scrolled {
   text-decoration: none;
 }
 
+@media (max-width: 1024px) {
+
+  .well-being{
+    padding-top: 127px;
+  }
+  .well-being-holder {
+    gap: 48px;
+  }
+
+  .well-being-holder .text-holder h2 {
+    font-size: 48px;
+  }
+
+  .well-being-holder .text-holder p {
+    font-size: 14px;
+    max-width: 700px;
+  }
+
+  .well-being-holder ul {
+    gap: 64px;
+  }
+
+  .well-being-holder li {
+    max-width: 400px;
+    gap: 32px;
+  }
+
+  .well-being .header-holder h5 {
+    font-size: 28px;
+  }
+
+  .well-being .header-holder p {
+    font-size: 14px;
+  }
+
+  .well-being .well-being-holder a {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .well-being{
+    padding-top: 64px;
+  }
+  .well-being-holder {
+    gap: 32px;
+    text-align: center;
+  }
+
+  .well-being-holder .text-holder h2 {
+    font-size: 36px;
+    max-width: 100%;
+  }
+
+  .well-being-holder .text-holder p {
+    font-size: 14px;
+  }
+
+  .well-being-holder ul {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .well-being-holder li {
+    max-width: 90%;
+    gap: 24px;
+  }
+
+  .well-being .header-holder h5 {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .well-being .header-holder p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .well-being .well-being-holder a {
+    font-size: 16px;
+    padding: 12px 24px;
+    width: 100%;
+  }
+
+  .well-being-holder .text-holder span{
+    text-align: left;
+  }
+
+  .well-being-holder .text-holder h2{
+    text-align: left;
+  }
+
+  .well-being-holder .text-holder p{
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .well-being-holder .text-holder span{
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .well-being-holder {
+    gap: 24px;
+  }
+
+  .well-being-holder .text-holder h2 {
+    font-size: 20px;
+    max-width: 135px;
+    text-align: left;
+  }
+
+  .well-being-holder .text-holder p {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .well-being-holder ul {
+    gap: 24px;
+  }
+
+  .well-being-holder li {
+    max-width: 100%;
+    gap: 28px;
+  }
+
+  .well-being-holder li svg{
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .well-being .header-holder h5 {
+    font-size: 18px;
+    max-width: 121px;
+    text-align: left;
+  }
+
+  .well-being .header-holder p {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .well-being .well-being-holder a {
+    font-size: 12px;
+    padding: 12px 24px;
+    width: 100%;
+  }
+}
+
+
 /* KNOWLEDGE CENTER */
 .knowledge-center {
   display: flex;
@@ -628,6 +1052,8 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
 
 .knowledge-center-holder {
@@ -680,6 +1106,47 @@ header.scrolled {
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
+}
+
+@media (max-width: 1024px) {
+
+  .knowledge-center{
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .knowledge-center-holder .header h2{
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .knowledge-center{
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .knowledge-center-holder .header span{
+    font-size: 12px;
+  }
+
+  .knowledge-center-holder .header h2{
+    font-size: 20px;
+  }
+
+  .knowledge-center-holder .header p{
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .knowledge-center-holder .text-holder .desc{
+    font-size: 12px;
+  }
+
+  .knowledge-center-holder{
+    gap: 34px;
+  }
 }
 
 /* TESTIMONIALS */
@@ -802,8 +1269,9 @@ header.scrolled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 228px;
-  padding-top: 28px;
+  padding-top: 256px;
+  padding-bottom: 256px;
+  padding-top: 128px;
   max-height: 789px;
   height: 100%;
   background-position: center;
@@ -855,6 +1323,40 @@ header.scrolled {
   gap: 74px;
 }
 
+@media (max-width: 1024px){
+  .step{
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+}
+
+@media (max-width: 768px){
+  .step{
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .step h2{
+    font-size: 20px;
+
+  }
+
+  .step .text-holder span{
+    font-size: 12px;
+  }
+
+  .step a{
+    width: 100%;
+  }
+
+  .step-holder{
+    width: 100%;
+  }
+
+  .step{
+    padding-bottom: 64px;
+  }
+}
+
 /* ACCORDION */
 
 .accordions {
@@ -863,6 +1365,8 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
 
 .accordions-holder {
@@ -928,6 +1432,42 @@ header.scrolled {
 .accordions .header {
   width: 100%;
   align-self: flex-start;
+}
+
+@media (max-width: 1024px){
+  .accordions{
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 768px){
+
+  .accordions-holder{
+    gap: 34px;
+  }
+
+  .accordions{
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .accordions h2{
+    font-size: 20px;
+  }
+
+  .accordion-button{
+    font-size: 16px !important;
+  }
+
+  .accordion-button:not(.collapsed){
+    font-size: 16px !important;
+  }
+
+  .accordion-body{
+    font-size: 12px;
+    max-width: 80%;
+  }
 }
 
 /* RESULTS PAGE */

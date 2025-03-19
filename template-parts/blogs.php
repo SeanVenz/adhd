@@ -143,6 +143,29 @@ $query = new WP_Query($args);
     @media (max-width: 768px) {
         .knowledge {
             width: 100%;
+            gap: 24px;
+            height: auto;
+        }
+
+        .knowledge-container{
+            gap: 24px;
+        }
+
+        .knowledge .read-more{
+            width: 100%;
+        }
+        .knowledge .heading-container p {
+            font-size: 12px;
+        }
+
+        .heading-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .load-more{
+            width: 100%;
         }
     }
 </style>
@@ -180,7 +203,7 @@ $query = new WP_Query($args);
             </div>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
-        
+
     <?php else: ?>
         <p>No posts available.</p>
     <?php endif; ?>

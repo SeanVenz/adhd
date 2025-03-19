@@ -20,7 +20,7 @@
 <body <?php body_class(); ?>>
 
   <?php
-  $activePages = ['produkty', 'sinulan-forte', 'sinulan-duo-forte', 'sinulan-express-forte', 'sinulan-express-forte-junior', 'sinulan-forte-plaster-aromatyczny-junior', 'sinulan-rinse'];
+  $activePages = ['o-nas', 'rozpocznij-ocene', 'centrum-wiedzy'];
   ?>
 
   <header class="<?php echo is_front_page() ? 'home-header' : 'default-header'; ?>">
