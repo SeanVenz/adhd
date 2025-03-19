@@ -220,6 +220,57 @@
         font-size: 16px;
 
     }
+
+    @media (max-width: 1180px){
+        .content{
+            gap: 28px;
+        }
+
+        .single-post img{
+            height: auto;
+        }
+    }
+
+    @media (max-width: 1100px){
+        .sidebar{
+            display: none;
+        }
+
+        .post-content-words{
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .back-display{
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px){
+        .blog-content-section .extra-article{
+            padding-top: 128px;
+        }
+
+        .blog-content-section{
+            padding-bottom: 64px;
+        }
+    }
+
+    @media (max-width: 768px){
+        .extra-article h2{
+            font-size: 36px;
+        }
+
+        .blog-content-section{
+            padding-bottom: 32px;
+        }
+    }
+
+    @media (max-width: 480px){
+        .extra-article h2{
+            font-size: 20px;
+        }
+    }
 </style>
 
 <section class="blog-content-section">
@@ -238,7 +289,7 @@
                     echo $author_avatar;
                     ?><?php echo get_the_author_meta('display_name', $author_id); ?></span>
                 </div>
-                <div class="">
+                <div class="back-display">
                     <a href="<?php echo get_home_url(); ?>" class="back-button">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"

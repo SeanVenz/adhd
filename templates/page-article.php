@@ -61,18 +61,18 @@ $query = new WP_Query($args);
         display: flex;
         flex-direction: column;
         gap: 54px;
+        width: 100%;
     }
 
     .article-item {
         width: 100%;
-        height: 1720px;
         padding: 24px;
         display: flex;
         flex-direction: column;
         gap: 44px;
         box-shadow: 4px 4px 12px 0px #00000014;
         border-radius: 28px;
-        height: 1114px;
+        max-height: 1114px;
     }
 
     .article-holder {
@@ -80,11 +80,15 @@ $query = new WP_Query($args);
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
     }
 
     .article-item img {
-        width: 1672px;
-        height: 844px;
+        max-width: 1672px;
+        width: 100%;
+        max-height: 844px;
+        height: auto;
+        object-fit: cover;
     }
 
     .article-item .text-desc a {
@@ -161,6 +165,107 @@ $query = new WP_Query($args);
         gap: 54px;
         flex-direction: column;
     }
+
+    /* 📌 Responsive Styles */
+@media (max-width: 1024px) {
+
+    .articles{
+        margin-top: 100px;
+    }
+
+    .articles h1 {
+        font-size: 40px;
+        width: 100%;
+    }
+
+    .articles span{
+        width: 100%;
+    }
+
+    .article-item {
+        max-width: 100%;
+    }
+
+    .article-item img {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .articles{
+        margin-top: 50px;
+        padding-bottom: 64px
+    }
+
+    .article-item .text-desc{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .step .take-test{
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .articles h1 {
+        font-size: 32px;
+    }
+
+    .articles span {
+        font-size: 14px;
+    }
+
+    .article-item {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .article-item img {
+        max-height: 300px;
+    }
+
+    .article-item .text-desc a {
+        font-size: 20px;
+    }
+
+    .article-item .see-more {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .articles h1 {
+        font-size: 28px;
+    }
+
+    .articles span {
+        font-size: 12px;
+    }
+
+    .article-item {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .article-item img {
+        max-height: 250px;
+    }
+
+    .article-item .text-desc a {
+        font-size: 16px;
+    }
+
+    .article-item .text-desc p {
+        font-size: 14px;
+    }
+
+    .article-item .see-more {
+        font-size: 14px;
+        width: 100%;
+    }
+}
 </style>
 
 <section class="articles">
@@ -232,7 +337,7 @@ $query = new WP_Query($args);
                 <span>Oceń swoje kompetencje i uzyskaj natychmiastową analizę wyników.</span>
             </div>
             <div class="test-holder">
-                <a href="" class="take-test">Rozpocznij test</a>
+                <a href="/rozpocznij-ocene" class="take-test">Rozpocznij test</a>
                 <span class="desc">
                     Szanujemy Twoją prywatność. Podane przez Ciebie informacje będą wykorzystywane wyłącznie do analizy
                     wyników testu oraz dostarczenia spersonalizowanego raportu. Twoje dane będą przetwarzane zgodnie z

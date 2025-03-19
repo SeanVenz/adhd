@@ -113,57 +113,75 @@ $query = new WP_Query($args);
         width: 100%;
     }
 
-    .featured-cointainer .article-container{
+    .featured-cointainer .article-container {
         display: flex;
         flex-direction: column;
         width: 100%;
         gap: 54px;
     }
+
+    @media (max-width: 1024px) {
+        .featured-cointainer{
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+
+        .knowledge{
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .featured-cointainer {
+            padding-top: 54px;
+            padding-bottom: 54px;
+        }
+
+
+    }
 </style>
 
 <section class="featured-cointainer" id="article-container">
-    <div class="min-width">
-        <div class="article-container">
-            <div class="header">
-                <h2>Polecane dla Ciebie</h2>
-            </div>
-            <ul>
-                <?php if ($query->have_posts()): ?>
-                    <?php while ($query->have_posts()):
-                        $query->the_post(); ?>
-                        <div class="knowledge">
-
-                            <div class="img-container">
-                                <?php if (has_post_thumbnail()): ?>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
-                                            alt="<?php the_title(); ?>"></a>
-                                <?php else: ?>
-                                    <img loading="lazy"
-                                        src="<?php echo get_stylesheet_directory_uri() . "/src/images/default-thumbnail.jpg"; ?>"
-                                        alt="Default Thumbnail">
-                                <?php endif; ?>
-                            </div>
-                            <div class="text-container">
-                                <div class="heading-container">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    <p><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
-                                </div>
-                            </div>
-
-                            <a href="<?php the_permalink(); ?>" class="read-more">Czytaj więcej <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                                </svg></a>
-                        </div>
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
-                </ul>
-            <?php else: ?>
-                <p>No posts available.</p>
-            <?php endif; ?>
+    <div class="article-container">
+        <div class="header">
+            <h2>Polecane dla Ciebie</h2>
         </div>
+        <ul>
+            <?php if ($query->have_posts()): ?>
+                <?php while ($query->have_posts()):
+                    $query->the_post(); ?>
+                    <div class="knowledge">
+
+                        <div class="img-container">
+                            <?php if (has_post_thumbnail()): ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+                                        alt="<?php the_title(); ?>"></a>
+                            <?php else: ?>
+                                <img loading="lazy"
+                                    src="<?php echo get_stylesheet_directory_uri() . "/src/images/default-thumbnail.jpg"; ?>"
+                                    alt="Default Thumbnail">
+                            <?php endif; ?>
+                        </div>
+                        <div class="text-container">
+                            <div class="heading-container">
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
+                            </div>
+                        </div>
+
+                        <a href="<?php the_permalink(); ?>" class="read-more">Czytaj więcej <svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                            </svg></a>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </ul>
+        <?php else: ?>
+            <p>No posts available.</p>
+        <?php endif; ?>
     </div>
 </section>

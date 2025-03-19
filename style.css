@@ -1628,3 +1628,39 @@ font-size: 12px;
 text-align: center;
 color: #F5F7FA;
 }
+
+@media (max-width: 480px){
+  .result-score-holder .score{
+    height: 118px;
+    width: 118px;
+  }
+
+  .result-score-holder .score .initial{
+    font-size: 54px;
+  }
+
+  .result-score-holder h5{
+    font-size: 16px;
+  }
+
+  .result-score-holder .explain{
+    font-size: 12px;
+  }
+
+  .result-score-holder{
+    margin-top: 0px;
+    gap: 12px;
+  }
+
+  .result-score-holder h5{
+    margin-top: 0px;
+  }
+
+  .result-score-holder .explain{
+    margin-top: 7px;
+  }
+
+  .qmn_btn, .qsm-quiz-container.qmn_quiz_container .qmn_btn, .qsm-quiz-container.qmn_quiz_container .btn{
+    font-size: 12px !important;
+  }
+}

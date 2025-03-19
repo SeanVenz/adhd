@@ -9,14 +9,13 @@
   overflow: hidden;
   flex-direction: column;
   padding-top: 50px;
-  
 }
 
-body{
+body {
   overflow: hidden;
 }
 
-.min-width{
+.min-width {
   justify-content: flex-start;
 }
 
@@ -34,6 +33,8 @@ body{
   justify-content: space-between;
   width: 100%;
   max-width: 1720px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .quiz .header-holder a {
@@ -124,4 +125,109 @@ body{
 
 .qsm-pagination {
   border: none !important;
+}
+
+.qsm-quiz-container.qmn_quiz_container .mlw_next,
+.qsm-quiz-container.qmn_quiz_container .qsm-submit-btn {
+  background-color: #17462b !important;
+  color: white !important;
+  border: 1px solid white;
+}
+
+.qsm-quiz-container.qmn_quiz_container .mlw_next:hover,
+.qsm-quiz-container.qmn_quiz_container .qsm-submit-btn:hover {
+  background-color: white !important;
+  color: #17462b !important;
+}
+
+.qsm-quiz-container.qmn_quiz_container .mlw_previous:hover {
+  background-color: #17462b !important;
+  color: white !important;
+}
+
+@media (max-width: 1024px) {
+  body {
+    overflow: auto;
+  }
+
+  .qmn_mc_answer_wrap {
+    max-width: unset;
+    width: 40%;
+    padding: 24px;
+  }
+
+  .quiz_section .mlw_qmn_new_question {
+    font-size: 28px !important;
+  }
+
+  .qmn_radio_answers {
+    justify-content: center;
+  }
+
+  .quiz {
+    height: 100svh;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .quiz .header-holder a {
+    padding: 8px;
+  }
+
+  .quiz .header-holder span {
+    display: none;
+  }
+
+  .quiz .header-holder {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .quiz .header-holder svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .quiz_section .mlw_qmn_new_question {
+    font-size: 24px !important;
+  }
+
+  .qmn_mc_answer_wrap {
+    max-width: unset;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .quiz {
+    height: 100svh;
+    padding-top: 20px;
+  }
+
+  .qmn_radio_answers {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 546px) {
+}
+
+@media (max-width: 480px) {
+  .quiz_section .mlw_qmn_new_question {
+    font-size: 14px !important;
+  }
+
+  .qmn_btn,
+  .qsm-quiz-container.qmn_quiz_container .qmn_btn,
+  .qsm-quiz-container.qmn_quiz_container .btn {
+    font-size: 12px !important;
+  }
+
+  .qmn_pagination,
+  .qsm_auto_pagination_enabled .qmn_pagination {
+    gap: 24px !important;
+  }
 }
