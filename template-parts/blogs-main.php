@@ -98,6 +98,11 @@ $query = new WP_Query($args);
         font-size: 18px;
         width: max-content;
         align-self: center;
+        text-decoration: none !important;
+    }
+
+    .load-more:hover{
+        color: white !important;
     }
 
     .spinner {
@@ -209,6 +214,4 @@ $query = new WP_Query($args);
     <?php endif; ?>
 
 </div>
-<?php if ($query->max_num_pages > 1): ?>
-    <button id="load-more" class="load-more">Załaduj więcej</button>
-<?php endif; ?>
+    <a href="/centrum-wiedzy" class="load-more">Odwiedź Centrum Wiedzy</a>

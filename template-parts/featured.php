@@ -181,7 +181,7 @@ $query = new WP_Query($args);
                 <?php wp_reset_postdata(); ?>
             </ul>
         <?php else: ?>
-            <p>No posts available.</p>
+            <p>Brak dostępnych postów.</p>
         <?php endif; ?>
     </div>
 </section>

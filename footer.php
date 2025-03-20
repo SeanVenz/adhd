@@ -239,10 +239,9 @@ $socials = [
 
 $homeLinks = [
   ["text" => "Strona główna", "link" => "/"],
-  ["text" => "O nas", "link" => "o-nas"],
+  ["text" => "O nas", "link" => "/o-nas"],
   ["text" => "Ocena ADHD", "link" => "/"],
-  ["text" => "Centrum Wiedzy", "link" => "centrum-wiedzy"],
-  ["text" => "Kontakt", "link" => "/"],
+  ["text" => "Centrum Wiedzy", "link" => "/centrum-wiedzy"],
 ];
 
 $contact = [
@@ -282,21 +281,11 @@ $contact = [
         </div>
       </div>
       <div class="ql-holder">
-        <!-- <ul class="navigation">
-          <h5>Lorem Ipsum</h5>
-          <?php foreach ($navigation as $nav): ?>
-            <li>
-              <a href="<?php echo htmlspecialchars($nav['link']); ?>">
-                <?php echo htmlspecialchars($nav['text']); ?>
-              </a>
-            </li>
-          <?php endforeach; ?>
-        </ul> -->
         <ul class="navigation">
           <h5>Szybkie linki</h5>
           <?php foreach ($homeLinks as $link): ?>
             <li>
-              <a href="<?php echo htmlspecialchars($link['link']); ?>">
+              <a href="<?php echo get_home_url(); ?><?php echo htmlspecialchars($link['link']); ?>">
                 <?php echo htmlspecialchars($link['text']); ?>
               </a>
             </li>
@@ -316,8 +305,8 @@ $contact = [
     </div>
   </div>
   <div class="privacy">
-    <a href="/regulamin">Regulamin</a>
-    <a href="/polityka-prywatnosci">Polityka prywatności</a>
+    <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a>
+    <a href="<?php echo get_home_url(); ?>/polityka-prywatnosci">Polityka prywatności</a>
   </div>
 </footer>
 

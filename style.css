@@ -324,6 +324,16 @@ header ul .active {
   color: #17462b;
 }
 
+.main-hero-holder ul a:first-child{
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.main-hero-holder ul li:nth-child(2) a {
+  text-decoration: none !important;
+  color: #17462b !important;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
   .main-hero {
