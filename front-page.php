@@ -136,7 +136,7 @@ $wellBeing = [
     </div>
 
     <section class="well-being"
-    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Overiew_HomePage_AboutUS.webp');">
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Overiew_HomePage_AboutUS.webp');">
         <div class="min-width">
             <div class="well-being-holder">
                 <div class="text-holder">
@@ -229,12 +229,11 @@ $wellBeing = [
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                Ponadto priorytetowo traktujemy długoterminową niezawodność, dbając o to, aby nasze
+                                usługi były spójne, bezpieczne i elastyczne, dostosowując się do Twoich zmieniających
+                                się potrzeb. Dzięki silnemu zaangażowaniu w satysfakcję klienta nie oferujemy jedynie
+                                usługi – dostarczamy kompleksowe, wysokowydajne rozwiązanie, które naprawdę robi
+                                różnicę.
                             </div>
                         </div>
                     </div>
@@ -248,12 +247,10 @@ $wellBeing = [
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                Stworzyliśmy naszą platformę z myślą o prostocie i łatwości użytkowania. Niezależnie od
+                                tego, czy jesteś początkującym, czy doświadczonym użytkownikiem, intuicyjny interfejs i
+                                przewodniki krok po kroku sprawiają, że nawigacja jest bezproblemowa. Nawet jeśli
+                                dopiero zaczynasz, możesz szybko rozpocząć pracę bez potrzeby długiego wdrażania.
                             </div>
                         </div>
                     </div>
@@ -267,12 +264,15 @@ $wellBeing = [
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                Poważnie podchodzimy do prywatności i bezpieczeństwa danych. Nasza platforma nie wymaga
+                                logowania użytkownika, a jednocześnie wykorzystujemy zaawansowane metody, aby zapewnić
+                                prywatność i bezpieczeństwo Twoich danych oraz wyników oceny. Wszystkie informacje
+                                wprowadzone podczas oceny ADHD są traktowane z najwyższą poufnością – nie przechowujemy,
+                                nie udostępniamy ani nie wykorzystujemy Twoich danych w celach komercyjnych. Stosujemy
+                                najlepsze praktyki branżowe, aby zapobiegać nieautoryzowanemu dostępowi i zapewnić, że
+                                wyniki są dostępne tylko dla Ciebie. Twoja prywatność jest dla nas priorytetem, dlatego
+                                dokładamy wszelkich starań, aby zapewnić bezpieczne i godne zaufania doświadczenie
+                                oceny.
                             </div>
                         </div>
                     </div>
@@ -286,12 +286,11 @@ $wellBeing = [
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                Rozpoczęcie jest szybkie i proste! Wystarczy kliknąć „Rozpocznij ocenę”, aby przejść
+                                przez proces oceny. Jeśli kiedykolwiek będziesz potrzebować pomocy, nasz zespół wsparcia
+                                i centrum pomocy są zawsze dostępne, aby odpowiedzieć na pytania i udzielić wskazówek.
+                                Bez względu na poziom doświadczenia znajdziesz u nas wszystko, czego potrzebujesz, aby w
+                                pełni wykorzystać możliwości naszej platformy.
                             </div>
                         </div>
                     </div>
