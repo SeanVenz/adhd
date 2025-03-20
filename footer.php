@@ -116,8 +116,8 @@
       text-align: center;
       gap: 16px;
     }
-    
-    .socials-holder span{
+
+    .socials-holder span {
       display: none;
     }
 
@@ -161,13 +161,13 @@
       gap: 32px;
     }
 
-    .ql-holder .navigation{
+    .ql-holder .navigation {
       width: 100%;
       justify-content: flex-start;
       align-items: flex-start;
     }
 
-    .footer ul{
+    .footer ul {
       margin-bottom: 0;
     }
 
@@ -316,7 +316,7 @@ $contact = [
     </div>
   </div>
   <div class="privacy">
-    <span>Regulamin</span>
+    <a href="/regulamin">Regulamin</a>
     <a href="/polityka-prywatnosci">Polityka prywatności</a>
   </div>
 </footer>

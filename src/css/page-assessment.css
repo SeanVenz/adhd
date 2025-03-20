@@ -230,4 +230,8 @@ body {
   .qsm_auto_pagination_enabled .qmn_pagination {
     gap: 24px !important;
   }
+
+  .qmn_btn, .qsm-quiz-container.qmn_quiz_container .qmn_btn, .qsm-quiz-container.qmn_quiz_container .btn {
+    padding: 8px 16px !important;
+  }
 }

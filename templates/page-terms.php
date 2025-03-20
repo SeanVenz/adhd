@@ -121,14 +121,14 @@
             width: 90%
         }
 
-        .privacy-policy-section {
+        .privacy-policy-section{
             padding-top: 80px;
         }
     }
 
     @media (max-width:1024px) {
 
-        .privacy-policy-section {
+        .privacy-policy-section{
             padding-top: 80px;
             padding-bottom: 128px;
         }
@@ -141,11 +141,11 @@
             padding-right: 7%
         }
 
-        .privacy-policy-section {
+        .privacy-policy-section{
             padding-bottom: 64px;
         }
 
-        .privacy-policy-container h1 {
+        .privacy-policy-container h1{
             font-size: 28px;
         }
     }
@@ -153,11 +153,11 @@
 
 <?php
 /**
- * Template Name: Privacy Policy
+ * Template Name: Terms and Conditions
  */
 
 // Get the Privacy Policy page by its ID or slug
-$privacy_page = get_page_by_path('polityka-prywatnosci');
+$privacy_page = get_page_by_path('regulamin');
 
 if ($privacy_page):
     // Display the content of the page
