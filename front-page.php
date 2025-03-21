@@ -94,7 +94,7 @@ $wellBeing = [
                                 kontrolę,
                                 poprawićkoncentrację i zwiększyć ogólne samopoczucie.</p>
                         </div>
-                        <a href="<?php echo get_home_url(); ?>/o-nas">Dowiedz się więcej</a>
+                        <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Dowiedz się więcej</a>
                     </div>
                     <div class="img-holder">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
@@ -129,7 +129,7 @@ $wellBeing = [
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                    <a href="">Rozpocznij moją ocenę ADHD</a>
+                    <a href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij moją ocenę ADHD</a>
                 </div>
             </div>
 

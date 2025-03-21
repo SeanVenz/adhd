@@ -7,16 +7,13 @@ get_header();
 ?>
 
 <style>
-.mlw_previous {
-    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/left.svg') !important;
-    background-repeat: no-repeat !important;
-    background-position: left center !important;
-    padding-left: 30px !important;
+.quiz.has-results {
+    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Test_assesstment_BG.webp') !important;
 }
+
 </style>
 
-<section class="quiz"
-style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Test_assesstment_BG.webp');">
+<section class="quiz">
 <div class="header-holder">
                 <a href="<?php echo get_home_url(); ?>"> <span>Dom</span> <svg xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" fill="#17462B" class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -40,3 +37,44 @@ style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets
 <?php get_footer(); ?>
 
 <?php wp_reset_postdata(); ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Define the function
+    function checkAndUpdateQuiz() {
+        document.querySelectorAll('.quiz').forEach(function (quizDiv) {
+            if (quizDiv.querySelector('.qmn_results_page')) {
+                quizDiv.classList.add('has-results');
+            }
+        });
+    }
+
+    // Run the check initially
+    checkAndUpdateQuiz();
+
+    // Set up a MutationObserver with improved detection
+    const observer = new MutationObserver(function(mutations) {
+        let needsCheck = false;
+        
+        mutations.forEach(function(mutation) {
+            // Check if any of the added nodes or their descendants might be our target
+            if (mutation.addedNodes.length) {
+                needsCheck = true;
+            }
+        });
+        
+        if (needsCheck) {
+            setTimeout(checkAndUpdateQuiz, 100); // Small delay to ensure DOM is updated
+        }
+    });
+
+    // Observe the quiz container specifically if possible
+    const quizContainers = document.querySelectorAll('.quiz-holder, .short-code');
+    quizContainers.forEach(container => {
+        observer.observe(container, { childList: true, subtree: true });
+    });
+    
+    // Also observe body as fallback
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
