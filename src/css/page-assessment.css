@@ -393,8 +393,7 @@ body {
 
   .mlw_qmn_message_before p{
     text-align: center;
-  
-    line-height: normal;
+    line-height: 10px;
   }
 
   .mlw_qmn_message_before{

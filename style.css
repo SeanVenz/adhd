@@ -112,6 +112,15 @@ header .container {
   padding: 0;
 }
 
+.navbar-brand{
+  color: #17462B !important;
+}
+
+.burger-icon .cls-1 {
+  fill: #17462B !important;
+}
+
+
 .burger-icon,
 .x-icon {
   transition: display 0.2s ease;
@@ -138,6 +147,10 @@ header .container {
   .navbar > .container-xl,
   .navbar > .container-xxl {
     flex-direction: row-reverse;
+  }
+
+  .navbar-toggler{
+    border: none !important;
   }
 
   .navbar {
@@ -591,6 +604,10 @@ header ul .active {
     font-size: 36px; /* Further reduce heading size */
   }
 
+  .what .text-holder a{
+    padding: 12px 24px;
+  }
+
   .what {
     padding-top: 64px;
     padding-bottom: 32px;
@@ -643,7 +660,6 @@ header ul .active {
 
   .what .text-holder a {
     font-size: 14px;
-    padding: 6px 12px;
   }
 }
 
@@ -828,6 +844,15 @@ header ul .active {
     padding-top: 32px;
     padding-bottom: 32px;
   }
+
+  .development-holder li {
+    border-radius: 14px;
+  }
+
+  .development-holder .svg-holder{
+    border-radius: 12px;
+  }
+
   .development-holder {
     gap: 32px;
   }
@@ -1404,6 +1429,15 @@ header ul .active {
 
   .strong-view.wpmtst-default .readmore-page {
     width: 100%;
+    padding: 12px 24px !important;
+  }
+
+  .strong-view.wpmtst-default .wpmtst-testimonial-inner{
+    border-radius: 14px !important;
+  }
+
+  .strong-view.wpmtst-default .readmore-page a{
+    font-size: 12px !important;
   }
 
   .strong-view .strong-content.strong-grid .wpmtst-testimonial {
@@ -1511,6 +1545,7 @@ header ul .active {
 
   .step a {
     width: 100%;
+    font-size: 12px;
   }
 
   .step-holder {

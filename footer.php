@@ -161,6 +161,10 @@
       gap: 32px;
     }
 
+    .privacy a {
+    font-size: 12px;
+  }
+
     .ql-holder .navigation {
       width: 100%;
       justify-content: flex-start;

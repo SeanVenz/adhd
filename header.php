@@ -39,8 +39,8 @@
             </g>
           </svg>
           <!-- X Icon -->
-          <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+            fill="#17462B" stroke="#17462B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             style="display: none;">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -51,10 +51,11 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
-            <a class="navbar-brand d-block d-md-none" style="padding:0px" href="<?php echo get_home_url(); ?>"
-              aria-label="Go to Home Page">
-              ADHD
-            </a>
+            <li class="nav-item d-block d-md-none">
+              <a class="nav-link <?php if (is_front_page())
+                echo 'active'; ?>" aria-current="page" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>">ADHD</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())
                 echo 'active'; ?>" aria-current="page" style="padding:5px;" href="<?php echo get_home_url(); ?>">Strona
@@ -65,16 +66,19 @@
                 echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page('rozpocznij-ocene'))
-                echo 'active'; ?>" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij ocenę</a>
+              <a class="nav-link <?php
+              if (is_page('rozpocznij-ocene')) {
+                echo 'active';
+              }
+              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij ocenę</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page('centrum-wiedzy'))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum
-                Wiedzy</a>
+              <a class="nav-link <?php
+              if (is_page('centrum-wiedzy')) {
+                echo 'active';
+              }
+              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum Wiedzy</a>
             </li>
-
           </ul>
         </div>
 
@@ -83,46 +87,5 @@
   </header>
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  const navbarToggler = document.querySelector(".navbar-toggler");
-  const navbarCollapse = document.getElementById("navbarText");
-  const burgerIcon = document.querySelector(".burger-icon");
-  const xIcon = document.querySelector(".x-icon");
-
-  // Scroll event to toggle 'scrolled' class
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 0) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-
-  // Force initial state
-  xIcon.style.display = "none";
-  burgerIcon.style.display = "block";
-
-  // Navbar toggler event
-  navbarToggler.addEventListener("click", function () {
-    if (navbarCollapse.classList.contains("show")) {
-      // Close menu
-      navbarCollapse.classList.remove("show");
-      setTimeout(() => {
-        xIcon.style.display = "none";
-        burgerIcon.style.display = "block";
-      }, 10);
-    } else {
-      // Open menu
-      navbarCollapse.classList.add("show");
-      setTimeout(() => {
-        xIcon.style.display = "block";
-        burgerIcon.style.display = "none";
-      }, 10);
-    }
-    // Toggle aria-expanded attribute
-    const isExpanded = navbarToggler.getAttribute("aria-expanded") === "true";
-    navbarToggler.setAttribute("aria-expanded", !isExpanded);
-  });
-});
+    document.addEventListener('DOMContentLoaded', function () { window.addEventListener('scroll', function () { const header = document.querySelector('header'); if (window.scrollY > 0) { header.classList.add('scrolled') } else { header.classList.remove('scrolled') } }); const navbarToggler = document.querySelector('.navbar-toggler'); const burgerIcon = document.querySelector('.burger-icon'); const xIcon = document.querySelector('.x-icon'); window.addEventListener('scroll', function () { const header = document.querySelector('header'); if (window.scrollY > 1) { header.style.padding = '10px 0'; header.classList.add('scrolled') } else { header.style.padding = '40px 0'; header.classList.remove('scrolled') } }); navbarToggler.addEventListener('click', function () { if (burgerIcon.style.display === 'none') { burgerIcon.style.display = 'block'; xIcon.style.display = 'none' } else { burgerIcon.style.display = 'none'; xIcon.style.display = 'block' } }); const navbarCollapse = document.getElementById('navbarText'); navbarCollapse.addEventListener('hidden.bs.collapse', function () { burgerIcon.style.display = 'block'; xIcon.style.display = 'none' }); navbarCollapse.addEventListener('shown.bs.collapse', function () { burgerIcon.style.display = 'none'; xIcon.style.display = 'block' }) })
   </script>

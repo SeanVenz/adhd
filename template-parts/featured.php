@@ -132,6 +132,15 @@ $query = new WP_Query($args);
     }
 
     @media (max-width: 768px) {
+
+        .knowledge{
+            border-radius: 14px
+        }
+
+        .knowledge .read-more{
+            justify-content: space-between;
+        }
+
         .featured-cointainer {
             padding-top: 54px;
             padding-bottom: 54px;

@@ -177,6 +177,7 @@
   .hero li{
     padding: 12px;
     height: 172px;
+    border-radius: 14px;
   }
 
   .hero-holder img{
@@ -304,7 +305,7 @@
   .history-holder img {
     width: 100%;
     height: auto;
-    margin-left: 0;
+    margin-left: -110px;
   }
 
   .history-holder .desc {
@@ -328,6 +329,10 @@
   .history{
     padding-top: 64px;
     padding-bottom: 32px;
+  }
+
+  .history-holder img {
+    margin-left: -110px;
   }
 
   .history-holder{

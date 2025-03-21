@@ -194,7 +194,7 @@ $query = new WP_Query($args);
 @media (max-width: 768px) {
 
     .articles{
-        margin-top: 50px;
+        margin-top: 100px;
         padding-bottom: 64px
     }
 
@@ -220,6 +220,7 @@ $query = new WP_Query($args);
     .article-item {
         padding: 16px;
         gap: 16px;
+        border-radius: 14px;
     }
 
     .article-item img {
@@ -232,6 +233,7 @@ $query = new WP_Query($args);
 
     .article-item .see-more {
         font-size: 16px;
+        justify-content: space-between;
     }
 }
 

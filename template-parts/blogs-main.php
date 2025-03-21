@@ -150,6 +150,7 @@ $query = new WP_Query($args);
             width: 100%;
             gap: 24px;
             height: auto;
+            border-radius: 14px;
         }
 
         .knowledge-container{
@@ -158,6 +159,7 @@ $query = new WP_Query($args);
 
         .knowledge .read-more{
             width: 100%;
+            justify-content: space-between;
         }
         .knowledge .heading-container p {
             font-size: 12px;
@@ -171,6 +173,8 @@ $query = new WP_Query($args);
 
         .load-more{
             width: 100%;
+            text-align: center;
+            padding: 12px 24px;
         }
     }
 </style>
