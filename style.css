@@ -20,7 +20,7 @@ Version: 1.0
 /* COMMON */
 .min-width {
   width: 100%;
-  max-width: 1720px;
+  max-width: 1820px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,14 +112,13 @@ header .container {
   padding: 0;
 }
 
-.navbar-brand{
-  color: #17462B !important;
+.navbar-brand {
+  color: #17462b !important;
 }
 
 .burger-icon .cls-1 {
-  fill: #17462B !important;
+  fill: #17462b !important;
 }
-
 
 .burger-icon,
 .x-icon {
@@ -149,7 +148,7 @@ header .container {
     flex-direction: row-reverse;
   }
 
-  .navbar-toggler{
+  .navbar-toggler {
     border: none !important;
   }
 
@@ -293,11 +292,34 @@ header ul .active {
 }
 
 .main-hero-holder .text-holder {
-  max-width: 50%;
+  max-width: 60%;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   gap: 54px;
+}
+
+.main-hero-holder .text-holder .heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-hero-holder .text-holder .heading span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #44674f;
+  width: 778px;
+}
+
+.main-hero-holder ul a{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
 }
 
 .main-hero-holder h1 {
@@ -337,7 +359,7 @@ header ul .active {
   color: #17462b;
 }
 
-.main-hero-holder ul a:first-child{
+.main-hero-holder ul a:first-child {
   text-decoration: none !important;
   color: white !important;
 }
@@ -604,7 +626,7 @@ header ul .active {
     font-size: 36px; /* Further reduce heading size */
   }
 
-  .what .text-holder a{
+  .what .text-holder a {
     padding: 12px 24px;
   }
 
@@ -792,6 +814,7 @@ header ul .active {
   font-size: 16px;
   color: #17462b;
   text-align: center;
+  max-width: 809px;
 }
 
 @media (max-width: 1024px) {
@@ -849,7 +872,7 @@ header ul .active {
     border-radius: 14px;
   }
 
-  .development-holder .svg-holder{
+  .development-holder .svg-holder {
     border-radius: 12px;
   }
 
@@ -973,7 +996,7 @@ header ul .active {
   font-weight: 600;
   font-size: 64px;
   color: #17462b;
-  max-width: 429px;
+  max-width: 715px;
 }
 
 .well-being-holder .text-holder p {
@@ -990,13 +1013,13 @@ header ul .active {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 128px;
+  gap: 100px;
 }
 
 .well-being-holder li {
   display: flex;
   flex-direction: column;
-  max-width: 450px;
+  max-width: 506px;
   width: 100%;
   gap: 54px;
 }
@@ -1432,11 +1455,11 @@ header ul .active {
     padding: 12px 24px !important;
   }
 
-  .strong-view.wpmtst-default .wpmtst-testimonial-inner{
+  .strong-view.wpmtst-default .wpmtst-testimonial-inner {
     border-radius: 14px !important;
   }
 
-  .strong-view.wpmtst-default .readmore-page a{
+  .strong-view.wpmtst-default .readmore-page a {
     font-size: 12px !important;
   }
 

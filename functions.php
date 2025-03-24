@@ -324,3 +324,25 @@ function custom_quiz_result_query_vars($vars) {
 }
 add_filter('query_vars', 'custom_quiz_result_query_vars');
 
+function enqueue_pdf_scripts() {
+  // Only load on quiz result pages
+  if (get_query_var('quiz_id', 0) > 0) {
+      // Enqueue jQuery first
+      wp_enqueue_script('jquery');
+      
+      // Enqueue libraries in the correct order
+      wp_enqueue_script('html2canvas', 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js', array('jquery'), '1.4.1', true);
+      wp_enqueue_script('jspdf', 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', array('jquery', 'html2canvas'), '2.5.1', true);
+      
+      // Enqueue custom script
+      wp_enqueue_script('quiz-pdf-generator', get_template_directory_uri() . '/src/js/quiz-pdf.js', array('jquery', 'jspdf', 'html2canvas'), '1.0.0', true);
+      
+      // Pass quiz data to JavaScript
+      $quiz_data = array(
+          'site_name' => get_bloginfo('name'),
+          'date' => date('F j, Y')
+      );
+      wp_localize_script('quiz-pdf-generator', 'quizData', $quiz_data);
+  }
+}
+add_action('wp_enqueue_scripts', 'enqueue_pdf_scripts');
