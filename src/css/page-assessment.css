@@ -60,7 +60,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 848px;
+  max-width: 900px;
 }
 
 .page-template-page-assessment header {
@@ -79,6 +79,7 @@ body {
   display: flex !important;
   align-items: center !important;
   gap: 32px !important;
+  cursor: pointer;
 }
 
 .quiz_section .qmn_radio_answers label,
@@ -98,7 +99,6 @@ body {
   width: 100%;
   justify-content: left;
   align-items: center;
-  padding-top: 20px;
 }
 
 .qmn_mc_answer_wrap {
@@ -167,7 +167,6 @@ body {
   font-size: 16px !important;
   line-height: 100% !important;
   color: #44674f !important;
-  padding-top: 20px;
 }
 
 .qmn_pagination,

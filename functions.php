@@ -12,8 +12,6 @@ if (is_countable($articleItems)) {
   $articleCount = 0;  // Fallback for when $articleItems is not countable
 }
 
-// Use $articleCount safely here
-
 
 if (!function_exists('sinulan_theme_setup')):
   function sinulan_theme_setup()
