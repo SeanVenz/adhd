@@ -309,12 +309,13 @@ add_action('wp_enqueue_scripts', 'enqueue_back_to_top_script');
 
 function custom_quiz_result_rewrite() {
   add_rewrite_rule(
-      '^quiz/result/([0-9]+)/?$',
-      'index.php?pagename=quiz-result&quiz_id=$matches[1]',
+      '^rozpocznij-test/wynik/([a-zA-Z0-9]+)/?$',
+      'index.php?pagename=quiz-result&result_id=$matches[1]',
       'top'
   );
 }
 add_action('init', 'custom_quiz_result_rewrite');
+
 
 function custom_quiz_result_query_vars($vars) {
   $vars[] = 'quiz_id';

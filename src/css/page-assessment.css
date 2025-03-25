@@ -94,7 +94,7 @@ body {
 .qmn_radio_answers {
   display: flex;
   gap: 24px;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   justify-content: left;
@@ -103,7 +103,7 @@ body {
 
 .qmn_mc_answer_wrap {
   width: 100%;
-  max-width: 848px;
+  max-width: 900px;
 }
 
 .quiz_section .mlw_qmn_new_question {
@@ -171,7 +171,7 @@ body {
 
 .qmn_pagination,
 .qsm_auto_pagination_enabled .qmn_pagination {
-  padding-top: 20px !important;
+  padding-top: 0px !important;
 }
 
 .quiz_begin .start {
@@ -190,22 +190,31 @@ body {
   gap: 12px;
 }
 
+.quiz_begin .start .header p{
+  font-family: Manrope;
+font-weight: 700;
+font-size: 16px;
+color: #44674F;
+text-align: center;
+margin-bottom: 0;
+}
+
 .quiz_begin .start h1 {
   font-family: "Manrope";
   font-weight: 600;
-  font-size: 34px;
+  font-size: 31px;
   line-height: 100%;
   text-align: center;
   color: #17462b;
   margin-bottom: 0;
 }
 
-.quiz_begin .start span {
-  font-family: Manrope;
-  font-weight: 700;
+.quiz_begin .start .desc {
+  font-family: 'Manrope';
+  font-weight: 400;
   font-size: 16px;
-  text-align: center;
-  color: #44674f;
+  color: #44674F;
+  max-width: 742px;
 }
 
 .quiz_begin .start .list-holder {
@@ -216,11 +225,39 @@ body {
   border-radius: 28px;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+}
+
+.quiz_begin .start .list-holder .lists{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quiz_begin .start .list-holder .lists .with-svg{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.quiz_begin .start .list-holder .lists .with-svg span{
+  font-family: Manrope;
+font-weight: 300;
+font-size: 14px;
+color: #44674F;
+}
+
+.quiz_begin .start .list-holder h5 img,
+.quiz_begin .start .list-holder .with-svg img{
+  width: 24px;
+  height: 24px;
 }
 
 .quiz_begin .start img{
-  max-width: 642px;
+  max-width: 784px;
   width: 100%;
+  object-fit: cover;
+  max-height: 273px;
 }
 
 .quiz_begin .start .list-holder p{
@@ -228,14 +265,28 @@ body {
 }
 
 .quiz_begin .start h5 {
-  font-family: Manrope;
+  font-family: 'Manrope';
   font-weight: 600;
   font-size: 20px;
   color: #17462b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz_begin .start h5 .span-svg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope';
+font-weight: 300;
+font-size: 14px;
+
 }
 
 .quiz_begin .start li {
-  font-family: Manrope;
+  font-family: 'Manrope';
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
@@ -312,8 +363,9 @@ body {
   }
 
   .quiz {
-    height: 100svh;
+    height: 100%;
     padding-top: 20px;
+    overflow: auto;
   }
 
   .qmn_radio_answers {
@@ -379,6 +431,14 @@ body {
   .quiz_begin .start .list-holder{
     padding: 12px;
     border-radius: 14px;
+  }
+
+  .quiz_begin .start .desc{
+    font-size: 12px;
+  }
+
+  .quiz_begin .start h5 .span-svg{
+    font-size: 12px;
   }
 
   .quiz_begin .start h5{

@@ -310,7 +310,7 @@ header ul .active {
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
-  width: 778px;
+  max-width: 778px;
 }
 
 .main-hero-holder ul a{
@@ -1669,6 +1669,10 @@ header ul .active {
     gap: 34px;
   }
 
+  .main-hero-holder .text-holder .heading span{
+    display: none;
+  }
+
   .accordions {
     padding-top: 32px;
     padding-bottom: 32px;
@@ -1717,111 +1721,7 @@ header ul .active {
   max-width: 375px;
 }
 
-.result-score-holder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 44px;
-  border-radius: 14px;
-  background-color: #f8fafc;
-  box-shadow: 4px 4px 12px 0px #00000014;
-  margin-top: 40px;
-}
-
-.result-score-holder .header {
-  font-family: "Manrope";
-  font-weight: 400;
-  font-size: 16px;
-  text-align: center;
-  color: #44674f;
-}
-
-.result-score-holder h5 {
-  font-family: "Manrope";
-  font-weight: 700;
-  font-size: 24px;
-  text-align: center;
-  color: #17462b;
-  margin-top: 44px;
-  max-width: 603px;
-}
-
-.result-score-holder .explain {
-  font-family: "Manrope";
-  font-weight: 400;
-  font-size: 16px;
-  text-align: center;
-  vertical-align: middle;
-  color: #44674f;
-  margin-top: 14px;
-  max-width: 603px;
-}
-
-.result-score-holder .score {
-  display: flex;
-  height: 205px;
-  width: 205px;
-  flex-direction: column;
-  background: linear-gradient(180deg, #093119 0%, #215336 100%);
-  box-shadow: 0px 4px 12px 0px #113922 inset;
-  padding: 44px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.result-score-holder .score .initial {
-  font-family: "Manrope";
-  font-weight: 800;
-  font-size: 96px;
-  color: #ffffff;
-}
-
-.result-score-holder .over {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Manrope";
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
-  color: #f5f7fa;
-}
-
 @media (max-width: 480px) {
-  .result-score-holder .score {
-    height: 118px;
-    width: 118px;
-  }
-
-  .result-score-holder .score .initial {
-    font-size: 54px;
-  }
-
-  .result-score-holder h5 {
-    font-size: 16px;
-  }
-
-  .result-score-holder .explain {
-    font-size: 12px;
-  }
-
-  .result-score-holder {
-    margin-top: 0px;
-    gap: 12px;
-  }
-
-  .result-score-holder h5 {
-    margin-top: 0px;
-  }
-
-  .result-score-holder .explain {
-    margin-top: 7px;
-  }
 
   .qmn_btn,
   .qsm-quiz-container.qmn_quiz_container .qmn_btn,

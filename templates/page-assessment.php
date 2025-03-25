@@ -39,14 +39,12 @@ get_header();
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("✅ Script loaded and DOM fully ready!");
 
     // Define the function
     function checkAndUpdateQuiz() {
         document.querySelectorAll('.quiz').forEach(function (quizDiv) {
             if (quizDiv.querySelector('.qmn_results_page')) {
                 quizDiv.classList.add('has-results');
-                console.log("📌 Quiz has results! 'has-results' class added.");
             }
         });
     }
@@ -91,6 +89,30 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    function updatePageIndicator() {
+        let pageIndicator = document.querySelector(".pages_count"); // Adjust class if needed
+        if (pageIndicator) {
+            let text = pageIndicator.innerText.trim(); // Get current text
+            let match = text.match(/(\d+)\s*out\s*of\s*(\d+)/i); // Match "X out of Y"
+
+            if (match) {
+                let currentPage = match[1];
+                let totalPages = match[2];
+                pageIndicator.innerText = `${currentPage} of ${totalPages}`; // Change format dynamically
+            }
+        }
+    }
+
+    // Run immediately on page load
+    updatePageIndicator();
+
+    // Observe changes in the pageIndicator element
+    let targetNode = document.querySelector(".pages_count");
+    if (targetNode) {
+        let observer = new MutationObserver(updatePageIndicator);
+        observer.observe(targetNode, { childList: true, subtree: true, characterData: true });
+    }
 });
 
 </script>

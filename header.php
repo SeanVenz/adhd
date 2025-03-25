@@ -70,7 +70,7 @@
               if (is_page('rozpocznij-ocene')) {
                 echo 'active';
               }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Rozpocznij test</a>
+              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test">Rozpocznij test</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php

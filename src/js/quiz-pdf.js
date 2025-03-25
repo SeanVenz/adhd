@@ -1,55 +1,54 @@
 (function($) {
     $(document).ready(function() {
-        // Add click handler to the download button
-        $('#download-pdf-btn').on('click', function() {
-            generatePDF();
+        $('#download-pdf-btn, #download-pdf-btn-mobile').on('touchstart click', function(e) {
+            e.preventDefault(); // Prevent double execution
+
+            const button = $(this);
+            const originalText = button.html(); // Save original button text
+            button.html('<span class="loader"></span> Generowanie...').prop('disabled', true);
+
+            generatePDF(button, originalText);
         });
-        
-        function generatePDF() {
-            // Make sure jsPDF and html2canvas are properly loaded
+
+        function generatePDF(button, originalText) {
             if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
                 alert('PDF generation libraries not loaded properly. Please try again or contact support.');
+                button.html(originalText).prop('disabled', false);
                 return;
             }
-            
-            // Get the element - ensure it exists before proceeding
+
             const element = document.getElementById('quiz-result-container');
             if (!element) {
-                console.error('Element not found: quiz-result-container');
                 alert('Could not generate PDF: Element not found');
+                button.html(originalText).prop('disabled', false);
                 return;
             }
-            
-            // Create instance of jsPDF
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
-            // Use html2canvas with proper options
+
             html2canvas(element, {
-                scale: 2, // Higher scale for better quality
+                scale: 2,
                 useCORS: true,
                 logging: false,
                 allowTaint: true
             }).then(function(canvas) {
                 const imgData = canvas.toDataURL('image/png');
-                
-                // Add image to PDF
                 const imgWidth = 190;
-                const pageHeight = 295;
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                let position = 10;
-                
-                doc.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                
-                // Add footer
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
                 doc.setFontSize(10);
-                doc.text('Generated on ' + quizData.date, 10, 285);
-                
-                // Save the PDF
-                doc.save('quiz_results.pdf');
+                doc.text('Generated on ' + (quizData?.date || 'Unknown Date'), 10, 285);
+
+                doc.save('wyniki_quizu.pdf');
+
+                // Restore button text after saving
+                button.html(originalText).prop('disabled', false);
             }).catch(function(error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
+                button.html(originalText).prop('disabled', false);
             });
         }
     });
