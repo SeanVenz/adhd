@@ -29,7 +29,7 @@ $hero = [
 <main class="front">
 
     <section class="hero"
-    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp');">
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp');">
         <div class="min-width">
             <div class="hero-holder">
                 <div class="text-holder">
@@ -118,7 +118,7 @@ $hero = [
     </section>
 
     <section class="step"
-    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Take_The_Test_bg.webp');">
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Take_The_Test_bg.webp');">
         <div class="min-width">
             <div class="step-holder">
                 <div class="text-holder">
@@ -131,6 +131,17 @@ $hero = [
                         <path
                             d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445" />
                     </svg></a>
+
+                <div class="d-flex flex-column justify-content-center align-items-center extra">
+                    <span>
+                        dodajmy taki cytat: "Osoby z ADHD mają pewną rzadką umiejętność: choć wielokrotnie ponoszą
+                        porażki,
+                        nigdy nie tracą nadziei.
+                    </span>
+                    <span>
+                        <strong>Roxanne Emery, Brudne pranie. ADHD u dorosłych i jak sobie z nim radzić</strong>
+                    </span>
+                </div>
             </div>
         </div>
     </section>

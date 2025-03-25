@@ -4,9 +4,9 @@
 <!-- CONSTANTS -->
 <?php
 $feature = [
-    ["number" => "Step 1", "desc" => "Badanie przesiewowe", "header" => "Test przesiewowy - czy warto go wykonać?", "text" => "W przypadku podejrzenia u siebie ADHD warto na początku sięgnąć po test przesiewowy w kierunku ADHD, który pozwoli ocenić, czy wskazane będzie przeprowadzenie pełnego wywiadu diagnostycznego.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 32 32"><path fill="#17462B" d="M8.25 2A3.25 3.25 0 0 0 5 5.25v6a3.25 3.25 0 0 0-2 3V25.5A4.5 4.5 0 0 0 7.5 30h17a4.5 4.5 0 0 0 4.5-4.5v-3.25a3.25 3.25 0 0 0-2-3V8.75a3.25 3.25 0 0 0-2-3V19h-1.5V5.25A3.25 3.25 0 0 0 20.25 2zM21.5 19h-.568a1.25 1.25 0 0 1-.884-.366l-6.682-6.682A3.25 3.25 0 0 0 11.068 11H7V5.25C7 4.56 7.56 4 8.25 4h12c.69 0 1.25.56 1.25 1.25zM5 14.25c0-.69.56-1.25 1.25-1.25h4.818c.332 0 .65.132.884.366l6.682 6.682a3.25 3.25 0 0 0 2.298.952h4.818c.69 0 1.25.56 1.25 1.25v3.25a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 25.5z"/></svg>'],
-    ["number" => "Step 2", "desc" => "Test ASRS", "header" => "Jak działa test przesiewowy ASRS?", "text" => "Najpopularniejszym narzędziem do wstępnej diagnozy ADHD jest Adult ADHD Self-Report Scale (ASRS), opracowany przez WHO. Test przesiewowy obejmuje 6 pytań (część A) – 4+ pozytywne odpowiedzi (zacienione pola) sugerują konieczność dalszej diagnostyki.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><g fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M7 14a3 3 0 1 0 1 5.83"/><path d="M4.264 15.605a4 4 0 0 1-.874-6.636m.03-.081A2.5 2.5 0 0 1 7 5.5m.238.065A2.5 2.5 0 1 1 12 4.5V20m-4 0a2 2 0 1 0 4 0m0-13a3 3 0 0 0 3 3m2 4a3 3 0 1 1-1 5.83"/><path d="M19.736 15.605a4 4 0 0 0 .874-6.636m-.03-.081A2.5 2.5 0 0 0 17 5.5m-5-1a2.5 2.5 0 1 1 4.762 1.065M16 20a2 2 0 1 1-4 0"/></g></svg>'],
-    ["number" => "Step 3", "desc" => "Diagnostyka ze specjalistą", "header" => "Rekomendowane podejście do diagnozy ADHD", "text" => "Preferowaną metodą diagnozy ADHD jest starannie przeprowadzony wywiad kliniczny. Może mieć formę swobodną lub ustrukturyzowaną, np. kwestionariusz DIVA-5. Wywiad powinien prowadzić doświadczony klinicysta, pozyskując informacje z różnych źródeł.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 2048 2048"><path fill="#17462B" d="M1790 1717q98 48 162 135t81 196h-110q-11-57-41-106t-73-84t-97-56t-112-20q-59 0-112 20t-97 55t-73 85t-41 106h-110q16-108 80-195t163-136q-57-45-88-109t-32-136q0-45 12-87t36-79t57-66t74-49q-27-39-62-69t-76-53t-86-33t-93-12q-80 0-153 31t-127 91q24 65 24 134q0 92-41 173t-115 136q65 33 117 81t90 108t57 128t20 142H896q0-79-30-149t-82-122t-123-83t-149-30q-80 0-149 30t-122 82t-83 123t-30 149H0q0-73 20-141t57-128t89-108t118-82q-74-55-115-136t-41-173q0-79 30-149t82-122t122-83t150-30q85 0 161 36t132 100q26-25 56-45t63-38q-74-55-115-136t-41-173q0-79 30-149t82-122t122-83t150-30q79 0 149 30t122 82t83 123t30 149q0 92-41 173t-115 136q70 37 126 90t95 123q64 0 120 24t99 67t66 98t24 121q0 72-31 136t-89 109M512 1536q53 0 99-20t82-55t55-81t20-100q0-53-20-99t-55-82t-81-55t-100-20q-53 0-99 20t-82 55t-55 81t-20 100q0 53 20 99t55 82t81 55t100 20m384-896q0 53 20 99t55 82t81 55t100 20q53 0 99-20t82-55t55-81t20-100q0-53-20-99t-55-82t-81-55t-100-20q-53 0-99 20t-82 55t-55 81t-20 100m704 630q-42 0-78 16t-64 43t-44 64t-16 79t16 78t43 64t64 44t79 16t78-16t64-43t44-64t16-79t-16-78t-43-64t-64-44t-79-16"/></svg>'],
+    ["number" => "1. Krok", "btn" => "Rozpocznij test przesiewowy", "href" => "/", "desc" => "Badanie przesiewowe", "header" => "Test przesiewowy - czy warto go wykonać?", "text" => "W przypadku podejrzenia u siebie ADHD warto na początku sięgnąć po test przesiewowy w kierunku ADHD, który pozwoli ocenić, czy wskazane będzie przeprowadzenie pełnego wywiadu diagnostycznego.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#17462B" d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25z"/><path fill="currentColor" d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75m16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97l-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0z"/></svg>'],
+    ["number" => "2. Krok", "btn" => "Wykonaj test Adult ADHD Self-Report Scale", "href" => "/", "desc" => "Test ASRS", "header" => "Jak działa test przesiewowy ASRS?", "text" => "Najpopularniejszym narzędziem do wstępnej diagnozy ADHD jest Adult ADHD Self-Report Scale (ASRS), opracowany przez WHO. Test przesiewowy obejmuje 6 pytań (część A) – 4+ pozytywne odpowiedzi (zacienione pola) sugerują konieczność dalszej diagnostyki.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 36 36"><path fill="#17462B" d="M21 12H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1M8 10h12V7.94H8Z" class="clr-i-outline clr-i-outline-path-1"/><path fill="currentColor" d="M21 14.08H7a1 1 0 0 0-1 1V19a1 1 0 0 0 1 1h11.36L22 16.3v-1.22a1 1 0 0 0-1-1M20 18H8v-2h12Z" class="clr-i-outline clr-i-outline-path-2"/><path fill="currentColor" d="M11.06 31.51v-.06l.32-1.39H4V4h20v10.25l2-1.89V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v28a1 1 0 0 0 1 1h8a3.4 3.4 0 0 1 .06-.49" class="clr-i-outline clr-i-outline-path-3"/><path fill="currentColor" d="m22 19.17l-.78.79a1 1 0 0 0 .78-.79" class="clr-i-outline clr-i-outline-path-4"/><path fill="currentColor" d="M6 26.94a1 1 0 0 0 1 1h4.84l.3-1.3l.13-.55v-.05H8V24h6.34l2-2H7a1 1 0 0 0-1 1Z" class="clr-i-outline clr-i-outline-path-5"/><path fill="currentColor" d="m33.49 16.67l-3.37-3.37a1.61 1.61 0 0 0-2.28 0L14.13 27.09L13 31.9a1.61 1.61 0 0 0 1.26 1.9a1.6 1.6 0 0 0 .31 0a1.2 1.2 0 0 0 .37 0l4.85-1.07L33.49 19a1.6 1.6 0 0 0 0-2.27ZM18.77 30.91l-3.66.81l.89-3.63L26.28 17.7l2.82 2.82Zm11.46-11.52l-2.82-2.82L29 15l2.84 2.84Z" class="clr-i-outline clr-i-outline-path-6"/><path fill="none" d="M0 0h36v36H0z"/></svg>'],
+    ["number" => "3. Krok", "btn" => "Umów się na konsultację", "href" => "/", "desc" => "Diagnostyka ze specjalistą", "header" => "Rekomendowane podejście do diagnozy ADHD", "text" => "Preferowaną metodą diagnozy ADHD jest starannie przeprowadzony wywiad kliniczny. Może mieć formę swobodną lub ustrukturyzowaną, np. kwestionariusz DIVA-5. Wywiad powinien prowadzić doświadczony klinicysta, pozyskując informacje z różnych źródeł.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="-2 -2 24 24"><path fill="#17462B" d="M7 12.917v.583a4.5 4.5 0 1 0 9 0v-1.67a3.001 3.001 0 1 1 2 0v1.67a6.5 6.5 0 1 1-13 0v-.583A6 6 0 0 1 0 7V2a2 2 0 0 1 2-2h1a1 1 0 1 1 0 2H2v5a4 4 0 1 0 8 0V2H9a1 1 0 1 1 0-2h1a2 2 0 0 1 2 2v5a6 6 0 0 1-5 5.917M17 10a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/></svg>'],
 ];
 
 $hero = [
@@ -51,7 +51,8 @@ $wellBeing = [
                 <div class="text-holder">
                     <div class="heading">
                         <h1>Pełnia życia z ADHD: Rośnij i osiągaj sukcesy</h1>
-                        <span>Tutaj znajdziesz najważniejsze informacje, jak radzić sobie z ADHD. Pamiętaj, że im wcześniejsza diagnoza, tym mniejszy negatywny wpływ na Twoje życie.</span>
+                        <span>Tutaj znajdziesz najważniejsze informacje, jak radzić sobie z ADHD. Pamiętaj, że im
+                            wcześniejsza diagnoza, tym mniejszy negatywny wpływ na Twoje życie.</span>
                     </div>
                     <ul>
                         <?php foreach ($hero as $her): ?>
@@ -93,12 +94,12 @@ $wellBeing = [
                                 kontrolę,
                                 poprawićkoncentrację i zwiększyć ogólne samopoczucie.</p>
                         </div>
-                        <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Jak rozpoznać ADHD</a>
+                        <!-- <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Jak rozpoznać ADHD</a> -->
                     </div>
-                    <div class="img-holder">
+                    <!-- <div class="img-holder">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
                             alt="Hero" loading="lazy">
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -109,7 +110,9 @@ $wellBeing = [
                 <div class="development-holder">
                     <div class="text-holder">
                         <h2>Jak diagnozuje się ADHD?</h2>
-                        <span>Dowiedz się, jak wygląda proces rekomendowany przez Polskie Towarzystwo Psychiatryczne. Rozpocznij od przesiewowego testu ASRS, a następnie, jeśli to konieczne, kontynuuj diagnostykę u specjalisty.</span>
+                        <span>Dowiedz się, jak wygląda proces rekomendowany przez Polskie Towarzystwo Psychiatryczne.
+                            Rozpocznij od przesiewowego testu ASRS, a następnie, jeśli to konieczne, kontynuuj
+                            diagnostykę u specjalisty.</span>
                     </div>
                     <ul>
                         <?php foreach ($feature as $feat): ?>
@@ -125,10 +128,11 @@ $wellBeing = [
                                     <h5><?php echo htmlspecialchars($feat['header']); ?></h5>
                                     <p><?php echo htmlspecialchars($feat['text']); ?></p>
                                 </div>
+                                <a
+                                    href="<?php echo get_home_url(); ?><?php echo htmlspecialchars($feat['href']); ?>"><?php echo htmlspecialchars($feat['btn']); ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                    <a href="<?php echo get_home_url(); ?>/rozpocznij-ocene">Wykonaj test Adult ADHD Self-Report Scale</a>
                 </div>
             </div>
 
@@ -143,7 +147,10 @@ $wellBeing = [
                 <div class="text-holder">
                     <span>Daj sobie szansę</span>
                     <h2>W jaki sposób leczy się objawy ADHD?</h2>
-                    <p>Można wyróżnić trzy główne ścieżki oddziaływań rekomendowane u osób dorosłych z diagnozą ADHD: psychoedukację, interwencje niefarmakologiczne (psychospołeczne) oraz interwencje farmakologiczne. Wsparcie osoby z ADHDpowinno być działaniem multimodalnym, obejmującym różne rodzaje interwencji, specjalistów oraz modyfikacje,uwzględniające indywidualne potrzeb.</p>
+                    <p>Można wyróżnić trzy główne ścieżki oddziaływań rekomendowane u osób dorosłych z diagnozą ADHD:
+                        psychoedukację, interwencje niefarmakologiczne (psychospołeczne) oraz interwencje
+                        farmakologiczne. Wsparcie osoby z ADHDpowinno być działaniem multimodalnym, obejmującym różne
+                        rodzaje interwencji, specjalistów oraz modyfikacje,uwzględniające indywidualne potrzeb.</p>
                 </div>
                 <ul>
                     <?php foreach ($wellBeing as $feat): ?>
@@ -170,9 +177,12 @@ $wellBeing = [
                     <div class="header">
                         <span>Poradnik ADHDowca</span>
                         <h2>Poznaj praktyczne porady dla osób z diagnozą w kierunku ADHD</h2>
-                        <p>Skorzystaj z poradnika eksperta, psychiatry dr. Tomasza Gondka, który pomoże w zarządzaniu objawami ADHD i poprawie jakości życia, oferując skuteczne strategie terapeutyczne.</p>
+                        <p>Skorzystaj z poradnika eksperta, psychiatry dr. Tomasza Gondka, który pomoże w zarządzaniu
+                            objawami ADHD i poprawie jakości życia, oferując skuteczne strategie terapeutyczne.</p>
                     </div>
-                    <p class="desc">Skuteczne zarządzanie ADHD wymaga odpowiednich technik i nastawienia. Odkryj strategie opracowane przez ekspertów, wskazówki dotyczące produktywności oraz techniki regulacji emocji, które pomogą Ci lepiej funkcjonować na co dzień.</p>
+                    <p class="desc">Skuteczne zarządzanie ADHD wymaga odpowiednich technik i nastawienia. Odkryj
+                        strategie opracowane przez ekspertów, wskazówki dotyczące produktywności oraz techniki regulacji
+                        emocji, które pomogą Ci lepiej funkcjonować na co dzień.</p>
                 </div>
                 <?php get_template_part('template-parts/blogs-main', null, array(
                     'posts_per_page' => 3
@@ -199,7 +209,10 @@ $wellBeing = [
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Tak, wszystkie treści dostępne na naszej stronie są opracowane w oparciu o aktualne badania naukowe, rekomendacje i zalecenia Polskiego Towarzystwa Psychiatrycznego oraz konsultowane z ekspertami. Dbamy o to, by informacje były rzetelne i zgodne z najnowszymi standardami medycznymi dotyczącymi diagnozy i leczenia ADHD.
+                                Tak, wszystkie treści dostępne na naszej stronie są opracowane w oparciu o aktualne
+                                badania naukowe, rekomendacje i zalecenia Polskiego Towarzystwa Psychiatrycznego oraz
+                                konsultowane z ekspertami. Dbamy o to, by informacje były rzetelne i zgodne z
+                                najnowszymi standardami medycznymi dotyczącymi diagnozy i leczenia ADHD.
                             </div>
                         </div>
                     </div>
@@ -213,7 +226,12 @@ $wellBeing = [
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Samodzielna diagnostyka ADHD może być trudna, jednak warto obserwować pewne charakterystyczne objawy, takie jak trudności z koncentracją, impulsywność, nadmierną aktywność czy problemy z organizacją codziennych zadań. Zachęcamy do wykonania testu przesiewowego ASRS, który dostępny jest na naszej stronie. Ważne jest jednak, aby jego wyniki skonsultować się z lekarzem specjalistą, który przeprowadzi szczegółową diagnozę, opartą na strukturyzowanych kwestionariuszach i wywiadzie klinicznym.
+                                Samodzielna diagnostyka ADHD może być trudna, jednak warto obserwować pewne
+                                charakterystyczne objawy, takie jak trudności z koncentracją, impulsywność, nadmierną
+                                aktywność czy problemy z organizacją codziennych zadań. Zachęcamy do wykonania testu
+                                przesiewowego ASRS, który dostępny jest na naszej stronie. Ważne jest jednak, aby jego
+                                wyniki skonsultować się z lekarzem specjalistą, który przeprowadzi szczegółową diagnozę,
+                                opartą na strukturyzowanych kwestionariuszach i wywiadzie klinicznym.
                             </div>
                         </div>
                     </div>
@@ -227,7 +245,9 @@ $wellBeing = [
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Jeśli podejrzewasz u siebie ADHD, warto zacząć od konsultacji z lekarzem rodzinnym, który może skierować Cię do psychiatry lub psychologa. Specjaliści ci przeprowadzą odpowiednie testy i ocenią objawy, a także wskażą na możliwe formy terapii i leczenia.
+                                Jeśli podejrzewasz u siebie ADHD, warto zacząć od konsultacji z lekarzem rodzinnym,
+                                który może skierować Cię do psychiatry lub psychologa. Specjaliści ci przeprowadzą
+                                odpowiednie testy i ocenią objawy, a także wskażą na możliwe formy terapii i leczenia.
                             </div>
                         </div>
                     </div>
@@ -241,7 +261,11 @@ $wellBeing = [
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Leczenie ADHD obejmuje zarówno terapie farmakologiczne, jak i psychoterapię. Najczęściej stosowanymi lekami są substancje, takie jak metylofenidat, które pomagają w kontroli objawów. Psychoterapia, w szczególności terapia behawioralno-poznawcza (CBT), pomaga pacjentom radzić sobie z codziennymi trudnościami i lepiej zarządzać objawami. W zależności od potrzeb, lekarz dobiera indywidualnie najlepsze podejście terapeutyczne.
+                                Leczenie ADHD obejmuje zarówno terapie farmakologiczne, jak i psychoterapię. Najczęściej
+                                stosowanymi lekami są substancje, takie jak metylofenidat, które pomagają w kontroli
+                                objawów. Psychoterapia, w szczególności terapia behawioralno-poznawcza (CBT), pomaga
+                                pacjentom radzić sobie z codziennymi trudnościami i lepiej zarządzać objawami. W
+                                zależności od potrzeb, lekarz dobiera indywidualnie najlepsze podejście terapeutyczne.
                             </div>
                         </div>
                     </div>
@@ -265,6 +289,17 @@ $wellBeing = [
                         <path
                             d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445" />
                     </svg></a>
+
+                <div class="d-flex flex-column justify-content-center align-items-center extra">
+                    <span>
+                        dodajmy taki cytat: "Osoby z ADHD mają pewną rzadką umiejętność: choć wielokrotnie ponoszą
+                        porażki,
+                        nigdy nie tracą nadziei.
+                    </span>
+                    <span>
+                        <strong>Roxanne Emery, Brudne pranie. ADHD u dorosłych i jak sobie z nim radzić</strong>
+                    </span>
+                </div>
             </div>
         </div>
         </sectio>
