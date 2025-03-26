@@ -519,6 +519,7 @@ header ul .active {
   font-size: 16px;
   color: #44674f;
   text-align: justify;
+  padding-top: 20px;
 }
 
 .what .text-holder a {

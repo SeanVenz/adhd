@@ -5,6 +5,7 @@
 get_header();
 
 $result_id = get_query_var('quiz_id', 0);
+var_dump($result_id);
 
 if ($result_id > 0):
     global $wpdb;
