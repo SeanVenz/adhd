@@ -66,7 +66,7 @@ $wellBeing = [
                     </ul>
                 </div>
                 <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Group_87.png" alt="Hero"
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Group_87.webp" alt="Hero"
                         loading="lazy">
                 </div>
             </div>
