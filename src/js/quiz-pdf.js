@@ -7,37 +7,38 @@
             const originalText = button.html(); // Save original button text
             button.html('<span class="loader"></span> Generowanie...').prop('disabled', true);
 
-            generatePDF(button, originalText);
+            generateFullPagePDF(button, originalText);
         });
 
-        function generatePDF(button, originalText) {
+        function generateFullPagePDF(button, originalText) {
             if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
                 alert('PDF generation libraries not loaded properly. Please try again or contact support.');
                 button.html(originalText).prop('disabled', false);
                 return;
             }
 
-            const element = document.getElementById('quiz-result-container');
-            if (!element) {
-                alert('Could not generate PDF: Element not found');
-                button.html(originalText).prop('disabled', false);
-                return;
-            }
-
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            const doc = new jsPDF({
+                orientation: 'p', // Portrait mode
+                unit: 'mm',
+                format: 'a4' // Standard PDF format
+            });
 
-            html2canvas(element, {
-                scale: 2,
+            html2canvas(document.body, {
+                scale: 2, // Increase resolution
                 useCORS: true,
                 logging: false,
-                allowTaint: true
+                allowTaint: true,
+                scrollX: 0,
+                scrollY: 0,
+                windowWidth: document.documentElement.scrollWidth, // Ensures full width is captured
+                windowHeight: document.documentElement.scrollHeight // Ensures full height is captured
             }).then(function(canvas) {
                 const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 190;
+                const imgWidth = 210; // A4 width in mm
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-                doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
                 doc.setFontSize(10);
                 doc.text('Generated on ' + (quizData?.date || 'Unknown Date'), 10, 285);
 

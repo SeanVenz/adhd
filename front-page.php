@@ -96,10 +96,10 @@ $wellBeing = [
                         </div>
                         <!-- <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Jak rozpoznać ADHD</a> -->
                     </div>
-                    <!-- <div class="img-holder">
+                    <div class="img-holder">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
                             alt="Hero" loading="lazy">
-                    </div> -->
+                    </div>
                 </div>
             </div>
 

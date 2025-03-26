@@ -469,7 +469,6 @@ header ul .active {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  max-width: 850px;
 }
 
 .what .text-holder {
@@ -482,6 +481,7 @@ header ul .active {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 850px;
 }
 
 .what .texts .header {
@@ -489,7 +489,6 @@ header ul .active {
   font-weight: 400;
   font-size: 16px;
   color: #17462b;
-  text-align: center;
 }
 
 .what .img-holder img {
@@ -511,7 +510,6 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
-  text-align: center;
 }
 
 .what .texts p {
@@ -537,7 +535,7 @@ header ul .active {
 
 
 
-/* @media (max-width: 1324px) {
+@media (max-width: 1324px) {
   .what .text-holder {
     max-width: 600px;
   }
@@ -565,7 +563,7 @@ header ul .active {
   .what .img-holder img {
     max-width: 600px;
   }
-} */
+}
 
 @media (max-width: 1024px) {
   .what .what-holder {
