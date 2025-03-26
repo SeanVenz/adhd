@@ -168,7 +168,7 @@ $wellBeing = [
                         </li>
                     <?php endforeach; ?>
                 </ul>
-                <a href="<?php echo get_home_url(); ?>/o-nas">Poznaj nasz poradnik</a>
+                <!-- <a href="<?php echo get_home_url(); ?>/o-nas">Poznaj nasz poradnik</a> -->
             </div>
         </div>
 
