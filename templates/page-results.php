@@ -4,9 +4,9 @@
  */
 get_header();
 
-$url = $_SERVER['REQUEST_URI'];  
-$segments = explode('/', rtrim($url, '/'));  
-$result_id = intval(end($segments));  
+$url = $_SERVER['REQUEST_URI'];
+$segments = explode('/', rtrim($url, '/'));
+$result_id = intval(end($segments));
 
 if ($result_id > 0):
     global $wpdb;
@@ -35,13 +35,13 @@ if ($result_id > 0):
                 $points = intval($question['points']);
 
                 // Category 5 is Part A, Category 6 is Part B (based on your data)
-                if (in_array(5, $categories)) {
+                if (in_array(6, $categories)) {
                     $part_a_score += $points;
-                } elseif (in_array(6, $categories)) {
+                } elseif (in_array(7, $categories)) {
                     $part_b_score += $points;
-                }elseif (in_array(7, $categories)) {
+                } elseif (in_array(8, $categories)) {
                     $part_c_score += $points;
-                }elseif (in_array(8, $categories)) {
+                } elseif (in_array(9, $categories)) {
                     $part_d_score += $points;
                 }
             }
@@ -49,33 +49,30 @@ if ($result_id > 0):
 
         $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
 
-        // Define score ranges and descriptions
+        // Definicja zakresów wyników i opisów
         $score_descriptions = array(
             array(
                 'range' => array(0, 7),
                 'title' => 'Niski poziom objawów ADHD',
-                'description' => 'Twoje wyniki wskazują na niewielkie trudności z ADHD. Dobrze radzisz sobie z koncentracją, organizacją i kontrolą impulsów, a sporadyczne rozproszenie nie wpływa znacząco na codzienne funkcjonowanie. Skuteczne zarządzanie czasem może jeszcze zwiększyć produktywność.',
-
+                'description' => 'Twoje wyniki wskazują na minimalne trudności związane z ADHD. Zazwyczaj dobrze radzisz sobie z koncentracją, organizacją i kontrolą impulsów. Sporadyczne rozproszenie nie wpływa znacząco na codzienne funkcjonowanie. Skuteczne zarządzanie czasem może jeszcze bardziej zwiększyć produktywność.'
             ),
             array(
                 'range' => array(8, 15),
                 'title' => 'Łagodne objawy ADHD',
-                'description' => 'Twoje wyniki wskazują na pewne trudności z koncentracją, impulsywnością lub organizacją. Możesz czasem zapominać o zadaniach lub łatwo się rozpraszać, ale to do opanowania. Rutyny i techniki uważności mogą pomóc, a w razie potrzeby warto skonsultować się ze specjalistą.',
-
+                'description' => 'Twoje wyniki sugerują pewne trudności z koncentracją, impulsywnością lub organizacją. Możesz czasem zapominać o zadaniach lub łatwo się rozpraszać, ale są to wyzwania do opanowania. Ustalanie rutyn i stosowanie technik uważności może pomóc. W razie potrzeby warto skonsultować się ze specjalistą.'
             ),
             array(
-                'range' => array(16, 24),
-                'title' => 'Znaczące objawy ADHD',
-                'description' => 'Twoje wyniki wskazują na istotne trudności z ADHD, wpływające na koncentrację, impulsywność i organizację. Strategie, takie jak planowanie i przypomnienia, mogą pomóc. Warto skonsultować się ze specjalistą.',
-
+                'range' => array(16, 40),
+                'title' => 'Umiarkowane objawy ADHD',
+                'description' => 'Twoje wyniki wskazują na zauważalne trudności związane z ADHD, które mogą wpływać na koncentrację, impulsywność i organizację. Korzystanie z uporządkowanych strategii, takich jak narzędzia do planowania i przypomnienia, może pomóc. Warto rozważyć konsultację ze specjalistą, aby uzyskać spersonalizowane porady.'
             ),
             array(
-                'range' => array(25, 40),
-                'title' => 'Znaczące objawy ADHD',
-                'description' => 'Twoje wyniki wskazują na istotne trudności z ADHD, wpływające na koncentrację, impulsywność i organizację. Strategie, takie jak planowanie i przypomnienia, mogą pomóc. Warto skonsultować się ze specjalistą.',
-
+                'range' => array(41, 80),
+                'title' => 'Silne objawy ADHD',
+                'description' => 'Twoje wyniki sugerują znaczące trudności związane z ADHD, które mogą istotnie wpływać na codzienne funkcjonowanie. Możesz mieć trudności z silnym rozpraszaniem się, impulsywnością i organizacją. Zalecane jest skorzystanie z pomocy specjalisty, takiej jak terapia, coaching lub konsultacja medyczna. Wprowadzenie uporządkowanych rutyn i systemów wsparcia może pomóc w lepszym radzeniu sobie z objawami.'
             )
         );
+
 
         // Find the appropriate description based on total score
         $current_description = null;
