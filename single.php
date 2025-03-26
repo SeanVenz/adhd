@@ -68,7 +68,7 @@
         padding-bottom: 54px;
     }
 
-    .single-post img {
+    .single-post .post-content img {
         width: 100%;
         height: 919px;
         object-fit: cover;
@@ -226,7 +226,7 @@
             gap: 28px;
         }
 
-        .single-post img{
+        .single-post .post-content img{
             height: auto;
         }
     }
