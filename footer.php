@@ -270,7 +270,9 @@ $contact = [
   <div class="min-width">
     <div class="footer-holder">
       <div class="logo-holder">
-        ADHD
+      <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+        </a>
         <div class="socials-holder">
           <span>Media społecznościowe:</span>
           <ul class="socials">

@@ -47,7 +47,7 @@
           </svg>
         </button>
         <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-          ADHD
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
