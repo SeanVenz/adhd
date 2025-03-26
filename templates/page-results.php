@@ -117,7 +117,7 @@ if ($result_id > 0):
                     </svg></a>
                 <div class="text-holder">
                     <h1>Podstawowa punktacja</h1>
-                    <span>Obiektywna ocena nasilenia objawów ADHD (Skala 0-40)</span>
+                    <span>Obiektywna ocena nasilenia objawów ADHD (Skala 0-80)</span>
                 </div>
                 <div>
 
@@ -129,7 +129,7 @@ if ($result_id > 0):
                         <div class="result-description">
                             <span>Twój wynik</span>
                             <div class="total">
-                                <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z 40</p>
+                                <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z 80</p>
                             </div>
                             <div class="desc">
                                 <h2>
