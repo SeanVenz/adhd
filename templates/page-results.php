@@ -34,14 +34,14 @@ if ($result_id > 0):
                 $categories = $question['multicategories'];
                 $points = intval($question['points']);
 
-                // Category 5 is Part A, Category 6 is Part B (based on your data)
-                if (in_array(6, $categories)) {
+                // Category 5 is Part A, Category 6 is Part B (change to 6 when going live)
+                if (in_array(5, $categories)) {
                     $part_a_score += $points;
-                } elseif (in_array(7, $categories)) {
+                } elseif (in_array(6, $categories)) {
                     $part_b_score += $points;
-                } elseif (in_array(8, $categories)) {
+                } elseif (in_array(7, $categories)) {
                     $part_c_score += $points;
-                } elseif (in_array(9, $categories)) {
+                } elseif (in_array(8, $categories)) {
                     $part_d_score += $points;
                 }
             }
@@ -165,9 +165,10 @@ if ($result_id > 0):
                         </div>
                     </div>
 
-
                 </div>
             </div>
+            
+            <?php get_template_part('template-parts/breakdown'); ?>
         </main>
 
         <!-- Share Modal -->

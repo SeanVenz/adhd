@@ -6,9 +6,9 @@ footer {
   display: none !important;
 }
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 
 .quiz-result {
   padding: 20px;
@@ -16,7 +16,7 @@ body {
   height: 100svh;
   background-position: right;
   background-repeat: no-repeat;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   justify-content: center;
