@@ -4,7 +4,9 @@
  */
 get_header();
 
-$result_id = get_query_var('quiz_id', 0);
+$url = $_SERVER['REQUEST_URI'];  
+$segments = explode('/', rtrim($url, '/'));  
+$result_id = intval(end($segments));  
 
 if ($result_id > 0):
     global $wpdb;
@@ -22,6 +24,8 @@ if ($result_id > 0):
 
         $part_a_score = 0;
         $part_b_score = 0;
+        $part_c_score = 0;
+        $part_d_score = 0;
         $total_possible_points = isset($quiz_data[21]) ? $quiz_data[21] : 0;
 
         // Loop through each question
@@ -35,11 +39,15 @@ if ($result_id > 0):
                     $part_a_score += $points;
                 } elseif (in_array(6, $categories)) {
                     $part_b_score += $points;
+                }elseif (in_array(7, $categories)) {
+                    $part_c_score += $points;
+                }elseif (in_array(8, $categories)) {
+                    $part_d_score += $points;
                 }
             }
         }
 
-        $total_score = $part_a_score + $part_b_score;
+        $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
 
         // Define score ranges and descriptions
         $score_descriptions = array(
@@ -91,11 +99,11 @@ if ($result_id > 0):
                 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-linejoin="round" stroke-width="4"><path d="M24 44a19.94 19.94 0 0 0 14.142-5.858A19.94 19.94 0 0 0 44 24a19.94 19.94 0 0 0-5.858-14.142A19.94 19.94 0 0 0 24 4A19.94 19.94 0 0 0 9.858 9.858A19.94 19.94 0 0 0 4 24a19.94 19.94 0 0 0 5.858 14.142A19.94 19.94 0 0 0 24 44Z"/><path stroke-linecap="round" d="m16 24l6 6l12-12"/></g></svg>'
             ],
             'Impulsywność i decyzje' => [
-                'score' => $part_a_score,
+                'score' => $part_c_score,
                 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.748 3.572c.059-.503-.532-.777-.835-.388L4.111 13.197c-.258.33-.038.832.364.832h6.988c.285 0 .506.267.47.57l-.68 5.83c-.06.502.53.776.834.387l7.802-10.013c.258-.33.038-.832-.364-.832h-6.988c-.285 0-.506-.267-.47-.57z"/></svg>'
             ],
             'Organizacja i planowanie' => [
-                'score' => $part_a_score,
+                'score' => $part_d_score,
                 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-width="4"><path stroke-linejoin="round" d="M5 19h38v22a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zm0-9a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v9H5z"/><path stroke-linecap="round" stroke-linejoin="round" d="m16 31l6 6l12-12"/><path stroke-linecap="round" d="M16 5v8m16-8v8"/></g></svg>'
             ]
         ];

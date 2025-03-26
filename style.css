@@ -83,6 +83,7 @@ body {
 }
 
 /* HEADER */
+
 header {
   background-color: transparent !important;
   height: 94px;
@@ -100,7 +101,7 @@ header.scrolled {
 
 header .container {
   margin: 0;
-  padding-left: 7%;
+  padding-left: 5%;
 }
 
 /* Make sure the burger and X icons are styled properly */

@@ -59,6 +59,7 @@
   border: 3px solid #17462b;
   background: #f8f8e7;
   border-radius: 28px;
+  max-width: 226px;
 }
 
 .hero li div {
@@ -444,7 +445,7 @@
 .features h6 {
   font-family: "Manrope";
   font-weight: 500;
-  font-size: 32px;
+  font-size: 30px;
   color: #17462b;
 }
 

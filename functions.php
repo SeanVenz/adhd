@@ -324,8 +324,8 @@ function custom_quiz_result_query_vars($vars) {
 add_filter('query_vars', 'custom_quiz_result_query_vars');
 
 function enqueue_pdf_scripts() {
+  error_log('enqueue_pdf_scripts is running');
   // Only load on quiz result pages
-  if (get_query_var('quiz_id', 0) > 0) {
       // Enqueue jQuery first
       wp_enqueue_script('jquery');
       
@@ -342,6 +342,5 @@ function enqueue_pdf_scripts() {
           'date' => date('F j, Y')
       );
       wp_localize_script('quiz-pdf-generator', 'quizData', $quiz_data);
-  }
 }
 add_action('wp_enqueue_scripts', 'enqueue_pdf_scripts');
