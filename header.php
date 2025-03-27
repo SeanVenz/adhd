@@ -47,14 +47,15 @@
           </svg>
         </button>
         <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-md-none">
-              <a class="nav-link <?php if (is_front_page())
-                echo 'active'; ?>" aria-current="page" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>">ADHD</a>
+              <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>"
+                aria-label="Go to Home Page">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())

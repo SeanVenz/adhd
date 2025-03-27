@@ -150,7 +150,7 @@ $wellBeing = [
             <div class="well-being-holder">
                 <div class="text-holder">
                     <span>Daj sobie szansę</span>
-                    <h2>W jaki sposób leczy się objawy ADHD?</h2>
+                    <h2>W jaki sposób <br class="d-none d-md-block"> leczy się objawy ADHD?</h2>
                     <p>Można wyróżnić trzy główne ścieżki oddziaływań rekomendowane u osób dorosłych z diagnozą ADHD:
                         psychoedukację, interwencje niefarmakologiczne (psychospołeczne) oraz interwencje
                         farmakologiczne. Wsparcie osoby z ADHDpowinno być działaniem multimodalnym, obejmującym różne
@@ -205,7 +205,7 @@ $wellBeing = [
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 Czy treści na stronie są oparte na badaniach naukowych?
                             </button>

@@ -113,9 +113,12 @@ header .container {
   padding: 0;
 }
 
-.navbar-brand {
-  color: #17462b !important;
+@media(max-width: 480px){
+  .navbar-brand img {
+    width: 60%;
+  }
 }
+
 
 .burger-icon .cls-1 {
   fill: #17462b !important;
@@ -1236,7 +1239,7 @@ header ul .active {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 947px;
+  max-width: 1388px;
   width: 100%;
   align-self: flex-start;
 }
@@ -1266,6 +1269,7 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
+  max-width: 80%;
 }
 
 .knowledge-center-holder .text-holder .desc {
@@ -1302,6 +1306,7 @@ header ul .active {
 
   .knowledge-center-holder .header p {
     font-size: 16px;
+    max-width: unset;
     margin-bottom: 0;
   }
 
@@ -1737,6 +1742,10 @@ color: #17462B;
   text-align: center;
   color: #44674f;
   max-width: 375px;
+}
+
+.qsm-quiz-container{
+  width: 100%;
 }
 
 @media (max-width: 480px) {

@@ -168,7 +168,7 @@ if ($result_id > 0):
                 </div>
             </div>
             
-            <?php get_template_part('template-parts/breakdown'); ?>
+            <!-- <?php get_template_part('template-parts/breakdown'); ?> -->
         </main>
 
         <!-- Share Modal -->
