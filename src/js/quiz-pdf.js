@@ -17,6 +17,9 @@
                 return;
             }
 
+            // Temporarily show the breakdown section so it appears in the PDF
+            $('#pdf-breakdown').show();
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({
                 orientation: 'p', // Portrait mode
@@ -44,11 +47,14 @@
 
                 doc.save('wyniki_quizu.pdf');
 
-                // Restore button text after saving
+                // Hide the breakdown after PDF generation
+                $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
             }).catch(function(error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
+                // Ensure breakdown is hidden if there was an error
+                $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
             });
         }

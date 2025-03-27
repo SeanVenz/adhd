@@ -7,7 +7,15 @@ footer {
 }
 
 body {
-  /* overflow: hidden; */
+  overflow: hidden;
+}
+
+.offscreen {
+  position: absolute;
+  top: -999999px;
+  left: -999999px;
+  display: block; /* Make sure it's block so it's capturable when re-positioned */
+  width: 100%;
 }
 
 .quiz-result {
@@ -16,7 +24,7 @@ body {
   height: 100svh;
   background-position: right;
   background-repeat: no-repeat;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;

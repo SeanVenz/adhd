@@ -73,7 +73,6 @@ if ($result_id > 0):
             )
         );
 
-
         // Find the appropriate description based on total score
         $current_description = null;
         foreach ($score_descriptions as $description) {
@@ -168,7 +167,10 @@ if ($result_id > 0):
                 </div>
             </div>
 
-            <?php get_template_part('template-parts/breakdown'); ?>
+            <!-- Breakdown is hidden by default and will be shown only for PDF generation -->
+            <div id="pdf-breakdown" class="offscreen">
+                <?php get_template_part('template-parts/breakdown'); ?>
+            </div>
         </main>
 
         <!-- Share Modal -->
@@ -291,20 +293,68 @@ if ($result_id > 0):
         </script>
 
         <script>
-            const quizData = {
-                totalScore: <?php echo json_encode($total_score); ?>,
-                description: <?php echo json_encode($current_description); ?>,
-                scores: <?php echo json_encode($scores); ?>,
-                questions: <?php
-                $formatted_questions = array_map(function ($question) {
-                    return [
-                        'question_title' => $question['question_title'],
-                        'user_answer' => isset($question['user_answer']) ? array_keys($question['user_answer'])[0] : null
-                    ];
-                }, $questions_data);
-                echo json_encode($formatted_questions);
-                ?>
-            };
+            (function ($) {
+                $(document).ready(function () {
+                    $('#download-pdf-btn, #download-pdf-btn-mobile').on('touchstart click', function (e) {
+                        e.preventDefault(); // Prevent double execution
+
+                        const button = $(this);
+                        const originalText = button.html(); // Save original button text
+                        button.html('<span class="loader"></span> Generowanie...').prop('disabled', true);
+
+                        generateFullPagePDF(button, originalText);
+                    });
+
+                    function generateFullPagePDF(button, originalText) {
+                        if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
+                            alert('PDF generation libraries not loaded properly. Please try again or contact support.');
+                            button.html(originalText).prop('disabled', false);
+                            return;
+                        }
+
+                        // Temporarily show the breakdown section so it appears in the PDF
+                        $('#pdf-breakdown').show();
+
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF({
+                            orientation: 'p', // Portrait mode
+                            unit: 'mm',
+                            format: 'a4' // Standard PDF format
+                        });
+
+                        html2canvas(document.body, {
+                            scale: 2, // Increase resolution
+                            useCORS: true,
+                            logging: false,
+                            allowTaint: true,
+                            scrollX: 0,
+                            scrollY: 0,
+                            windowWidth: document.documentElement.scrollWidth, // Ensures full width is captured
+                            windowHeight: document.documentElement.scrollHeight // Ensures full height is captured
+                        }).then(function (canvas) {
+                            const imgData = canvas.toDataURL('image/png');
+                            const imgWidth = 210; // A4 width in mm
+                            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                            doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                            doc.setFontSize(10);
+                            doc.text('Generated on ' + (quizData?.date || 'Unknown Date'), 10, 285);
+
+                            doc.save('wyniki_quizu.pdf');
+
+                            // Hide the breakdown after PDF generation
+                            $('#pdf-breakdown').hide();
+                            button.html(originalText).prop('disabled', false);
+                        }).catch(function (error) {
+                            console.error('Error generating PDF:', error);
+                            alert('Could not generate PDF. Please try again later.');
+                            // Ensure breakdown is hidden if there was an error
+                            $('#pdf-breakdown').hide();
+                            button.html(originalText).prop('disabled', false);
+                        });
+                    }
+                });
+            })(jQuery);
         </script>
     <?php else: ?>
         <p>Nie znaleziono wyniku testu.</p>
