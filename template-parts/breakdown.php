@@ -1,6 +1,4 @@
 <?php
-
-
 $url = $_SERVER['REQUEST_URI'];
 $segments = explode('/', rtrim($url, '/'));
 $result_id = intval(end($segments));
@@ -14,15 +12,15 @@ if ($result_id > 0):
 
     if ($result):
         // Unserialize the quiz_results field
-        $quiz_results = unserialize($result->quiz_results);
+        $quiz_results = @unserialize($result->quiz_results);
 
-        // Ensure quiz_results is an array
-        if (is_array($quiz_results)):
+        // Ensure quiz_results is an array and has the expected structure
+        if (is_array($quiz_results) && isset($quiz_results[1])):
             // Access the array containing question data
             $questions = $quiz_results[1];
 
-            // Check if questions array exists
-            if (is_array($questions)):
+            // Check if questions array exists and is not empty
+            if (!empty($questions) && is_array($questions)):
                 ?>
                 <style>
                     .quiz-container {
@@ -65,13 +63,18 @@ if ($result_id > 0):
                     <tbody>
                         <?php foreach ($questions as $question): ?>
                             <tr>
-                                <td class="question-col"><?php echo esc_html($question['question_title']); ?></td>
+                                <td class="question-col"><?php echo esc_html($question['question_title'] ?? 'N/A'); ?></td>
                                 <?php
-                                $user_answer = isset($question['user_answer']) ? array_keys($question['user_answer'])[0] : null;
+                                // Safely get user answer
+                                $user_answer = null;
+                                if (isset($question['user_answer']) && is_array($question['user_answer'])) {
+                                    $answer_keys = array_keys($question['user_answer']);
+                                    $user_answer = $answer_keys[0] ?? null;
+                                }
 
                                 for ($i = 0; $i <= 4; $i++):
-                                    $class = ($i == $user_answer) ? 'highlight' : '';
-                                    echo "<td class='$class'>" . ($i == $user_answer ? "✔" : "") . "</td>";
+                                    $class = ($i === $user_answer) ? 'highlight' : '';
+                                    echo "<td class='$class'>" . ($i === $user_answer ? "✔" : "") . "</td>";
                                 endfor;
                                 ?>
                             </tr>
