@@ -167,7 +167,7 @@ if ($result_id > 0):
 
                 </div>
             </div>
-            
+
             <?php get_template_part('template-parts/breakdown'); ?>
         </main>
 
@@ -288,6 +288,23 @@ if ($result_id > 0):
                     }
                 });
             });   
+        </script>
+
+        <script>
+            const quizData = {
+                totalScore: <?php echo json_encode($total_score); ?>,
+                description: <?php echo json_encode($current_description); ?>,
+                scores: <?php echo json_encode($scores); ?>,
+                questions: <?php
+                $formatted_questions = array_map(function ($question) {
+                    return [
+                        'question_title' => $question['question_title'],
+                        'user_answer' => isset($question['user_answer']) ? array_keys($question['user_answer'])[0] : null
+                    ];
+                }, $questions_data);
+                echo json_encode($formatted_questions);
+                ?>
+            };
         </script>
     <?php else: ?>
         <p>Nie znaleziono wyniku testu.</p>
