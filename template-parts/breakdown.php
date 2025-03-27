@@ -1,4 +1,5 @@
 <?php
+
 $url = $_SERVER['REQUEST_URI'];
 $segments = explode('/', rtrim($url, '/'));
 $result_id = intval(end($segments));
@@ -12,14 +13,14 @@ if ($result_id > 0):
 
     if ($result):
         // Unserialize the quiz_results field
-        $quiz_results = @unserialize($result->quiz_results);
+        $quiz_results = unserialize($result->quiz_results);
 
-        // Ensure quiz_results is an array and has the expected structure
-        if (is_array($quiz_results) && isset($quiz_results[1])):
-            // Access the array containing question data
-            $questions = $quiz_results[1];
+        // Ensure quiz_results is an array
+        if (is_array($quiz_results)):
+            // Use key 1 if exists; otherwise, use an empty array
+            $questions = isset($quiz_results[1]) && is_array($quiz_results[1]) ? $quiz_results[1] : [];
 
-            // Check if questions array exists and is not empty
+            // Check if questions array exists
             if (!empty($questions) && is_array($questions)):
                 ?>
                 <style>
@@ -63,13 +64,21 @@ if ($result_id > 0):
                     <tbody>
                         <?php foreach ($questions as $question): ?>
                             <tr>
-                                <td class="question-col"><?php echo esc_html($question['question_title'] ?? 'N/A'); ?></td>
+                                <td class="question-col">
+                                    <?php echo esc_html($question['question_title'] ?? 'No question title'); ?>
+                                </td>
                                 <?php
-                                // Safely get user answer
-                                $user_answer = null;
-                                if (isset($question['user_answer']) && is_array($question['user_answer'])) {
-                                    $answer_keys = array_keys($question['user_answer']);
-                                    $user_answer = $answer_keys[0] ?? null;
+                                // Determine the user's answer.
+                                if (isset($question['user_answer'])) {
+                                    if (is_array($question['user_answer']) && !empty($question['user_answer'])) {
+                                        // Use array_key_first() for PHP 7.3+; fall back to reset(array_keys(...)) if necessary.
+                                        $user_answer = function_exists('array_key_first') ? array_key_first($question['user_answer']) : reset(array_keys($question['user_answer']));
+                                    } else {
+                                        // If user_answer is not an array, assume it's the answer index.
+                                        $user_answer = intval($question['user_answer']);
+                                    }
+                                } else {
+                                    $user_answer = null;
                                 }
 
                                 for ($i = 0; $i <= 4; $i++):
