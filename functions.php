@@ -245,19 +245,6 @@ function remove_version_query($src)
   return $src;
 }
 
-function add_google_tag_manager_noscript()
-{
-  ?>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKXVQM" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <?php
-}
-add_action('wp_enqueue_scripts', 'add_google_tag_manager_noscript');
-
 function generate_page_toc() {
   global $post;
   $content = $post->post_content;
