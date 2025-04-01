@@ -7,15 +7,7 @@ footer {
 }
 
 body {
-  overflow: hidden;
-}
-
-.offscreen {
-  position: absolute;
-  top: -999999px;
-  left: -999999px;
-  display: block; /* Make sure it's block so it's capturable when re-positioned */
-  width: 100%;
+  /* overflow: hidden; */
 }
 
 .quiz-result {
@@ -24,11 +16,16 @@ body {
   height: 100svh;
   background-position: right;
   background-repeat: no-repeat;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.modal-backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 .quiz-result .header-holder {
@@ -313,46 +310,50 @@ ul li:nth-child(4) {
 }
 
 .modal-body,
-.modal-header{
+.modal-header {
   padding: 24px !important;
 }
 
-.input-group .copy{
-  background-color: #17462B !important;
+.input-group .copy {
+  background-color: #17462b !important;
   padding: 9px 18px !important;
   border-radius: 12px !important;
   border: none !important;
-  color: #F8FAFC !important;
+  color: #f8fafc !important;
 }
 
 .modal-header .btn-close {
   display: none;
 }
 
-@media(max-width: 1300px){
-  .quiz-result{
+@media (max-width: 1300px) {
+  .quiz-result {
     height: 100%;
     overflow: auto;
   }
 
-  body{
+  body {
     overflow: auto;
   }
 }
 
-.custom-close-btn{
+.custom-close-btn {
   border: none !important;
   background-color: transparent !important;
 }
 
-.modal-content{
-width: 539px !important;
+.modal-dialog {
+  max-width: 700px !important;
 }
 
-.action-buttons-mobile{
+.modal-content {
+  width: 100% !important;
+  border-radius: 28px !important;
+}
+
+.action-buttons-mobile {
   display: none;
 }
-
 
 /* Hide the download button in the PDF */
 @media print {
@@ -361,102 +362,203 @@ width: 539px !important;
   }
 }
 
-@media (max-width: 768px){
-
-  .quiz-result{
+@media (max-width: 768px) {
+  .quiz-result {
     padding: 0;
     height: 100svh;
     padding-top: 20px;
   }
 
-  .result-details{
+  .result-details {
     display: none;
   }
 
-  .quiz-result .header-holder a{
+  .quiz-result .header-holder a {
     display: none;
   }
 
-  .quiz-result .header-holder .text-holder{
+  .quiz-result .header-holder .text-holder {
     margin-left: 0;
   }
 
-  .quiz-result .header-holder{
+  .quiz-result .header-holder {
     justify-content: center;
   }
 
-  .quiz-result .result-description{
+  .quiz-result .result-description {
     background: transparent;
     max-width: unset;
     padding: 0px;
   }
 
-  .result-score-holder{
+  .result-score-holder {
     box-shadow: none;
     background-color: transparent;
     padding: 0px;
   }
 
-  .quiz-result .result-description .total{
+  .quiz-result .result-description .total {
     background: linear-gradient(180deg, #093119 0%, #215336 100%);
     box-shadow: 0px 4px 12px 0px #113922 inset;
   }
 
-  .quiz-result .result-description .desc h2{
-    color: #17462B;
+  .quiz-result .result-description .desc h2 {
+    color: #17462b;
   }
 
-  .quiz-result .result-description .desc p{
-    color: #44674F;
+  .quiz-result .result-description .desc p {
+    color: #44674f;
     font-size: 12px;
   }
-  
-  .quiz-result .result-description .desc{
+
+  .quiz-result .result-description .desc {
     padding-top: 10px;
   }
 
-  .result-score-holder{
+  .result-score-holder {
     margin-top: 0;
   }
 
-  .quiz-result .header-holder .text-holder h1{
+  .quiz-result .header-holder .text-holder h1 {
     font-size: 20px;
   }
 
-  .quiz-result .header-holder .text-holder span{
+  .quiz-result .header-holder .text-holder span {
     font-size: 12px;
   }
 
-  .quiz-result .result-description span{
-    color: #44674F;
+  .quiz-result .result-description span {
+    color: #44674f;
   }
 
-  .quiz-result .result-description .desc h2{
+  .quiz-result .result-description .desc h2 {
     font-size: 16px;
   }
 
   .download,
-  .share{
+  .share {
     font-size: 12px;
     width: 100%;
   }
 
-  .action-buttons-mobile{
+  .action-buttons-mobile {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
   }
 
-  .modal-title{
+  .modal-title {
     font-size: 20px;
   }
 
-  .input-group .form-control{
+  .input-group .form-control {
     max-width: 225px !important;
   }
 
-  .modal-body, .modal-header{
+  .modal-body,
+  .modal-header {
     padding: 12px !important;
   }
+}
+
+/* MODAL NEW */
+
+.modal-header {
+  justify-content: flex-end !important;
+}
+
+.btn-holder-modal {
+  gap: 24px;
+}
+
+.btn-holder-modal button,
+.btn-holder-modal a {
+  width: 48%;
+}
+
+.modal-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 44px !important;
+}
+
+.modal-body h2 {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 34px;
+  text-align: center;
+  color: #17462b;
+}
+
+.modal-body span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #17462b;
+}
+
+.btn-holder-modal button:first-child {
+  border: 1px solid #17462b;
+  gap: 12px;
+  border-radius: 12px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  border-width: 1px;
+  background-color: transparent;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 20px;
+  color: #17462b;
+}
+
+.btn-holder-modal a {
+  border: 1px solid #17462b;
+  gap: 12px;
+  border-radius: 12px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  border-width: 1px;
+  background-color: #17462b;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 20px;
+  color: #f8fafc;
+  text-decoration: none;
+  text-align: center;
+}
+
+@media(max-width: 768px){
+  .btn-holder-modal button,
+  .btn-holder-modal a{
+    width: 100%;
+  }
+
+  .modal-body h2{
+    font-size: 20px;
+  }
+
+  .modal-header,
+  .modal-body{
+    padding: 12px !important;
+  }
+
+  .btn-holder-modal{
+    gap: 12px;
+  }
+
+  .btn-holder-modal a,
+  .btn-holder-modal button:first-child{
+    padding: 6px 12px;
+  }
+
+  .modal-body{
+    gap: 22px !important;
+  }
+
 }

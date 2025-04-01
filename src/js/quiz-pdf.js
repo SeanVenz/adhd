@@ -18,7 +18,7 @@
             }
 
             // Temporarily show the breakdown section so it appears in the PDF
-            $('#pdf-breakdown').show();
+            // $('#pdf-breakdown').show();
 
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({

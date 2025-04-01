@@ -35,13 +35,13 @@ if ($result_id > 0):
                 $points = intval($question['points']);
 
                 // Category 5 is Part A, Category 6 is Part B (change to 6 for category 5 when going live)
-                if (in_array(5, $categories)) {
+                if (in_array(6, $categories)) {
                     $part_a_score += $points;
-                } elseif (in_array(6, $categories)) {
-                    $part_b_score += $points;
                 } elseif (in_array(7, $categories)) {
-                    $part_c_score += $points;
+                    $part_b_score += $points;
                 } elseif (in_array(8, $categories)) {
+                    $part_c_score += $points;
+                } elseif (in_array(9, $categories)) {
                     $part_d_score += $points;
                 }
             }
@@ -137,9 +137,10 @@ if ($result_id > 0):
                                 <p><?php echo esc_html($current_description['description']); ?></p>
                             </div>
                             <div class="action-buttons-mobile">
-                                <button id='download-pdf-btn-mobile' class='download'>Pobierz wyniki jako PDF</button>
+                                <button id='download-pdf-btn-mobile' class='download'>Pobierz PDF</button>
                                 <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                    data-bs-target="#shareModal">Udostępnij wynik</button>
+                                    data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button>
+                                <!-- <button id='show-breakdown-btn-mobile' class='breakdown'>Pokaż szczegóły</button> -->
                             </div>
                         </div>
                     <?php endif; ?>
@@ -158,9 +159,10 @@ if ($result_id > 0):
                         </div>
 
                         <div class="action-buttons">
-                            <button id='download-pdf-btn' class='download'>Pobierz wyniki jako PDF</button>
+                            <button id='download-pdf-btn' class='download'>Pobierz PDF</button>
                             <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                data-bs-target="#shareModal">Udostępnij wynik</button>
+                                data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button>
+                            <!-- <button id='show-breakdown-btn' class='breakdown'>Pokaż szczegóły</button> -->
                         </div>
                     </div>
 
@@ -168,13 +170,13 @@ if ($result_id > 0):
             </div>
 
             <!-- Breakdown is hidden by default and will be shown only for PDF generation -->
-            <div id="pdf-breakdown" class="offscreen">
+            <div id="pdf-breakdown" class="offscreen" style="display: none;">
                 <?php get_template_part('template-parts/breakdown'); ?>
             </div>
         </main>
 
-        <!-- Share Modal -->
-        <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <!-- Share Modal with sahre functionality -->
+        <!-- <div class="modal fade modal-backdrop-blur" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -221,6 +223,33 @@ if ($result_id > 0):
                                 readonly>
                             <button class="copy" type="button" id="copy-link-btn">Kopia</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Share Modal for New Feat -->
+        <div class="modal fade modal-backdrop-blur" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <h5 class="modal-title" id="shareModalLabel">Pobierz swój wynik</h5> -->
+                        <button type="button" class="custom-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="#17462B">
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Opuszczenie strony wyników</h2>
+                        <span>Przejście do placówek diagnostycznych NFZ spowoduje opuszczenie tej strony i może usunąć Twoje wyniki. Czy na pewno chcesz kontynuować?</span>
+
+                        <div class="d-flex justify-content-between flex-column flex-md-row btn-holder-modal">
+                            <button data-bs-dismiss="modal" aria-label="Close">Pozostań na stronie</button>
+                            <a href="<?php echo get_home_url(); ?>/o-nas">Tak, przejdź dalej</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -289,7 +318,7 @@ if ($result_id > 0):
                         }, 2000);
                     }
                 });
-            });   
+            });  
         </script>
 
         <script>
@@ -313,7 +342,7 @@ if ($result_id > 0):
                         }
 
                         // Temporarily show the breakdown section so it appears in the PDF
-                        $('#pdf-breakdown').show();
+                        // $('#pdf-breakdown').show();
 
                         const { jsPDF } = window.jspdf;
                         const doc = new jsPDF({
@@ -355,6 +384,43 @@ if ($result_id > 0):
                     }
                 });
             })(jQuery);
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const breakdownBtn = document.getElementById('show-breakdown-btn');
+                const breakdownBtnMobile = document.querySelector('#show-breakdown-btn-mobile'); // In case there's a mobile version
+                const breakdownSection = document.getElementById('pdf-breakdown');
+
+                // Function to toggle the breakdown visibility
+                function toggleBreakdown() {
+                    // Remove the offscreen class if it exists
+                    breakdownSection.classList.remove('offscreen');
+
+                    if (breakdownSection.style.display === 'none' || breakdownSection.style.display === '') {
+                        breakdownSection.style.display = 'block';
+                        // Update text on both buttons if they exist
+                        breakdownBtn.textContent = 'Ukryj szczegóły';
+                        if (breakdownBtnMobile) {
+                            breakdownBtnMobile.textContent = 'Ukryj szczegóły';
+                        }
+                    } else {
+                        breakdownSection.style.display = 'none';
+                        breakdownBtn.textContent = 'Pokaż szczegóły';
+                        if (breakdownBtnMobile) {
+                            breakdownBtnMobile.textContent = 'Pokaż szczegóły';
+                        }
+                    }
+                }
+
+                // Add click event to the main button
+                breakdownBtn.addEventListener('click', toggleBreakdown);
+
+                // Add click event to the mobile button if it exists
+                if (breakdownBtnMobile) {
+                    breakdownBtnMobile.addEventListener('click', toggleBreakdown);
+                }
+            });
         </script>
     <?php else: ?>
         <p>Nie znaleziono wyniku testu.</p>
