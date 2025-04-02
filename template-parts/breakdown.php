@@ -74,7 +74,6 @@ if ($result_id > 0):
 
                     .quiz-container th,
                     .quiz-container td {
-                        /* padding: 16px 24px; */
                         border: 1px solid #17462B
                     }
 
@@ -126,32 +125,26 @@ if ($result_id > 0):
                     @media(max-width: 768px) {
                         .quiz-container {
                             table-layout: fixed;
-                            /* Prevents resizing */
                             width: 100%;
                             border-collapse: collapse;
                         }
 
                         .quiz-container tr {
                             height: 50px;
-                            /* Fixed height */
                         }
 
                         .quiz-container td {
                             height: 50px;
                             white-space: nowrap;
-                            /* Prevents text from expanding row */
                             overflow: hidden;
                             text-overflow: ellipsis;
-                            /* Adds "..." for overflow */
                         }
 
                         .quiz-container thead {
                             height: 50px;
                             white-space: nowrap;
-                            /* Prevents text from expanding row */
                             overflow: hidden;
                             text-overflow: ellipsis;
-                            /* Adds "..." for overflow */
                         }
 
                         .question-col{
@@ -160,11 +153,11 @@ if ($result_id > 0):
                         }
 
                         .quiz-container td{
-                            padding: 12px;
+                            padding: 6px;
                         }
 
                         thead th{
-                            padding: 8px 12px;
+                            padding: 4px 8px;
                         }
 
                         tbody tr{
@@ -177,6 +170,10 @@ if ($result_id > 0):
                         }
 
                         .summary-row{
+                            font-size: 12px;
+                        }
+
+                        .highlight{
                             font-size: 12px;
                         }
                     }

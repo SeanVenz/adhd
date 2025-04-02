@@ -8,6 +8,7 @@
             button.html('<span class="loader"></span> Generowanie...').prop('disabled', true);
 
             generateFullPagePDF(button, originalText);
+
         });
 
         function generateFullPagePDF(button, originalText) {
@@ -16,6 +17,10 @@
                 button.html(originalText).prop('disabled', false);
                 return;
             }
+
+            $('#download-pdf-btn').hide();
+            $('#show-breakdown-btn').hide();
+            document.querySelector('.result-details').style.justifyContent = 'center';
 
             // Temporarily show the breakdown section so it appears in the PDF
             // $('#pdf-breakdown').show();
@@ -83,8 +88,6 @@
                 for (let i = 1; i <= pageCount; i++) {
                     doc.setPage(i);
                     doc.setFontSize(10);
-                    doc.text('Wygenerowano: ' + (new Date().toLocaleDateString()), margin, pageHeight - (margin / 2));
-                    doc.text('Strona ' + i + ' z ' + pageCount, pageWidth - 50, pageHeight - (margin / 2));
                 }
 
                 doc.save('wyniki_quizu.pdf');
@@ -92,12 +95,18 @@
                 // Hide the breakdown after PDF generation
                 // $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
+                $('#download-pdf-btn').show();
+                $('#show-breakdown-btn').show();
+                document.querySelector('.result-details').style.justifyContent = 'space-between';
             }).catch(function (error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
                 // Ensure breakdown is hidden if there was an error
                 // $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
+                $('#download-pdf-btn').show();
+                $('#show-breakdown-btn').show();
+                document.querySelector('.result-details').style.justifyContent = 'space-between';
             });
         }
     });

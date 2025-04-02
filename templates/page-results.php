@@ -262,7 +262,7 @@ if ($result_id > 0):
         </div>
 
         <!-- JavaScript for copy functionality -->
-        <script>
+        <!-- <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const copyLinkBtn = document.getElementById('copy-link-btn');
                 const shareLinkInput = document.getElementById('share-link');
@@ -325,7 +325,7 @@ if ($result_id > 0):
                     }
                 });
             });  
-        </script>
+        </script> -->
 
         <!-- <script>
             (function ($) {
