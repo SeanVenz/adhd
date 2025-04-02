@@ -40,16 +40,16 @@ if ($result_id > 0):
                         $categories = $question['multicategories'];
                         $points = intval($question['points']);
 
-                        if (in_array(5, $categories)) {
+                        if (in_array(6, $categories)) {
                             $part_a_questions[] = $question;
                             $part_a_score += $points;
-                        } elseif (in_array(6, $categories)) {
+                        } elseif (in_array(7, $categories)) {
                             $part_b_questions[] = $question;
                             $part_b_score += $points;
-                        } elseif (in_array(7, $categories)) {
+                        } elseif (in_array(8, $categories)) {
                             $part_c_questions[] = $question;
                             $part_c_score += $points;
-                        } elseif (in_array(8, $categories)) {
+                        } elseif (in_array(9, $categories)) {
                             $part_d_questions[] = $question;
                             $part_d_score += $points;
                         }
@@ -63,36 +63,14 @@ if ($result_id > 0):
                         width: 100%;
                         text-align: center;
                         margin-bottom: 0;
-                        border-radius: 24px;
                         overflow: hidden;
                     }
 
-                    /* .quiz-container table {
-                                                                                                        width: 100%;
-                                                                                                        border-collapse: separate;
-                                                                                                        border-spacing: 0;
-                                                                                                        border-radius: 24px;
-                                                                                                        overflow: hidden;
-                                                                                                    } */
-
                     .quiz-container thead tr:first-child th:first-child {
-                        /* border-top-left-radius: 24px; */
+
                         max-width: 800px !important;
                         width: 54%;
                     }
-
-                    /* .quiz-container thead tr:first-child th:last-child {
-                                                                                                        border-top-right-radius: 24px;
-                                                                                                    }
-
-                                                                                                    .quiz-container tbody tr:last-child td:first-child {
-                                                                                                        border-bottom-left-radius: 24px;
-                                                                                                    }
-
-                                                                                                    .quiz-container tbody tr:last-child td:last-child {
-                                                                                                        border-bottom-right-radius: 24px;
-                                                                                                    } */
-
 
                     .quiz-container th,
                     .quiz-container td {
@@ -125,7 +103,6 @@ if ($result_id > 0):
                         font-family: 'Manrope';
                         font-weight: 400;
                         font-size: 16px;
-
                     }
 
 
@@ -145,17 +122,75 @@ if ($result_id > 0):
                     thead th {
                         padding: 16px 24px;
                     }
+
+                    @media(max-width: 768px) {
+                        .quiz-container {
+                            table-layout: fixed;
+                            /* Prevents resizing */
+                            width: 100%;
+                            border-collapse: collapse;
+                        }
+
+                        .quiz-container tr {
+                            height: 50px;
+                            /* Fixed height */
+                        }
+
+                        .quiz-container td {
+                            height: 50px;
+                            white-space: nowrap;
+                            /* Prevents text from expanding row */
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            /* Adds "..." for overflow */
+                        }
+
+                        .quiz-container thead {
+                            height: 50px;
+                            white-space: nowrap;
+                            /* Prevents text from expanding row */
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            /* Adds "..." for overflow */
+                        }
+
+                        .question-col{
+                            padding: 12px;
+                            font-size: 12px;
+                        }
+
+                        .quiz-container td{
+                            padding: 12px;
+                        }
+
+                        thead th{
+                            padding: 8px 12px;
+                        }
+
+                        tbody tr{
+                            max-height: 92px;
+                            height: 100%;
+                        }
+
+                        .quiz-container th{
+                            font-size: 12px
+                        }
+
+                        .summary-row{
+                            font-size: 12px;
+                        }
+                    }
                 </style>
 
                 <table class="quiz-container">
                     <thead>
                         <tr>
                             <th>Pytanie</th>
-                            <th>0 - Nigdy</th>
-                            <th>1 - Rzadko</th>
-                            <th>2 - Czasami</th>
-                            <th>3 - Często</th>
-                            <th>4 - Bardzo często</th>
+                            <th>0 <span class="d-none d-md-inline"> - Nigdy</span></th>
+                            <th>1 <span class="d-none d-md-inline"> - Rzadko</span></th>
+                            <th>2 <span class="d-none d-md-inline"> - Czasami</span></th>
+                            <th>3 <span class="d-none d-md-inline"> - Często</span></th>
+                            <th>4 <span class="d-none d-md-inline"> - Bardzo często</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -194,8 +229,7 @@ if ($result_id > 0):
                         ?>
                         <!-- Part A Summary Row -->
                         <tr class="summary-row">
-                            <td style="text-align: center;">Wynik całkowity</td>
-                            <td colspan="3"></td>
+                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
                             <td style="background-color: #F9E9DD; text-align: center;">Test A</td>
                             <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_a_score; ?></td>
                         </tr>
@@ -206,8 +240,7 @@ if ($result_id > 0):
                         ?>
                         <!-- Part B Summary Row -->
                         <tr class="summary-row">
-                            <td style="text-align: center;">Wynik całkowity</td>
-                            <td colspan="3"></td>
+                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
                             <td style="background-color: #F9E9DD; text-align: center;">Test B</td>
                             <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_b_score; ?></td>
                         </tr>
@@ -218,8 +251,7 @@ if ($result_id > 0):
                         ?>
                         <!-- Part C Summary Row -->
                         <tr class="summary-row">
-                            <td style="text-align: center;">Wynik całkowity</td>
-                            <td colspan="3"></td>
+                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
                             <td style="background-color: #F9E9DD; text-align: center;">Test C</td>
                             <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_c_score; ?></td>
                         </tr>
@@ -230,8 +262,7 @@ if ($result_id > 0):
                         ?>
                         <!-- Part D Summary Row -->
                         <tr class="summary-row">
-                            <td style="text-align: center;">Wynik całkowity</td>
-                            <td colspan="3"></td>
+                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
                             <td style="background-color: #F9E9DD; text-align: center;">Test D</td>
                             <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_d_score; ?></td>
                         </tr>

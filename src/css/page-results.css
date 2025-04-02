@@ -11,7 +11,7 @@ body {
 }
 
 .quiz-result {
-  padding: 20px;
+  padding-top: 40px;
   font-family: Arial, sans-serif;
   height: 100svh;
   background-position: right;
@@ -440,7 +440,8 @@ ul li:nth-child(4) {
   }
 
   .download,
-  .share {
+  .share,
+  .breakdown {
     font-size: 12px;
     width: 100%;
   }
@@ -584,4 +585,18 @@ color: #17462B;
 
 .all-parts-container{
   margin-top: 100px;
+}
+
+@media(max-width: 768px){
+  .all-parts-container{
+    margin-top: 40px;
+  }
+
+  .quiz-result .min-width{
+    gap: 30px;
+  }
+
+  #pdf-breakdown h2{
+    font-size: 16px;
+  }
 }

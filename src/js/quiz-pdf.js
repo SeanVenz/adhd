@@ -1,6 +1,6 @@
-(function($) {
-    $(document).ready(function() {
-        $('#download-pdf-btn, #download-pdf-btn-mobile').on('touchstart click', function(e) {
+(function ($) {
+    $(document).ready(function () {
+        $('#download-pdf-btn, #download-pdf-btn-mobile').on('touchstart click', function (e) {
             e.preventDefault(); // Prevent double execution
 
             const button = $(this);
@@ -27,30 +27,72 @@
                 format: 'a4' // Standard PDF format
             });
 
-            html2canvas(document.body, {
+            const contentElement = document.querySelector('#quiz-result-container');
+
+            // A4 dimensions in mm
+            const pageWidth = 210;
+            const pageHeight = 297;
+            const margin = 10; // 10mm margin
+            const contentWidth = pageWidth - (2 * margin);
+            const contentHeight = pageHeight - (2 * margin);
+
+            html2canvas(contentElement, {
                 scale: 2, // Increase resolution
                 useCORS: true,
                 logging: false,
                 allowTaint: true,
                 scrollX: 0,
                 scrollY: 0,
-                windowWidth: document.documentElement.scrollWidth, // Ensures full width is captured
-                windowHeight: document.documentElement.scrollHeight // Ensures full height is captured
-            }).then(function(canvas) {
+                windowWidth: contentElement.scrollWidth,
+                windowHeight: contentElement.scrollHeight
+            }).then(function (canvas) {
                 const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 210; // A4 width in mm
+
+                // Calculate the scaled height based on the content width
+                const imgWidth = contentWidth;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-                doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-                doc.setFontSize(10);
-                doc.text('Generated on ' + (quizData?.date || 'Unknown Date'), 10, 285);
+                // Calculate how many pages we need
+                const totalPages = Math.ceil(imgHeight / contentHeight);
+
+                // Add content across multiple pages if needed
+                let heightLeft = imgHeight;
+                let position = 0; // Initial position
+                let currentPage = 0;
+
+                // Add image to first page
+                doc.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight, null, 'FAST');
+                heightLeft -= contentHeight;
+
+                // Add additional pages if needed
+                while (heightLeft > 0) {
+                    currentPage++;
+                    position = -(currentPage * contentHeight);
+
+                    // Add new page
+                    doc.addPage();
+
+                    // Add part of the image that belongs on this page
+                    doc.addImage(imgData, 'PNG', margin, position + margin, imgWidth, imgHeight, null, 'FAST');
+
+                    heightLeft -= contentHeight;
+                }
+
+                // Add footer with date on each page
+                const pageCount = doc.internal.getNumberOfPages();
+                for (let i = 1; i <= pageCount; i++) {
+                    doc.setPage(i);
+                    doc.setFontSize(10);
+                    doc.text('Wygenerowano: ' + (new Date().toLocaleDateString()), margin, pageHeight - (margin / 2));
+                    doc.text('Strona ' + i + ' z ' + pageCount, pageWidth - 50, pageHeight - (margin / 2));
+                }
 
                 doc.save('wyniki_quizu.pdf');
 
                 // Hide the breakdown after PDF generation
                 // $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
-            }).catch(function(error) {
+            }).catch(function (error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
                 // Ensure breakdown is hidden if there was an error
