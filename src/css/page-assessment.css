@@ -166,7 +166,7 @@ body {
   font-weight: 700 !important;
   font-size: 16px !important;
   line-height: 100% !important;
-  color: #44674f !important;
+  color: #17462B !important;
 }
 
 .qmn_pagination,
@@ -213,8 +213,7 @@ margin-bottom: 0;
   font-family: 'Manrope';
   font-weight: 400;
   font-size: 16px;
-  color: #44674F;
-  max-width: 742px;
+  color: #17462B;
 }
 
 .quiz_begin .start .list-holder {
@@ -242,8 +241,8 @@ margin-bottom: 0;
 
 .quiz_begin .start .list-holder .lists .with-svg span{
   font-family: Manrope;
-font-weight: 300;
-font-size: 14px;
+font-weight: 500;
+font-size: 18px;
 color: #44674F;
 }
 
@@ -279,8 +278,8 @@ color: #44674F;
   align-items: center;
   gap: 8px;
   font-family: 'Manrope';
-font-weight: 300;
-font-size: 14px;
+font-weight: 500;
+font-size: 18px;
 
 }
 

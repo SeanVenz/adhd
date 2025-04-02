@@ -138,9 +138,9 @@ if ($result_id > 0):
                             </div>
                             <div class="action-buttons-mobile">
                                 <button id='download-pdf-btn-mobile' class='download'>Pobierz PDF</button>
-                                <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                    data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button>
-                                <!-- <button id='show-breakdown-btn-mobile' class='breakdown'>Pokaż szczegóły</button> -->
+                                <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
+                                    data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
+                                <button id='show-breakdown-btn-mobile' class='breakdown'>Zobacz pełną analizę</button>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -160,19 +160,23 @@ if ($result_id > 0):
 
                         <div class="action-buttons">
                             <button id='download-pdf-btn' class='download'>Pobierz PDF</button>
-                            <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button>
-                            <!-- <button id='show-breakdown-btn' class='breakdown'>Pokaż szczegóły</button> -->
+                            <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
+                                data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
+                            <button id='show-breakdown-btn' class='breakdown'>Zobacz pełną analizę</button>
                         </div>
                     </div>
 
                 </div>
+                <!-- Breakdown is hidden by default and will be shown only for PDF generation -->
+                <div id="pdf-breakdown" class="offscreen" style="display: none;">
+                    <h2>Tabela Odpowiedzi Użytkownika</h2>
+                    <div class="all-parts-container">
+                        <?php get_template_part('template-parts/breakdown'); ?>
+                    </div>
+                </div>
             </div>
 
-            <!-- Breakdown is hidden by default and will be shown only for PDF generation -->
-            <div id="pdf-breakdown" class="offscreen" style="display: none;">
-                <?php get_template_part('template-parts/breakdown'); ?>
-            </div>
+
         </main>
 
         <!-- Share Modal with sahre functionality -->
@@ -229,7 +233,8 @@ if ($result_id > 0):
         </div> -->
 
         <!-- Share Modal for New Feat -->
-        <div class="modal fade modal-backdrop-blur" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal fade modal-backdrop-blur" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -243,7 +248,8 @@ if ($result_id > 0):
                     </div>
                     <div class="modal-body">
                         <h2>Opuszczenie strony wyników</h2>
-                        <span>Przejście do placówek diagnostycznych NFZ spowoduje opuszczenie tej strony i może usunąć Twoje wyniki. Czy na pewno chcesz kontynuować?</span>
+                        <span>Przejście do placówek diagnostycznych NFZ spowoduje opuszczenie tej strony i może usunąć Twoje
+                            wyniki. Czy na pewno chcesz kontynuować?</span>
 
                         <div class="d-flex justify-content-between flex-column flex-md-row btn-holder-modal">
                             <button data-bs-dismiss="modal" aria-label="Close">Pozostań na stronie</button>
@@ -372,13 +378,13 @@ if ($result_id > 0):
                             doc.save('wyniki_quizu.pdf');
 
                             // Hide the breakdown after PDF generation
-                            $('#pdf-breakdown').hide();
+                            // $('#pdf-breakdown').hide();
                             button.html(originalText).prop('disabled', false);
                         }).catch(function (error) {
                             console.error('Error generating PDF:', error);
                             alert('Could not generate PDF. Please try again later.');
                             // Ensure breakdown is hidden if there was an error
-                            $('#pdf-breakdown').hide();
+                            // $('#pdf-breakdown').hide();
                             button.html(originalText).prop('disabled', false);
                         });
                     }
@@ -391,25 +397,79 @@ if ($result_id > 0):
                 const breakdownBtn = document.getElementById('show-breakdown-btn');
                 const breakdownBtnMobile = document.querySelector('#show-breakdown-btn-mobile'); // In case there's a mobile version
                 const breakdownSection = document.getElementById('pdf-breakdown');
+                const quizResultContainer = document.querySelector('.quiz-result');
+                const bodyElement = document.body;
 
-                // Function to toggle the breakdown visibility
+                // Add animation styles to the head of the document
+                const styleElement = document.createElement('style');
+                styleElement.textContent = `
+        #pdf-breakdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease-in-out;
+            opacity: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #pdf-breakdown.open {
+            max-height: 5000px; /* Large enough to accommodate content */
+            opacity: 1;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: 1500px;
+            width: 100%;
+        }
+        
+        /* CSS classes for overflow management */
+        .overflow-visible {
+            overflow: auto !important;
+            height: auto !important;
+            background-size: cover !important;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden !important;
+        }
+    `;
+                document.head.appendChild(styleElement);
+
+                // Initialize breakdown section style
+                breakdownSection.style.display = 'flex'; // Make it initially block but max-height: 0
+                breakdownSection.classList.remove('offscreen');
+
+                // Function to toggle the breakdown visibility with animation
                 function toggleBreakdown() {
-                    // Remove the offscreen class if it exists
-                    breakdownSection.classList.remove('offscreen');
+                    // Toggle the open class which controls the animation
+                    breakdownSection.classList.toggle('open');
 
-                    if (breakdownSection.style.display === 'none' || breakdownSection.style.display === '') {
-                        breakdownSection.style.display = 'block';
-                        // Update text on both buttons if they exist
-                        breakdownBtn.textContent = 'Ukryj szczegóły';
-                        if (breakdownBtnMobile) {
-                            breakdownBtnMobile.textContent = 'Ukryj szczegóły';
-                        }
+                    // Update button text based on the current state
+                    const isOpen = breakdownSection.classList.contains('open');
+
+                    // Manage overflow on body and quiz-result container
+                    if (isOpen) {
+                        // When showing breakdown, allow overflow
+                        bodyElement.classList.add('overflow-visible');
+                        quizResultContainer.classList.add('overflow-visible');
+
+                        // Scroll to the breakdown section
+                        setTimeout(() => {
+                            breakdownSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
                     } else {
-                        breakdownSection.style.display = 'none';
-                        breakdownBtn.textContent = 'Pokaż szczegóły';
-                        if (breakdownBtnMobile) {
-                            breakdownBtnMobile.textContent = 'Pokaż szczegóły';
-                        }
+                        // When hiding breakdown, after animation is complete, restore hidden overflow
+                        setTimeout(() => {
+                            bodyElement.classList.remove('overflow-visible');
+                            quizResultContainer.classList.remove('overflow-visible');
+                        }, 500); // This matches the transition duration
+                    }
+
+                    // Update text on both buttons if they exist
+                    breakdownBtn.textContent = isOpen ? 'Ukryj szczegóły' : 'Pokaż szczegóły';
+                    if (breakdownBtnMobile) {
+                        breakdownBtnMobile.textContent = isOpen ? 'Ukryj szczegóły' : 'Pokaż szczegóły';
                     }
                 }
 
@@ -420,7 +480,7 @@ if ($result_id > 0):
                 if (breakdownBtnMobile) {
                     breakdownBtnMobile.addEventListener('click', toggleBreakdown);
                 }
-            });
+            });        
         </script>
     <?php else: ?>
         <p>Nie znaleziono wyniku testu.</p>

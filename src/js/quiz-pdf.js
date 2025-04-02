@@ -48,13 +48,13 @@
                 doc.save('wyniki_quizu.pdf');
 
                 // Hide the breakdown after PDF generation
-                $('#pdf-breakdown').hide();
+                // $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
             }).catch(function(error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
                 // Ensure breakdown is hidden if there was an error
-                $('#pdf-breakdown').hide();
+                // $('#pdf-breakdown').hide();
                 button.html(originalText).prop('disabled', false);
             });
         }
