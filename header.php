@@ -68,7 +68,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
-              if (is_page('rozpocznij-ocene')) {
+              if (is_page('rozpocznij-test')) {
                 echo 'active';
               }
               ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test">Test ASRS</a>

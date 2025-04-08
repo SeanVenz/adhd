@@ -339,7 +339,7 @@ $query = new WP_Query($args);
                 <span>Oceń swoje kompetencje i uzyskaj natychmiastową analizę wyników.</span>
             </div>
             <div class="test-holder">
-                <a href="/rozpocznij-ocene" class="take-test">Rozpocznij test</a>
+                <a href="/rozpocznij-test" class="take-test">Rozpocznij test</a>
                 <span class="desc">
                     Szanujemy Twoją prywatność. Podane przez Ciebie informacje będą wykorzystywane wyłącznie do analizy
                     wyników testu oraz dostarczenia spersonalizowanego raportu. Twoje dane będą przetwarzane zgodnie z
