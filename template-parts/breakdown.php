@@ -22,41 +22,68 @@ if ($result_id > 0):
 
             // Check if questions array exists
             if (!empty($questions) && is_array($questions)):
-                // Group questions by part (A, B, C, D)
-                $part_a_questions = [];
-                $part_b_questions = [];
-                $part_c_questions = [];
-                $part_d_questions = [];
-
-                // Calculate scores for each part
-                $part_a_score = 0;
-                $part_b_score = 0;
-                $part_c_score = 0;
-                $part_d_score = 0;
-
-                // Group questions by category
+                // Find all unique categories in the questions
+                $category_ids = [];
                 foreach ($questions as $question) {
-                    if (isset($question['multicategories']) && isset($question['points'])) {
-                        $categories = $question['multicategories'];
-                        $points = intval($question['points']);
-
-                        if (in_array(6, $categories)) {
-                            $part_a_questions[] = $question;
-                            $part_a_score += $points;
-                        } elseif (in_array(7, $categories)) {
-                            $part_b_questions[] = $question;
-                            $part_b_score += $points;
-                        } elseif (in_array(8, $categories)) {
-                            $part_c_questions[] = $question;
-                            $part_c_score += $points;
-                        } elseif (in_array(9, $categories)) {
-                            $part_d_questions[] = $question;
-                            $part_d_score += $points;
+                    if (isset($question['multicategories']) && is_array($question['multicategories'])) {
+                        foreach ($question['multicategories'] as $cat_id) {
+                            if (!isset($category_ids[$cat_id])) {
+                                $category_ids[$cat_id] = true;
+                            }
                         }
                     }
                 }
 
-                $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
+                // Get category names from database
+                $category_names = [];
+                if (!empty($category_ids)) {
+                    $cat_id_list = implode(',', array_map('intval', array_keys($category_ids)));
+                    $table_categories = $wpdb->prefix . "terms";
+                    $table_taxonomy = $wpdb->prefix . "term_taxonomy";
+                    
+                    $category_results = $wpdb->get_results("
+                        SELECT t.term_id, t.name 
+                        FROM $table_categories AS t 
+                        INNER JOIN $table_taxonomy AS tt ON t.term_id = tt.term_id
+                        WHERE tt.taxonomy = 'qsm_category' 
+                        AND t.term_id IN ($cat_id_list)
+                    ");
+                    
+                    foreach ($category_results as $cat) {
+                        $category_names[$cat->term_id] = $cat->name;
+                    }
+                }
+
+                // Initialize categories structure
+                $categories = [];
+                foreach (array_keys($category_ids) as $cat_id) {
+                    $categories[$cat_id] = [
+                        'questions' => [],
+                        'score' => 0,
+                        'name' => isset($category_names[$cat_id]) ? $category_names[$cat_id] : 'Category ' . $cat_id
+                    ];
+                }
+
+                // Group questions by category
+                foreach ($questions as $question) {
+                    if (isset($question['multicategories']) && isset($question['points'])) {
+                        $question_categories = $question['multicategories'];
+                        $points = intval($question['points']);
+
+                        foreach ($question_categories as $cat_id) {
+                            if (isset($categories[$cat_id])) {
+                                $categories[$cat_id]['questions'][] = $question;
+                                $categories[$cat_id]['score'] += $points;
+                            }
+                        }
+                    }
+                }
+
+                // Calculate total score across all categories
+                $total_score = 0;
+                foreach ($categories as $cat_data) {
+                    $total_score += $cat_data['score'];
+                }
                 ?>
                 <style>
                     .quiz-container {
@@ -67,7 +94,6 @@ if ($result_id > 0):
                     }
 
                     .quiz-container thead tr:first-child th:first-child {
-
                         max-width: 800px !important;
                         width: 54%;
                     }
@@ -103,7 +129,6 @@ if ($result_id > 0):
                         font-weight: 400;
                         font-size: 16px;
                     }
-
 
                     .summary-row {
                         background-color: #F9E9DD;
@@ -221,48 +246,35 @@ if ($result_id > 0):
                             <?php endforeach;
                         }
 
-                        // Display Part A questions
-                        display_questions($part_a_questions);
-                        ?>
-                        <!-- Part A Summary Row -->
-                        <tr class="summary-row">
-                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                            <td style="background-color: #F9E9DD; text-align: center;">Test A</td>
-                            <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_a_score; ?></td>
-                        </tr>
+                        // Get category IDs sorted in the order we want to display them
+                        $category_ids = array_keys($categories);
+                        // Sort them to ensure consistent order
+                        sort($category_ids);
 
-                        <?php
-                        // Display Part B questions
-                        display_questions($part_b_questions);
+                        // Display each category's questions and summary
+                        foreach ($category_ids as $cat_id):
+                            $cat_data = $categories[$cat_id];
+                            $cat_questions = $cat_data['questions'];
+                            
+                            // Skip if no questions for this category
+                            if (empty($cat_questions)) {
+                                continue;
+                            }
+                            
+                            // Display questions for this category
+                            display_questions($cat_questions);
+                            
+                            // Display the category summary row with actual category name
+                            ?>
+                            <!-- Category Summary Row -->
+                            <tr class="summary-row">
+                                <td style="text-align: center;" colspan="4">Wynik całkowity</td>
+                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo esc_html($cat_data['name']); ?></td>
+                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo $cat_data['score']; ?></td>
+                            </tr>
+                            <?php
+                        endforeach;
                         ?>
-                        <!-- Part B Summary Row -->
-                        <tr class="summary-row">
-                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                            <td style="background-color: #F9E9DD; text-align: center;">Test B</td>
-                            <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_b_score; ?></td>
-                        </tr>
-
-                        <?php
-                        // Display Part C questions
-                        display_questions($part_c_questions);
-                        ?>
-                        <!-- Part C Summary Row -->
-                        <tr class="summary-row">
-                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                            <td style="background-color: #F9E9DD; text-align: center;">Test C</td>
-                            <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_c_score; ?></td>
-                        </tr>
-
-                        <?php
-                        // Display Part D questions
-                        display_questions($part_d_questions);
-                        ?>
-                        <!-- Part D Summary Row -->
-                        <tr class="summary-row">
-                            <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                            <td style="background-color: #F9E9DD; text-align: center;">Test D</td>
-                            <td style="background-color: #F9E9DD; text-align: center;"><?php echo $part_d_score; ?></td>
-                        </tr>
                     </tbody>
                 </table>
 
