@@ -774,7 +774,7 @@ header ul .active {
   gap: 16px;
 }
 
-.development-holder .header-holder h5 {
+.development-holder .header-holder h3 {
   font-family: Manrope;
   font-weight: 600;
   font-size: 24px;
@@ -847,7 +847,7 @@ header ul .active {
     font-size: 28px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 20px;
   }
 
@@ -907,7 +907,7 @@ header ul .active {
     font-size: 24px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 18px;
   }
 
@@ -950,7 +950,7 @@ header ul .active {
     font-size: 20px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 20px;
   }
 
@@ -1040,7 +1040,7 @@ header ul .active {
   gap: 16px;
 }
 
-.well-being .header-holder h5 {
+.well-being .header-holder h3 {
   font-family: "Manrope";
   font-weight: 500;
   font-size: 34px;
@@ -1091,7 +1091,7 @@ header ul .active {
     gap: 32px;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 28px;
   }
 
@@ -1133,7 +1133,7 @@ header ul .active {
     gap: 24px;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 22px;
     text-align: left;
   }
@@ -1197,7 +1197,7 @@ header ul .active {
     height: 24px !important;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 18px;
     max-width: 121px;
     text-align: left;
@@ -1755,4 +1755,9 @@ color: #17462B;
   .qsm-quiz-container.qmn_quiz_container .btn {
     font-size: 12px !important;
   }
+}
+
+.lazy-bg.loaded {
+  background-size: cover;
+  background-position: center;
 }

@@ -40,7 +40,7 @@ if ($result_id > 0):
                     $cat_id_list = implode(',', array_map('intval', array_keys($category_ids)));
                     $table_categories = $wpdb->prefix . "terms";
                     $table_taxonomy = $wpdb->prefix . "term_taxonomy";
-                    
+
                     $category_results = $wpdb->get_results("
                         SELECT t.term_id, t.name 
                         FROM $table_categories AS t 
@@ -48,7 +48,7 @@ if ($result_id > 0):
                         WHERE tt.taxonomy = 'qsm_category' 
                         AND t.term_id IN ($cat_id_list)
                     ");
-                    
+
                     foreach ($category_results as $cat) {
                         $category_names[$cat->term_id] = $cat->name;
                     }
@@ -172,33 +172,33 @@ if ($result_id > 0):
                             text-overflow: ellipsis;
                         }
 
-                        .question-col{
+                        .question-col {
                             padding: 12px;
                             font-size: 12px;
                         }
 
-                        .quiz-container td{
+                        .quiz-container td {
                             padding: 6px;
                         }
 
-                        thead th{
+                        thead th {
                             padding: 4px 8px;
                         }
 
-                        tbody tr{
+                        tbody tr {
                             max-height: 92px;
                             height: 100%;
                         }
 
-                        .quiz-container th{
+                        .quiz-container th {
                             font-size: 12px
                         }
 
-                        .summary-row{
+                        .summary-row {
                             font-size: 12px;
                         }
 
-                        .highlight{
+                        .highlight {
                             font-size: 12px;
                         }
                     }
@@ -251,25 +251,32 @@ if ($result_id > 0):
                         // Sort them to ensure consistent order
                         sort($category_ids);
 
+                        // Initialize counter for naming
+                        $test_index = 0;
+
                         // Display each category's questions and summary
                         foreach ($category_ids as $cat_id):
                             $cat_data = $categories[$cat_id];
                             $cat_questions = $cat_data['questions'];
-                            
+
                             // Skip if no questions for this category
                             if (empty($cat_questions)) {
                                 continue;
                             }
-                            
+
+                            // Generate label like Test A, Test B, etc.
+                            $test_label = 'Test ' . chr(65 + $test_index); // 65 is ASCII for 'A'
+                            $test_index++;
+
                             // Display questions for this category
                             display_questions($cat_questions);
-                            
-                            // Display the category summary row with actual category name
+
+                            // Display the category summary row with custom label
                             ?>
                             <!-- Category Summary Row -->
                             <tr class="summary-row">
                                 <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo esc_html($cat_data['name']); ?></td>
+                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo esc_html($test_label); ?></td>
                                 <td style="background-color: #F9E9DD; text-align: center;"><?php echo $cat_data['score']; ?></td>
                             </tr>
                             <?php

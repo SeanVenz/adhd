@@ -27,54 +27,52 @@ endif;
 
 add_action('after_setup_theme', 'sinulan_theme_setup');
 
-function enqueue_scripts()
-{
-  // Get stylesheet versions
-  $style_version = filemtime(get_template_directory() . '/style.css');
-  $about_version = filemtime(get_template_directory() . '/src/css/page-about.css');
-  $assessment_version = filemtime(get_template_directory() . '/src/css/page-assessment.css');
-  $results_version = filemtime(get_template_directory() . '/src/css/page-results.css');
+function enqueue_scripts() {
+    // Deregister default jQuery
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', includes_url('/js/jquery/jquery.min.js'), array(), null, true);
+        wp_enqueue_script('jquery');
+    }
 
-  // Enqueue stylesheets
-  wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), $style_version);
-  if (is_page('o-nas')) {
-    wp_enqueue_style('page-about', get_template_directory_uri() . '/src/css/page-about.css', array(), $about_version);
-  }
-  if (is_page_template('templates/page-assessment.php')) {
-    wp_enqueue_style('page-assessment', get_template_directory_uri() . '/src/css/page-assessment.css', array(), $assessment_version);
-  }
-  if (is_page_template('templates/page-results.php')) {
-    wp_enqueue_style('page-results', get_template_directory_uri() . '/src/css/page-results.css', array(), $results_version);
-  }
-  wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), '5.3.2', 'all');
-  wp_enqueue_style(
-    'owl-carousel-css',
-    'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css',
-    array(),
-    '2.3.4',
-    'all'
-  );
-  wp_enqueue_style(
-    'owl-carousel-theme-css',
-    'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css',
-    array('owl-carousel-css'),
-    '2.3.4',
-    'all'
-  );
-  // Enqueue scripts
-  wp_enqueue_script('jquery');
-  wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.3.2', true);
-  wp_enqueue_script(
-    'owl-carousel-js',
-    'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',
-    array('jquery'),
-    '2.3.4',
-    true
-  );
-  wp_enqueue_script('script', get_template_directory_uri() . '/src/js/script.js', array('jquery', 'owl-carousel-js'), filemtime(get_template_directory() . '/src/js/script.js'), true);
+    // Get stylesheet versions
+    $style_version = filemtime(get_template_directory() . '/style.css');
+    $about_version = filemtime(get_template_directory() . '/src/css/page-about.css');
+    $assessment_version = filemtime(get_template_directory() . '/src/css/page-assessment.css');
+    $results_version = filemtime(get_template_directory() . '/src/css/page-results.css');
+
+    // Enqueue stylesheets
+    wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), $style_version);
+    if (is_page('o-nas')) {
+        wp_enqueue_style('page-about', get_template_directory_uri() . '/src/css/page-about.css', array(), $about_version);
+    }
+    if (is_page_template('templates/page-assessment.php')) {
+        wp_enqueue_style('page-assessment', get_template_directory_uri() . '/src/css/page-assessment.css', array(), $assessment_version);
+    }
+    if (is_page_template('templates/page-results.php')) {
+        wp_enqueue_style('page-results', get_template_directory_uri() . '/src/css/page-results.css', array(), $results_version);
+    }
+    wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), '5.3.2', 'all');
+    wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4', 'all');
+    wp_enqueue_style('owl-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array('owl-carousel-css'), '2.3.4', 'all');
+
+    // Enqueue scripts
+    wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.3.2', true);
+    wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), '2.3.4', true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/src/js/script.js', array('jquery', 'owl-carousel-js'), filemtime(get_template_directory() . '/src/js/script.js'), true);
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
+
+function add_defer_attribute($tag, $handle) {
+  // List of scripts to defer
+  $scripts_to_defer = array('bootstrap-bundle', 'owl-carousel-js', 'script');
+  if (in_array($handle, $scripts_to_defer)) {
+      return str_replace(' src', ' defer="defer" src', $tag);
+  }
+  return $tag;
+}
+add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
+
 
 function add_articles_script()
 {
@@ -311,23 +309,50 @@ function custom_quiz_result_query_vars($vars) {
 add_filter('query_vars', 'custom_quiz_result_query_vars');
 
 function enqueue_pdf_scripts() {
-  error_log('enqueue_pdf_scripts is running');
-  // Only load on quiz result pages
-      // Enqueue jQuery first
+  // Get the current request URI
+  $current_path = $_SERVER['REQUEST_URI'];
+
+  // Define the target path pattern
+  $target_pattern = '/rozpocznij-test/wynik/';
+
+  // Check if the current path contains the target pattern
+  if (strpos($current_path, $target_pattern) !== false) {
+      // Enqueue jQuery
       wp_enqueue_script('jquery');
-      
-      // Enqueue libraries in the correct order
-      wp_enqueue_script('html2canvas', 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js', array('jquery'), '1.4.1', true);
-      wp_enqueue_script('jspdf', 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', array('jquery', 'html2canvas'), '2.5.1', true);
-      
+
+      // Enqueue html2canvas
+      wp_enqueue_script(
+          'html2canvas',
+          'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
+          array('jquery'),
+          '1.4.1',
+          true
+      );
+
+      // Enqueue jsPDF
+      wp_enqueue_script(
+          'jspdf',
+          'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
+          array('jquery', 'html2canvas'),
+          '2.5.1',
+          true
+      );
+
       // Enqueue custom script
-      wp_enqueue_script('quiz-pdf-generator', get_template_directory_uri() . '/src/js/quiz-pdf.js', array('jquery', 'jspdf', 'html2canvas'), '1.0.0', true);
-      
+      wp_enqueue_script(
+          'quiz-pdf-generator',
+          get_template_directory_uri() . '/src/js/quiz-pdf.js',
+          array('jquery', 'jspdf', 'html2canvas'),
+          '1.0.0',
+          true
+      );
+
       // Pass quiz data to JavaScript
       $quiz_data = array(
           'site_name' => get_bloginfo('name'),
-          'date' => date('F j, Y')
+          'date' => date('F j, Y'),
       );
       wp_localize_script('quiz-pdf-generator', 'quizData', $quiz_data);
+  }
 }
 add_action('wp_enqueue_scripts', 'enqueue_pdf_scripts');

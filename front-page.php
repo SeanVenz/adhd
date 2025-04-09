@@ -44,8 +44,7 @@ $wellBeing = [
 <!-- MAIN SECTION -->
 <main class="front">
 
-    <section class="main-hero"
-        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp');">
+    <section class="main-hero lazy-bg" data-bg="<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp">
         <div class="min-width">
             <div class="main-hero-holder">
                 <div class="text-holder">
@@ -66,8 +65,7 @@ $wellBeing = [
                     </ul>
                 </div>
                 <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Group_87.webp" alt="Hero"
-                        loading="lazy">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Group_87.webp" alt="Hero">
                 </div>
             </div>
         </div>
@@ -125,7 +123,7 @@ $wellBeing = [
                                     </div>
                                 </div>
                                 <div class="header-holder">
-                                    <h5><?php echo htmlspecialchars($feat['header']); ?></h5>
+                                    <h3><?php echo htmlspecialchars($feat['header']); ?></h3>
                                     <p><?php echo htmlspecialchars($feat['text']); ?></p>
                                 </div>
                                 <?php if (!empty($feat['href'])): ?>
@@ -162,7 +160,7 @@ $wellBeing = [
                             <?php echo $feat['svg']; ?>
 
                             <div class="header-holder">
-                                <h5><?php echo htmlspecialchars($feat['header']); ?></h5>
+                                <h3><?php echo htmlspecialchars($feat['header']); ?></h3>
                                 <p><?php echo htmlspecialchars($feat['text']); ?></p>
                             </div>
                         </li>
@@ -279,7 +277,8 @@ $wellBeing = [
     </section>
 
     <section class="step"
-        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Take_The_Test_bg.webp');">
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Take_The_Test_bg.webp');"
+        loading="lazy">
         <div class="min-width">
             <div class="step-holder">
                 <div class="text-holder">
@@ -310,6 +309,29 @@ $wellBeing = [
 
 </main>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-bg"));
+
+        if ("IntersectionObserver" in window) {
+            let lazyBackgroundObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        let lazyBackground = entry.target;
+                        lazyBackground.style.backgroundImage = 'url(' + lazyBackground.dataset.bg + ')';
+                        lazyBackground.classList.add("loaded");
+                        lazyBackgroundObserver.unobserve(lazyBackground);
+                    }
+                });
+            });
+
+            lazyBackgrounds.forEach(function (lazyBackground) {
+                lazyBackgroundObserver.observe(lazyBackground);
+            });
+        }
+    });
+
+</script>
 
 <!-- FOOTER -->
 <?php get_footer(); ?>
