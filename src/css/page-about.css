@@ -149,7 +149,7 @@
   }
 
   .hero-holder{
-    margin-top: 185px;
+    margin-top: 85px;
   }
 
   .hero-holder h1 {
@@ -177,7 +177,7 @@
   
   .hero li{
     padding: 12px;
-    height: 172px;
+    height: 190px;
     border-radius: 14px;
   }
 
@@ -187,6 +187,15 @@
 }
 
 @media (max-width: 480px) {
+
+  .hero{
+    height: 100%;
+  }
+
+  .hero li div{
+    padding: 7px;
+  }
+
   .hero-holder h1 {
     font-size: 20px;
   }
@@ -196,7 +205,7 @@
   }
 
   .hero li{
-    height: 132px;
+    height: 145px;
     gap: 12px;
   }
 
@@ -217,7 +226,18 @@
   }
 
   .hero li {
-    padding: 16px;
+    padding: 12px;
+  }
+}
+
+@media(max-width: 400px){
+  .hero ul{
+    flex-wrap: wrap;
+  }
+
+  .hero li{
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -288,6 +308,13 @@
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
+}
+
+@media(max-width: 1400px){
+  .history-holder img{
+    width: 50%;
+    margin-left: 0px;
+  }
 }
 
 /* Mobile Responsiveness */

@@ -140,7 +140,7 @@ if ($result_id > 0):
                                 <button id='download-pdf-btn-mobile' class='download'>Pobierz PDF</button>
                                 <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
                                     data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
-                                <button id='show-breakdown-btn-mobile' class='breakdown'>Zobacz pełną analizę</button>
+                                <button id='show-breakdown-btn-mobile' class='breakdown'>Zobacz odpowiedzi</button>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -162,7 +162,7 @@ if ($result_id > 0):
                             <button id='download-pdf-btn' class='download'>Pobierz PDF</button>
                             <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
                                 data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
-                            <button id='show-breakdown-btn' class='breakdown'>Zobacz pełną analizę</button>
+                            <button id='show-breakdown-btn' class='breakdown'>Zobacz odpowiedzi</button>
                         </div>
                     </div>
 
