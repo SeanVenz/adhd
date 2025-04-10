@@ -215,6 +215,8 @@ if ($result_id > 0):
             overflow: auto !important;
             height: auto !important;
             background-size: cover !important;
+            background-image: none !important;
+            transition:  background-image 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease-in-out;
         }
         
         .overflow-hidden {
