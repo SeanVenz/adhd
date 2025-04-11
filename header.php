@@ -21,7 +21,7 @@
 <body <?php body_class(); ?>>
 
   <?php
-  $activePages = ['o-nas', 'rozpocznij-ocene', 'centrum-wiedzy'];
+  $activePages = ['o-projekcie', 'rozpocznij-ocene', 'centrum-wiedzy'];
   ?>
 
   <header class="<?php echo is_front_page() ? 'home-header' : 'default-header'; ?>">
@@ -64,8 +64,8 @@
                 główna</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page('o-nas'))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
+              <a class="nav-link <?php if (is_page('o-projekcie'))
+                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-projekcie">O projekcie</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php

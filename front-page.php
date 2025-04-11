@@ -83,16 +83,16 @@ $wellBeing = [
                             <h2>Więcej niż brak koncentracji</h2>
                             <span class="desc">ADHD wpływa na koncentrację, emocje i codzienne funkcjonowanie –
                                 jego zrozumienie to pierwszy krok.</span>
-                            <p>Wielu dorosłych zmaga się z zarządzaniem czasem, impulsywnością i trudnościami w
-                                organizacji,
-                                często nie zdając sobie sprawy, że te problemy mogą być związane z ADHD. Objawy mogą
-                                pozostaćniezauważone lub być mylnie interpretowane jako stres, prokrastynacja czy brak
-                                motywacji.Rozpoznanie tych sygnałów to pierwszy krok do zrozumienia, jak ADHD wpływa na
-                                codzienne życie,oraz do znalezienia skutecznych strategii, które pomagają odzyskać
-                                kontrolę,
-                                poprawićkoncentrację i zwiększyć ogólne samopoczucie.</p>
+                            <p>Wielu dorosłych zmaga się z problemami w zarządzaniu czasem, impulsywnością i
+                                organizacją, nie wiedząc, że mogą one wynikać z ADHD. Objawy często przyjmują formę
+                                trudności w koncentracji, prokrastynacji czy chaotycznego planowania, co wpływa na życie
+                                zawodowe i codzienne funkcjonowanie. Nieleczone ADHD może prowadzić do stresu, obniżonej
+                                samooceny i problemów emocjonalnych. Rozpoznanie tych sygnałów to pierwszy krok do
+                                poprawy – skuteczne strategie, takie jak lepsze planowanie czy techniki uważności, mogą
+                                pomóc odzyskać kontrolę. Warto także skonsultować się ze specjalistą w celu dalszej
+                                diagnozy i wsparcia.</p>
                         </div>
-                        <!-- <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Jak rozpoznać ADHD</a> -->
+                        <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Uzyskaj Wgląd</a>
                     </div>
                     <div class="img-holder">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
@@ -172,28 +172,6 @@ $wellBeing = [
 
     </section>
 
-    <section class="knowledge-center">
-        <div class="min-width">
-            <div class="knowledge-center-holder">
-                <div class="text-holder">
-                    <div class="header">
-                        <span>Poradnik ADHDowca</span>
-                        <h2>Poznaj praktyczne porady dla osób z diagnozą w kierunku ADHD</h2>
-                        <p>Skorzystaj z poradnika eksperta, psychiatry dr. Tomasza Gondka, który pomoże w zarządzaniu
-                            objawami ADHD i poprawie jakości życia, oferując skuteczne strategie terapeutyczne.</p>
-                    </div>
-                    <p class="desc">Skuteczne zarządzanie ADHD wymaga odpowiednich technik i nastawienia. Odkryj
-                        strategie opracowane przez ekspertów, wskazówki dotyczące produktywności oraz techniki regulacji
-                        emocji, które pomogą Ci lepiej funkcjonować na co dzień.</p>
-                </div>
-                <?php get_template_part('template-parts/blogs-main', null, array(
-                    'posts_per_page' => 3
-                )); ?>
-            </div>
-        </div>
-
-    </section>
-
     <section class="accordions">
         <div class="min-width">
             <div class="accordions-holder">
@@ -257,7 +235,7 @@ $wellBeing = [
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Jak bezpieczna jest Wasza platforma?
+                                Jakie są dostępne metody leczenia ADHD?
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
@@ -275,6 +253,30 @@ $wellBeing = [
             </div>
         </div>
     </section>
+
+    <section class="knowledge-center">
+        <div class="min-width">
+            <div class="knowledge-center-holder">
+                <div class="text-holder">
+                    <div class="header">
+                        <span>Centrum Wiedzy</span>
+                        <h2>Poznaj praktyczne porady dla osób z diagnozą w kierunku ADHD</h2>
+                        <p>Skorzystaj z poradnika eksperta, psychiatry dr. Tomasza Gondka, który pomoże w zarządzaniu
+                            objawami ADHD i poprawie jakości życia, oferując skuteczne strategie terapeutyczne.</p>
+                    </div>
+                    <p class="desc">Skuteczne zarządzanie ADHD wymaga odpowiednich technik i nastawienia. Odkryj
+                        strategie opracowane przez ekspertów, wskazówki dotyczące produktywności oraz techniki regulacji
+                        emocji, które pomogą Ci lepiej funkcjonować na co dzień.</p>
+                </div>
+                <?php get_template_part('template-parts/blogs-main', null, array(
+                    'posts_per_page' => 3
+                )); ?>
+            </div>
+        </div>
+
+    </section>
+
+
 
     <?php get_template_part('template-parts/step'); ?>
 

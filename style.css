@@ -513,6 +513,7 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
+  max-width: 680px;
 }
 
 .what .texts p {
@@ -603,6 +604,7 @@ header ul .active {
 
   .what .texts .desc {
     font-size: 18px; /* Reduce description size */
+    max-width: unset;
   }
 
   .what .texts p {
@@ -1014,7 +1016,7 @@ header ul .active {
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
-  max-width: 845px;
+  max-width: 880px;
 }
 
 .well-being-holder ul {

@@ -245,8 +245,8 @@ $socials = [
 
 $homeLinks = [
   ["text" => "Strona główna", "link" => "/"],
-  ["text" => "O nas", "link" => "/o-nas"],
-  ["text" => "Rozpocznij ocenę", "link" => "/rozpocznij-test"],
+  ["text" => "O projekcie", "link" => "/o-projekcie"],
+  ["text" => "Test ASRS", "link" => "/rozpocznij-test"],
   ["text" => "Centrum Wiedzy", "link" => "/centrum-wiedzy"],
 ];
 

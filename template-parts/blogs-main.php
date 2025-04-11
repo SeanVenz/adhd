@@ -74,12 +74,12 @@ $query = new WP_Query($args);
 
     .knowledge .read-more {
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 20px;
         color: #17462B;
         padding: 12px 24px;
         border: 1px solid #17462B;
-        width: max-content;
+        width: 100%;
         border-radius: 12px;
         gap: 12px;
         display: flex;

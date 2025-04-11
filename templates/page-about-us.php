@@ -10,12 +10,42 @@ get_header(); ?>
 <!-- CONSTANTS -->
 <?php
 $feature = [
-    ["header" => "Oparte na badaniachi klinicznie przetestowane", "text" => "Nasze testy zostały opracowane przez ekspertów i bazują na najnowszych badaniach nad ADHD, zapewniając dokładność, rzetelność i praktyczne zastosowanie.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#17462B" fill-rule="evenodd" d="M9.945 1.25h4.11c1.368 0 2.47 0 3.337.117c.9.12 1.658.38 2.26.981c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v8.11c0 1.367 0 2.47-.116 3.337c-.121.9-.38 1.658-.982 2.26s-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-4.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982s-.86-1.36-.981-2.26a12 12 0 0 1-.082-.943a.75.75 0 0 1-.016-.392a66 66 0 0 1-.019-2.002v-8.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.982-2.26c.601-.602 1.36-.86 2.26-.981c.866-.117 1.969-.117 3.336-.117m-5.168 17c.015.353.039.664.076.942c.099.734.28 1.122.556 1.399c.277.277.666.457 1.4.556c.755.101 1.756.103 3.191.103h4c1.436 0 2.437-.002 3.192-.103c.734-.099 1.122-.28 1.4-.556c.196-.196.343-.449.448-.841H8a.75.75 0 0 1 0-1.5h11.223c.019-.431.025-.925.026-1.5H7.898c-.978 0-1.32.006-1.582.077a2.25 2.25 0 0 0-1.54 1.422m14.473-3H7.782c-.818 0-1.376 0-1.855.128a3.8 3.8 0 0 0-1.177.548V8c0-1.435.002-2.437.103-3.192c.099-.734.28-1.122.556-1.399c.277-.277.666-.457 1.4-.556c.755-.101 1.756-.103 3.191-.103h4c1.436 0 2.437.002 3.192.103c.734.099 1.122.28 1.4.556c.276.277.456.665.555 1.4c.102.754.103 1.756.103 3.191zM7.25 7A.75.75 0 0 1 8 6.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 7m0 3.5A.75.75 0 0 1 8 9.75h5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg>'],
-    ["header" => "Łatwe w użyciui dostępne", "text" => "Zaprojektowane dla każdego – bez skomplikowanych procesów, tylko jasne, przejrzyste testy z łatwymi do zrozumienia wynikami.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><g fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M21.999 11c-.008 2.626-.086 4.044-.813 5.081a4.5 4.5 0 0 1-1.105 1.105C18.92 18 17.28 18 14 18h-4c-3.28 0-4.919 0-6.081-.814a4.5 4.5 0 0 1-1.105-1.105C2 14.92 2 13.28 2 10s0-4.919.814-6.081a4.5 4.5 0 0 1 1.105-1.105C5.08 2 6.72 2 10 2h1.5"/><path d="M14 6s1 0 2 2c0 0 3.177-5 6-6M11 15h2m-1 3v4m-4 0h8"/></g></svg>'],
-    ["header" => "Kompleksowe ispersonalizowane analizy", "text" => "Oferujemy więcej niż tylko wynik. Nasze raporty zawierają szczegółową analizę mocnych stron, wyzwań oraz rekomendacje oparte na wiedzy ekspertów, dostosowane do Twoich potrzeb.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#17462B" fill-rule="evenodd" d="M12.05 1.25h-.1c-.664 0-1.237 0-1.696.062c-.491.066-.963.215-1.345.597s-.531.854-.597 1.345c-.062.459-.062 1.032-.062 1.697v2.427a2.3 2.3 0 0 0-.75-.128h-3A2.25 2.25 0 0 0 2.25 9.5v11.75H2a.75.75 0 0 0 0 1.5h20a.75.75 0 0 0 0-1.5h-.25V14.5a2.25 2.25 0 0 0-2.25-2.25h-3q-.396.002-.75.128V4.951c0-.665 0-1.238-.062-1.697c-.066-.491-.215-.963-.597-1.345s-.853-.531-1.345-.597c-.459-.062-1.032-.062-1.697-.062m8.2 20V14.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75v6.75zm-6 0V5c0-.728-.002-1.2-.048-1.546c-.044-.325-.115-.427-.172-.484s-.159-.128-.484-.172c-.347-.046-.818-.048-1.546-.048s-1.2.002-1.546.048c-.325.044-.427.115-.484.172s-.128.159-.172.484c-.046.347-.048.818-.048 1.546v16.25zm-6 0V9.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75v11.75z" clip-rule="evenodd"/></svg>'],
-    ["header" => " Zaufane przez profesjonalistów i użytkowników", "text" => "Nasza platforma jest wykorzystywana przez rodziny, nauczycieli i specjalistów ds. zdrowia psychicznego na całym świecie jako wiarygodne narzędzie do zrozumienia i zarządzania ADHD.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#17462B" fill-rule="evenodd" d="M12.05 1.25h-.1c-.664 0-1.237 0-1.696.062c-.491.066-.963.215-1.345.597s-.531.854-.597 1.345c-.062.459-.062 1.032-.062 1.697v2.427a2.3 2.3 0 0 0-.75-.128h-3A2.25 2.25 0 0 0 2.25 9.5v11.75H2a.75.75 0 0 0 0 1.5h20a.75.75 0 0 0 0-1.5h-.25V14.5a2.25 2.25 0 0 0-2.25-2.25h-3q-.396.002-.75.128V4.951c0-.665 0-1.238-.062-1.697c-.066-.491-.215-.963-.597-1.345s-.853-.531-1.345-.597c-.459-.062-1.032-.062-1.697-.062m8.2 20V14.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75v6.75zm-6 0V5c0-.728-.002-1.2-.048-1.546c-.044-.325-.115-.427-.172-.484s-.159-.128-.484-.172c-.347-.046-.818-.048-1.546-.048s-1.2.002-1.546.048c-.325.044-.427.115-.484.172s-.128.159-.172.484c-.046.347-.048.818-.048 1.546v16.25zm-6 0V9.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75v11.75z" clip-rule="evenodd"/></svg>'],
-    ["header" => "Bezpiecznei poufne", "text" => "Twoja prywatność jest naszym priorytetem. Korzystamy z zaawansowanego szyfrowania i ścisłych zasad poufności, aby Twoje dane były zawsze bezpieczne i pod Twoją kontrolą.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><g fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 13a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4"/></g></svg>'],
-    ["header" => "Wsparcie pozakończeniu oceny", "text" => "Oferujemy wskazówki dotyczące dalszych kroków, w tym dostęp do zasobów eksperckich i praktycznych strategii, które pomogą Ci lepiej zrozumieć i zarządzać ADHD.", "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 16 16"><g fill="#17462B" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.199 2A.2.2 0 0 0 7 2.199c0 1.808-1.958 2.939-3.524 2.034a.2.2 0 0 0-.272.073l-.8 1.388a.2.2 0 0 0 .072.271c1.566.905 1.566 3.165 0 4.07a.2.2 0 0 0-.073.271l.801 1.388a.2.2 0 0 0 .272.073C5.042 10.862 7 11.993 7 13.8c0 .11.089.199.199.199H8.8c.11 0 .199-.089.199-.199c0-1.808 1.958-2.939 3.524-2.034a.2.2 0 0 0 .271-.073l.802-1.388a.2.2 0 0 0-.073-.271c-1.303-.753-1.516-2.434-.665-3.5a.75.75 0 0 1 1.172.936a.852.852 0 0 0 .243 1.265a1.7 1.7 0 0 1 .622 2.32l-.802 1.388a1.7 1.7 0 0 1-2.32.622a.85.85 0 0 0-1.274.735c0 .938-.76 1.699-1.699 1.699H7.2c-.938 0-1.699-.76-1.699-1.699a.85.85 0 0 0-1.274-.735a1.7 1.7 0 0 1-2.32-.622l-.802-1.388a1.7 1.7 0 0 1 .622-2.32a.85.85 0 0 0 0-1.472a1.7 1.7 0 0 1-.622-2.32l.801-1.388a1.7 1.7 0 0 1 2.32-.622A.85.85 0 0 0 5.5 2.2c0-.94.76-1.7 1.699-1.7H9.3a.75.75 0 1 1 0 1.5zm.8 7.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M8 11a3 3 0 1 0 0-6a3 3 0 0 0 0 6"/><path d="M12.5 5.5a2 2 0 1 0 0-4a2 2 0 0 0 0 4"/></g></svg>'],
+    [
+        "header" => "Warszawa",
+        "text" => "Centrum Zdrowia Psychicznego dla Dzieci i Młodzieży",
+        "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#17462B" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>',
+        "sub" => "ul. Nowowiejska 12, 00-665 Warszawa",
+        "number" => "(22) 123 45 67"
+    ],
+    [
+        "header" => "Kraków",
+        "text" => "Poradnia Psychologiczno-Pedagogiczna nr 2",
+        "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#17462B" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>',
+        "sub" => "ul. Stradomska 15, 31-068 Kraków",
+        "number" => "(12) 345 67 89"
+    ],
+    [
+        "header" => "Wrocław",
+        "text" => "Specjalistyczna Przychodnia Zdrowia Psychicznego",
+        "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#17462B" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>',
+        "sub" => "ul. Dobrzyńska 21/23, 50-403 Wrocław",
+        "number" => "(71) 456 78 90"
+    ],
+    [
+        "header" => "Gdańsk",
+        "text" => "Ośrodek Diagnozy i Terapii ADHD",
+        "svg" => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#17462B" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>',
+        "sub" => "ul. Kartuska 200, 80-122 Gdańsk  ",
+        "number" => "(58) 765 43 21"
+    ],
 ];
 
 $hero = [
@@ -34,7 +64,7 @@ $hero = [
             <div class="hero-holder">
                 <div class="text-holder">
                     <h1>Projekt z misją</h1>
-                    <span>Poznaj nasze zaangażowanie w poprawę jakości życia osób z ADHD</span>
+                    <span class="hero-span">Poznaj nasze zaangażowanie w poprawę jakości życia osób z ADHD</span>
                     <p>Exeltis Poland z pełnym zaangażowaniem wspiera osoby z zespołem nadpobudliwości psychoruchowej z
                         deficytem uwagi, realizując projekt popularyzujący wiedzę opartą o najnowsze wytyczne
                         diagnostyczno-terapeutyczne Polskiego Towarzystwa Psychiatrycznego. Nad jego merytoryczną stroną
@@ -59,53 +89,74 @@ $hero = [
         </div>
     </section>
 
-    <section class="history">
-        <div class="min-width">
-            <div class="history-holder">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/AboutUs_Image.webp" alt="History"
-                    loading="lazy">
-                <div class="desc">
-                    <div class="header">
-                        <span>Wiedza dla pacjenta</span>
-                        <h2>Znajdź placówkę działającą w ramach NFZ</h2>
-                        <p>Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p>
+    <div class="bg"
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Mesh_gradient_bg.webp');">
+        <section class="history">
+            <div class="min-width">
+                <div class="history-holder">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/AboutUs_Image.webp"
+                        alt="History" loading="lazy">
+                    <div class="desc">
+                        <div class="header">
+                            <span>Wiedza dla pacjenta</span>
+                            <h2>Znajdź placówkę działającą w ramach NFZ</h2>
+                            <p class="sub">Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p>
+                        </div>
+                        <p>Poniżej przedstawiamy listę wybranych placówek realizujących diagnostykę i terapię ADHD w
+                            ramach
+                            Narodowego Funduszu Zdrowia. Zestawienie to ma na celu ułatwienie pacjentom i ich rodzinom
+                            dostępu do specjalistycznej opieki w różnych regionach Polski. Warto pamiętać, że zakres
+                            oferowanych usług może się różnić w zależności od placówki, dlatego zalecamy wcześniejszy
+                            kontakt telefoniczny w celu potwierdzenia dostępności konkretnej formy wsparcia.</p>
+                        <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo
+                            zweryfikowane
+                            metodologie i nieustannie udoskonalane na podstawie najnowszych badań nad ADHD.
+                            Wykorzystując
+                            najnowocześniejsze badania i analizy danych, oferujemy rzetelną i intuicyjną platformę,
+                            która
+                            pomaga użytkownikom uzyskać precyzyjne i wartościowe informacje na temat ich wzorców
+                            poznawczych
+                            i behawioralnych.</p>
                     </div>
-                    <p>Poniżej przedstawiamy listę wybranych placówek realizujących diagnostykę i terapię ADHD w ramach
-                        Narodowego Funduszu Zdrowia. Zestawienie to ma na celu ułatwienie pacjentom i ich rodzinom
-                        dostępu do specjalistycznej opieki w różnych regionach Polski. Warto pamiętać, że zakres
-                        oferowanych usług może się różnić w zależności od placówki, dlatego zalecamy wcześniejszy
-                        kontakt telefoniczny w celu potwierdzenia dostępności konkretnej formy wsparcia.</p>
-                    <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo zweryfikowane
-                        metodologie i nieustannie udoskonalane na podstawie najnowszych badań nad ADHD. Wykorzystując
-                        najnowocześniejsze badania i analizy danych, oferujemy rzetelną i intuicyjną platformę, która
-                        pomaga użytkownikom uzyskać precyzyjne i wartościowe informacje na temat ich wzorców poznawczych
-                        i behawioralnych.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="features">
-        <div class="min-width">
-            <div class="feature-holder">
-                <div class="header">
-                    <h5>Dlaczego warto nas wybrać?</h5>
+        <section class="features">
+            <div class="min-width">
+                <div class="feature-holder">
+                    <div class="header">
+                        <h5>Znajdź placówkę działającą w ramach NFZ</h5>
+                    </div>
+                    <ul class="navigation">
+                        <?php foreach ($feature as $feat): ?>
+                            <li>
+                                <!-- <?php echo $feat['svg']; ?> -->
+                                <div class="desc">
+                                    <h6><?php echo htmlspecialchars($feat['header']); ?></h6>
+                                    <span class="sub"><?php echo htmlspecialchars($feat['text']); ?></span>
+                                    <span><?php echo htmlspecialchars($feat['sub']); ?></span>
+                                    <div class="d-flex flex-row align-items-center gap-2 feature-number">
+                                        <?php echo $feat['svg']; ?>
+                                        <span><?php echo htmlspecialchars($feat['number']); ?></span>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <div class="feature-note">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#17462B"
+                            class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                        </svg>
+                        <span>Wskazówka: Zanim odwiedzisz placówkę, zadzwoń i upewnij się,że oferują wsparcie
+                            odpowiednie do Twoich potrzeb.</span>
+                    </div>
                 </div>
-                <ul class="navigation">
-                    <?php foreach ($feature as $feat): ?>
-                        <li>
-                            <?php echo $feat['svg']; ?>
-                            <div class="desc">
-                                <h6><?php echo htmlspecialchars($feat['header']); ?></h6>
-                                <span><?php echo htmlspecialchars($feat['text']); ?></span>
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </div>
     <section class="testimonials">
         <div class="min-width">
             <div class="testimonials-holder">

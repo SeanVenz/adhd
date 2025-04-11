@@ -43,7 +43,7 @@ function enqueue_scripts() {
 
     // Enqueue stylesheets
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), $style_version);
-    if (is_page('o-nas')) {
+    if (is_page('o-projekcie')) {
         wp_enqueue_style('page-about', get_template_directory_uri() . '/src/css/page-about.css', array(), $about_version);
     }
     if (is_page_template('templates/page-assessment.php')) {
