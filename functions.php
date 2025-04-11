@@ -28,40 +28,49 @@ endif;
 add_action('after_setup_theme', 'sinulan_theme_setup');
 
 function enqueue_scripts() {
-    // Deregister default jQuery
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', includes_url('/js/jquery/jquery.min.js'), array(), null, true);
-        wp_enqueue_script('jquery');
-    }
+  // Get stylesheet versions safely
+  $style_path = get_template_directory() . '/style.css';
+  $about_path = get_template_directory() . '/src/css/page-about.css';
+  $assessment_path = get_template_directory() . '/src/css/page-assessment.css';
+  $results_path = get_template_directory() . '/src/css/page-results.css';
+  $script_path = get_template_directory() . '/src/js/script.js';
 
-    // Get stylesheet versions
-    $style_version = filemtime(get_template_directory() . '/style.css');
-    $about_version = filemtime(get_template_directory() . '/src/css/page-about.css');
-    $assessment_version = filemtime(get_template_directory() . '/src/css/page-assessment.css');
-    $results_version = filemtime(get_template_directory() . '/src/css/page-results.css');
+  // Fallback in case filemtime fails (e.g., file doesn't exist)
+  $style_version = file_exists($style_path) ? filemtime($style_path) : null;
+  $about_version = file_exists($about_path) ? filemtime($about_path) : null;
+  $assessment_version = file_exists($assessment_path) ? filemtime($assessment_path) : null;
+  $results_version = file_exists($results_path) ? filemtime($results_path) : null;
+  $script_version = file_exists($script_path) ? filemtime($script_path) : null;
 
-    // Enqueue stylesheets
-    wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), $style_version);
-    if (is_page('o-projekcie')) {
-        wp_enqueue_style('page-about', get_template_directory_uri() . '/src/css/page-about.css', array(), $about_version);
-    }
-    if (is_page_template('templates/page-assessment.php')) {
-        wp_enqueue_style('page-assessment', get_template_directory_uri() . '/src/css/page-assessment.css', array(), $assessment_version);
-    }
-    if (is_page_template('templates/page-results.php')) {
-        wp_enqueue_style('page-results', get_template_directory_uri() . '/src/css/page-results.css', array(), $results_version);
-    }
-    wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), '5.3.2', 'all');
-    wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4', 'all');
-    wp_enqueue_style('owl-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array('owl-carousel-css'), '2.3.4', 'all');
+  // Enqueue base style
+  wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), $style_version);
 
-    // Enqueue scripts
-    wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.3.2', true);
-    wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), '2.3.4', true);
-    wp_enqueue_script('script', get_template_directory_uri() . '/src/js/script.js', array('jquery', 'owl-carousel-js'), filemtime(get_template_directory() . '/src/js/script.js'), true);
+  // Conditionally enqueue page-specific styles
+  if (is_page('o-projekcie')) {
+      wp_enqueue_style('page-about', get_template_directory_uri() . '/src/css/page-about.css', array(), $about_version);
+  }
+  if (is_page_template('templates/page-assessment.php')) {
+      wp_enqueue_style('page-assessment', get_template_directory_uri() . '/src/css/page-assessment.css', array(), $assessment_version);
+  }
+  if (is_page_template('templates/page-results.php')) {
+      wp_enqueue_style('page-results', get_template_directory_uri() . '/src/css/page-results.css', array(), $results_version);
+  }
+
+  // External styles
+  wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), '5.3.2', 'all');
+  wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4', 'all');
+  wp_enqueue_style('owl-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array('owl-carousel-css'), '2.3.4', 'all');
+
+  // Scripts
+  wp_enqueue_script('jquery'); // Always enqueue WordPress' default jQuery
+
+  wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.3.2', true);
+  wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), '2.3.4', true);
+
+  wp_enqueue_script('script', get_template_directory_uri() . '/src/js/script.js', array('jquery', 'owl-carousel-js'), $script_version, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
+
 
 function add_defer_attribute($tag, $handle) {
   // List of scripts to defer

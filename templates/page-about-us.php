@@ -100,7 +100,7 @@ $hero = [
                         <div class="header">
                             <span>Wiedza dla pacjenta</span>
                             <h2>Znajdź placówkę działającą w ramach NFZ</h2>
-                            <p class="sub">Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p>
+                            <!-- <p class="sub">Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p> -->
                         </div>
                         <p>Poniżej przedstawiamy listę wybranych placówek realizujących diagnostykę i terapię ADHD w
                             ramach
@@ -108,7 +108,7 @@ $hero = [
                             dostępu do specjalistycznej opieki w różnych regionach Polski. Warto pamiętać, że zakres
                             oferowanych usług może się różnić w zależności od placówki, dlatego zalecamy wcześniejszy
                             kontakt telefoniczny w celu potwierdzenia dostępności konkretnej formy wsparcia.</p>
-                        <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo
+                        <!-- <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo
                             zweryfikowane
                             metodologie i nieustannie udoskonalane na podstawie najnowszych badań nad ADHD.
                             Wykorzystując
@@ -116,7 +116,7 @@ $hero = [
                             która
                             pomaga użytkownikom uzyskać precyzyjne i wartościowe informacje na temat ich wzorców
                             poznawczych
-                            i behawioralnych.</p>
+                            i behawioralnych.</p> -->
                     </div>
                 </div>
             </div>
