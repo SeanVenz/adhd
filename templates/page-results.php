@@ -23,10 +23,14 @@ if ($result_id > 0):
         $questions_data = isset($quiz_data[1]) ? $quiz_data[1] : array();
 
         $part_a_score = 0;
+        $part_a_totalScore = 0;
         $part_b_score = 0;
+        $part_b_totalScore = 0;
         $part_c_score = 0;
+        $part_c_totalScore = 0;
         $part_d_score = 0;
-        $total_possible_points = isset($quiz_data[21]) ? $quiz_data[21] : 0;
+        $part_d_totalScore = 0;
+        $total_possible_points = 0;
 
         // Loop through each question
         foreach ($questions_data as $question) {
@@ -37,18 +41,22 @@ if ($result_id > 0):
                 // Category 5 is Part A, Category 6 is Part B (change to 6 for category 5 when going live)
                 if (in_array(6, $categories)) {
                     $part_a_score += $points;
+                    $part_a_totalScore+=4;
                 } elseif (in_array(7, $categories)) {
                     $part_b_score += $points;
+                    $part_b_totalScore+=4;
                 } elseif (in_array(8, $categories)) {
                     $part_c_score += $points;
+                    $part_c_totalScore+=4;
                 } elseif (in_array(9, $categories)) {
                     $part_d_score += $points;
+                    $part_d_totalScore+=4;
                 }
             }
         }
 
         $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
-
+        $total_possible_points = $part_a_totalScore + $part_b_totalScore + $part_c_totalScore + $part_d_totalScore;
         // Definicja zakresów wyników i opisów
         $score_descriptions = array(
             array(
@@ -88,19 +96,23 @@ if ($result_id > 0):
         $scores = [
             'Kontrola uwagi' => [
                 'score' => $part_a_score,
-                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="#17462B" d="m17.545 15.467l-3.779-3.779a6.15 6.15 0 0 0 .898-3.21c0-3.417-2.961-6.377-6.378-6.377A6.185 6.185 0 0 0 2.1 8.287c0 3.416 2.961 6.377 6.377 6.377a6.15 6.15 0 0 0 3.115-.844l3.799 3.801a.953.953 0 0 0 1.346 0l.943-.943c.371-.371.236-.84-.135-1.211M4.004 8.287a4.28 4.28 0 0 1 4.282-4.283c2.366 0 4.474 2.107 4.474 4.474a4.284 4.284 0 0 1-4.283 4.283c-2.366-.001-4.473-2.109-4.473-4.474"/></svg>'
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="#17462B" d="m17.545 15.467l-3.779-3.779a6.15 6.15 0 0 0 .898-3.21c0-3.417-2.961-6.377-6.378-6.377A6.185 6.185 0 0 0 2.1 8.287c0 3.416 2.961 6.377 6.377 6.377a6.15 6.15 0 0 0 3.115-.844l3.799 3.801a.953.953 0 0 0 1.346 0l.943-.943c.371-.371.236-.84-.135-1.211M4.004 8.287a4.28 4.28 0 0 1 4.282-4.283c2.366 0 4.474 2.107 4.474 4.474a4.284 4.284 0 0 1-4.283 4.283c-2.366-.001-4.473-2.109-4.473-4.474"/></svg>',
+                'total' => $part_a_totalScore
             ],
             'Realizacja zadań' => [
                 'score' => $part_b_score,
-                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-linejoin="round" stroke-width="4"><path d="M24 44a19.94 19.94 0 0 0 14.142-5.858A19.94 19.94 0 0 0 44 24a19.94 19.94 0 0 0-5.858-14.142A19.94 19.94 0 0 0 24 4A19.94 19.94 0 0 0 9.858 9.858A19.94 19.94 0 0 0 4 24a19.94 19.94 0 0 0 5.858 14.142A19.94 19.94 0 0 0 24 44Z"/><path stroke-linecap="round" d="m16 24l6 6l12-12"/></g></svg>'
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-linejoin="round" stroke-width="4"><path d="M24 44a19.94 19.94 0 0 0 14.142-5.858A19.94 19.94 0 0 0 44 24a19.94 19.94 0 0 0-5.858-14.142A19.94 19.94 0 0 0 24 4A19.94 19.94 0 0 0 9.858 9.858A19.94 19.94 0 0 0 4 24a19.94 19.94 0 0 0 5.858 14.142A19.94 19.94 0 0 0 24 44Z"/><path stroke-linecap="round" d="m16 24l6 6l12-12"/></g></svg>',
+                'total' => $part_b_totalScore
             ],
             'Impulsywność i decyzje' => [
                 'score' => $part_c_score,
-                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.748 3.572c.059-.503-.532-.777-.835-.388L4.111 13.197c-.258.33-.038.832.364.832h6.988c.285 0 .506.267.47.57l-.68 5.83c-.06.502.53.776.834.387l7.802-10.013c.258-.33.038-.832-.364-.832h-6.988c-.285 0-.506-.267-.47-.57z"/></svg>'
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#17462B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.748 3.572c.059-.503-.532-.777-.835-.388L4.111 13.197c-.258.33-.038.832.364.832h6.988c.285 0 .506.267.47.57l-.68 5.83c-.06.502.53.776.834.387l7.802-10.013c.258-.33.038-.832-.364-.832h-6.988c-.285 0-.506-.267-.47-.57z"/></svg>',
+                'total' => $part_c_totalScore
             ],
             'Organizacja i planowanie' => [
                 'score' => $part_d_score,
-                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-width="4"><path stroke-linejoin="round" d="M5 19h38v22a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zm0-9a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v9H5z"/><path stroke-linecap="round" stroke-linejoin="round" d="m16 31l6 6l12-12"/><path stroke-linecap="round" d="M16 5v8m16-8v8"/></g></svg>'
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="none" stroke="#17462B" stroke-width="4"><path stroke-linejoin="round" d="M5 19h38v22a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zm0-9a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v9H5z"/><path stroke-linecap="round" stroke-linejoin="round" d="m16 31l6 6l12-12"/><path stroke-linecap="round" d="M16 5v8m16-8v8"/></g></svg>',
+                'total' => $part_d_totalScore
             ]
         ];
         ?>
@@ -128,7 +140,7 @@ if ($result_id > 0):
                         <div class="result-description">
                             <span>Twój wynik</span>
                             <div class="total">
-                                <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z 80</p>
+                                <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z <?php echo esc_html($total_possible_points); ?></p>
                             </div>
                             <div class="desc">
                                 <h2>
@@ -152,7 +164,7 @@ if ($result_id > 0):
                                 <?php foreach ($scores as $label => $data): ?>
                                     <li>
                                         <span><?php echo $data['icon']; ?><?php echo esc_html($label); ?></span>
-                                        <span><?php echo esc_html($data['score']); ?> / 20</span>
+                                        <span><?php echo esc_html($data['score']); ?> / <?php echo esc_html($data['total']); ?></span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
