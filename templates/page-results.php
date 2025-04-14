@@ -128,7 +128,7 @@ if ($result_id > 0):
                     </svg></a>
                 <div class="text-holder">
                     <h1>Podstawowa punktacja</h1>
-                    <span>Obiektywna ocena nasilenia objawów ADHD (Skala 0-80)</span>
+                    <span>Obiektywna ocena nasilenia objawów ADHD (Skala 0-<?php echo esc_html($total_possible_points); ?>)</span>
                 </div>
                 <div>
 
