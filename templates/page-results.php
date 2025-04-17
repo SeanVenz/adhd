@@ -78,12 +78,8 @@ if ($result_id > 0):
                     $user_answer = reset($question['user_answer']);
                 }
                 
-                // Log the found answer
-                error_log("Question ID: $question_id, User Answer: " . print_r($user_answer, true));
-                
-                // Log shaded responses for the question
+                // Log the found answer                     // Log shaded responses for the question
                 $shaded = $shaded_responses[$question_id] ?? [];
-                error_log("Shaded Responses for Question $question_id: " . implode(', ', $shaded));
                 
                 // Check if the user's answer is in the shaded responses
                 if (in_array($user_answer, $shaded)) {
