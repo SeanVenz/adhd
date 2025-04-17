@@ -39,7 +39,7 @@ if ($result_id > 0):
                 $points = intval($question['points']);
 
                 // Category 5 is Part A, Category 6 is Part B (change to 6 for category 5 when going live)
-                if (in_array(6, $categories)) {
+                if (in_array(5, $categories)) {
                     $part_a_score += $points;
                     $part_a_totalScore+=4;
                 } elseif (in_array(7, $categories)) {
@@ -54,6 +54,48 @@ if ($result_id > 0):
                 }
             }
         }
+
+        $shaded_responses = [
+            1 => ['Czasami', 'Często', 'Bardzo często'],
+            2 => ['Czasami', 'Często', 'Bardzo często'],
+            3 => ['Czasami', 'Często', 'Bardzo często'],
+            4 => ['Często', 'Bardzo często'],
+            5 => ['Często', 'Bardzo często'],
+            6 => ['Często', 'Bardzo często'],
+        ];
+        
+        $shaded_count = 0;
+
+        foreach ($questions_data as $question) {
+            //change to 6 when going live
+            if (isset($question['multicategories']) && in_array(5, $question['multicategories'])) {
+                $question_id = intval($question['id']);
+                
+                // Get the user answer from the associative array
+                $user_answer = '';
+                if (isset($question['user_answer']) && is_array($question['user_answer'])) {
+                    // Get the first value from the user_answer array
+                    $user_answer = reset($question['user_answer']);
+                }
+                
+                // Log the found answer
+                error_log("Question ID: $question_id, User Answer: " . print_r($user_answer, true));
+                
+                // Log shaded responses for the question
+                $shaded = $shaded_responses[$question_id] ?? [];
+                error_log("Shaded Responses for Question $question_id: " . implode(', ', $shaded));
+                
+                // Check if the user's answer is in the shaded responses
+                if (in_array($user_answer, $shaded)) {
+                    $shaded_count++;
+                }
+            }
+        }
+        
+        
+        // Determine the result
+        $part_a_result = ($shaded_count >= 4) ? 'Positive' : 'Negative';
+        
 
         $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
         $total_possible_points = $part_a_totalScore + $part_b_totalScore + $part_c_totalScore + $part_d_totalScore;
@@ -141,6 +183,8 @@ if ($result_id > 0):
                             <span>Twój wynik</span>
                             <div class="total">
                                 <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z <?php echo esc_html($total_possible_points); ?></p>
+                                <p class="total-score"><span><?php echo esc_html($part_a_result); ?></span></p>
+
                             </div>
                             <div class="desc">
                                 <h2>
