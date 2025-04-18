@@ -217,7 +217,6 @@ if ($result_id > 0):
                     </thead>
                     <tbody>
                         <?php
-                        // Function to display questions with a running question number
                         function display_questions($questions, &$question_counter)
                         {
                             foreach ($questions as $question): ?>
@@ -229,7 +228,6 @@ if ($result_id > 0):
                                         ?>
                                     </td>
                                     <?php
-                                    // Determine the user's answer.
                                     if (isset($question['user_answer'])) {
                                         if (is_array($question['user_answer']) && !empty($question['user_answer'])) {
                                             $user_answer = function_exists('array_key_first') ? array_key_first($question['user_answer']) : reset(array_keys($question['user_answer']));
@@ -249,15 +247,17 @@ if ($result_id > 0):
                             <?php endforeach;
                         }
 
-                        // Get category IDs sorted in the order we want to display them
                         $category_ids = array_keys($categories);
                         sort($category_ids);
 
                         $test_index = 0;
-                        $question_counter = 1; // Start question numbering from 1
-        
-                        // Display each category's questions and summary
+                        $question_counter = 1;
+                        $totals = [];
+
                         foreach ($category_ids as $cat_id):
+                            // if ($test_index >= 2)
+                            //     break; // Limit to 2 parts only (A and B)
+        
                             $cat_data = $categories[$cat_id];
                             $cat_questions = $cat_data['questions'];
 
@@ -265,23 +265,30 @@ if ($result_id > 0):
                                 continue;
                             }
 
-                            $test_label = 'Test ' . chr(65 + $test_index);
+                            $test_label = 'Część ' . chr(65 + $test_index);
+                            $totals[] = [
+                                'label' => $test_label,
+                                'score' => $cat_data['score']
+                            ];
                             $test_index++;
 
-                            display_questions($cat_questions, $question_counter);
+                            echo "<tr class='category-heading'><td colspan='6' style='font-weight: bold; background-color: #F9E9DD;'>{$test_label}</td></tr>";
 
-                            ?>
-                            <!-- Category Summary Row -->
-                            <tr class="summary-row">
-                                <td style="text-align: center;" colspan="4">Wynik całkowity</td>
-                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo esc_html($test_label); ?></td>
-                                <td style="background-color: #F9E9DD; text-align: center;"><?php echo $cat_data['score']; ?></td>
-                            </tr>
-                            <?php
+                            display_questions($cat_questions, $question_counter);
                         endforeach;
                         ?>
                     </tbody>
+                    <tfoot>
+                        <tr class="table-footer" style="background-color: #F9E9DD;">
+                            <td colspan="2" style="text-align: center; font-weight: bold;">Podsumowanie</td>
+                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[0]['label'] ?? ''); ?> <?php echo esc_html($totals[0]['score'] ?? ''); ?></td>
+                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[1]['label'] ?? ''); ?> <?php echo esc_html($totals[1]['score'] ?? ''); ?></td>
+                        </tr>
+                    </tfoot>
                 </table>
+
+
+
 
                 <?php
             else:

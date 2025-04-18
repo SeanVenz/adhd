@@ -815,3 +815,45 @@ color: #17462B;
     padding: 12px;
   }
 }
+
+.category-heading{
+  text-align: left;
+  font-family: 'Manrope';
+  font-weight: 600;
+  font-size: 16px;
+  color: #17462B;
+}
+
+.category-heading td{
+  padding: 24px;
+}
+
+.table-footer{
+  text-align: left;
+  font-family: 'Manrope';
+  font-weight: 600;
+  font-size: 16px;
+  color: #17462B;
+}
+
+.table-footer td{
+  padding: 24px;
+}
+
+.table-footer td:first-child{
+  font-size: 24px;
+}
+
+@media(max-width:768px){
+  .category-heading{
+    font-size: 12px;
+  }
+
+  .table-footer td:first-child{
+    font-size: 12px;
+  }
+
+  .table-footer{
+    font-size: 12px;
+  }
+}
