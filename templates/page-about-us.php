@@ -89,7 +89,7 @@ $hero = [
         </div>
     </section>
 
-    <div class="bg"
+    <!-- <div class="bg"
         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Mesh_gradient_bg.webp');">
         <section class="history">
             <div class="min-width">
@@ -100,7 +100,7 @@ $hero = [
                         <div class="header">
                             <span>Wiedza dla pacjenta</span>
                             <h2>Znajdź placówkę działającą w ramach NFZ</h2>
-                            <!-- <p class="sub">Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p> -->
+                            <p class="sub">Naukowe Wnioski dla Jasności, Pewności i Lepszego Samopoczucia</p>
                         </div>
                         <p>Poniżej przedstawiamy listę wybranych placówek realizujących diagnostykę i terapię ADHD w
                             ramach
@@ -108,7 +108,7 @@ $hero = [
                             dostępu do specjalistycznej opieki w różnych regionach Polski. Warto pamiętać, że zakres
                             oferowanych usług może się różnić w zależności od placówki, dlatego zalecamy wcześniejszy
                             kontakt telefoniczny w celu potwierdzenia dostępności konkretnej formy wsparcia.</p>
-                        <!-- <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo
+                        <p>Aby zapewnić najwyższe standardy, nasze testy są opracowywane w oparciu o naukowo
                             zweryfikowane
                             metodologie i nieustannie udoskonalane na podstawie najnowszych badań nad ADHD.
                             Wykorzystując
@@ -116,7 +116,7 @@ $hero = [
                             która
                             pomaga użytkownikom uzyskać precyzyjne i wartościowe informacje na temat ich wzorców
                             poznawczych
-                            i behawioralnych.</p> -->
+                            i behawioralnych.</p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ $hero = [
                     <ul class="navigation">
                         <?php foreach ($feature as $feat): ?>
                             <li>
-                                <!-- <?php echo $feat['svg']; ?> -->
+                                <?php echo $feat['svg']; ?>
                                 <div class="desc">
                                     <h6><?php echo htmlspecialchars($feat['header']); ?></h6>
                                     <span class="sub"><?php echo htmlspecialchars($feat['text']); ?></span>
@@ -156,8 +156,8 @@ $hero = [
                 </div>
             </div>
         </section>
-    </div>
-    <section class="testimonials">
+    </div> -->
+    <!-- <section class="testimonials">
         <div class="min-width">
             <div class="testimonials-holder">
                 <div class="text-holder">
@@ -171,7 +171,7 @@ $hero = [
                 <?php echo do_shortcode('[testimonial_view id="1"]'); ?>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <?php get_template_part('template-parts/step'); ?>
 
