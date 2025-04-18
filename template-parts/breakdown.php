@@ -217,13 +217,16 @@ if ($result_id > 0):
                     </thead>
                     <tbody>
                         <?php
-                        // Function to display questions
-                        function display_questions($questions)
+                        // Function to display questions with a running question number
+                        function display_questions($questions, &$question_counter)
                         {
                             foreach ($questions as $question): ?>
                                 <tr>
                                     <td class="question-col">
-                                        <?php echo esc_html($question['question_title'] ?? 'No question title'); ?>
+                                        <?php
+                                        $question_number = $question_counter++;
+                                        echo esc_html("{$question_number}. " . ($question['question_title'] ?? 'No question title'));
+                                        ?>
                                     </td>
                                     <?php
                                     // Determine the user's answer.
@@ -248,30 +251,25 @@ if ($result_id > 0):
 
                         // Get category IDs sorted in the order we want to display them
                         $category_ids = array_keys($categories);
-                        // Sort them to ensure consistent order
                         sort($category_ids);
 
-                        // Initialize counter for naming
                         $test_index = 0;
-
+                        $question_counter = 1; // Start question numbering from 1
+        
                         // Display each category's questions and summary
                         foreach ($category_ids as $cat_id):
                             $cat_data = $categories[$cat_id];
                             $cat_questions = $cat_data['questions'];
 
-                            // Skip if no questions for this category
                             if (empty($cat_questions)) {
                                 continue;
                             }
 
-                            // Generate label like Test A, Test B, etc.
-                            $test_label = 'Test ' . chr(65 + $test_index); // 65 is ASCII for 'A'
+                            $test_label = 'Test ' . chr(65 + $test_index);
                             $test_index++;
 
-                            // Display questions for this category
-                            display_questions($cat_questions);
+                            display_questions($cat_questions, $question_counter);
 
-                            // Display the category summary row with custom label
                             ?>
                             <!-- Category Summary Row -->
                             <tr class="summary-row">
