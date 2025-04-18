@@ -289,11 +289,11 @@ if ($result_id > 0):
                     <thead>
                         <tr>
                             <th>Pytanie</th>
-                            <th>0 <span class="d-none d-md-inline"> - Nigdy</span></th>
-                            <th>1 <span class="d-none d-md-inline"> - Rzadko</span></th>
-                            <th>2 <span class="d-none d-md-inline"> - Czasami</span></th>
-                            <th>3 <span class="d-none d-md-inline"> - Często</span></th>
-                            <th>4 <span class="d-none d-md-inline"> - Bardzo często</span></th>
+                            <th><span class="d-none d-md-inline">Nigdy</span></th>
+                            <th><span class="d-none d-md-inline">Rzadko</span></th>
+                            <th><span class="d-none d-md-inline">Czasami</span></th>
+                            <th><span class="d-none d-md-inline">Często</span></th>
+                            <th><span class="d-none d-md-inline">Bardzo często</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -362,11 +362,16 @@ if ($result_id > 0):
                     <tfoot>
                         <tr class="table-footer" style="background-color: #F9E9DD;">
                             <td colspan="2" style="text-align: center; font-weight: bold;">Podsumowanie</td>
-                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[0]['label'] ?? ''); ?>
-                                <?php echo esc_html($totals[0]['score'] ?? ''); ?></td>
-                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[1]['label'] ?? ''); ?>
-                                <?php echo esc_html($totals[1]['score'] ?? ''); ?></td>
+                            <td colspan="2" style="text-align: center;">
+                                <?php echo esc_html($totals[0]['label'] ?? ''); ?>
+                                <span class="custom-underline"><?php echo esc_html($totals[0]['score'] ?? ''); ?></span>
+                            </td>
+                            <td colspan="2" style="text-align: center;">
+                                <?php echo esc_html($totals[1]['label'] ?? ''); ?>
+                                <span class="custom-underline"><?php echo esc_html($totals[1]['score'] ?? ''); ?></span>
+                            </td>
                         </tr>
+
                     </tfoot>
                 </table>
 
