@@ -1,5 +1,58 @@
 <?php
 
+// function check_shaded_responses($questions, $shaded_responses)
+// {
+//     $shaded_response_count = 0;
+//     $log = [];
+
+//     // Map text responses to numerical values
+//     $response_values = [
+//         'Nigdy' => 0,
+//         'Rzadko' => 1,
+//         'Czasami' => 2,
+//         'Często' => 3,
+//         'Bardzo często' => 4
+//     ];
+
+//     // Process only the first 6 questions (Part A)
+//     for ($i = 1; $i <= 6; $i++) {
+//         if (!isset($questions[$i - 1])) {
+//             continue; // Skip if question doesn't exist
+//         }
+
+//         $question = $questions[$i - 1];
+
+//         // Get user's answer
+//         $user_answer_value = null;
+//         if (isset($question['user_answer'])) {
+//             if (is_array($question['user_answer']) && !empty($question['user_answer'])) {
+//                 $user_answer = function_exists('array_key_first') ?
+//                     array_key_first($question['user_answer']) :
+//                     reset(array_keys($question['user_answer']));
+//                 $user_answer_value = intval($user_answer);
+//             } else {
+//                 $user_answer_value = intval($question['user_answer']);
+//             }
+//         }
+
+//         // Get the text representation of the answer
+//         $user_answer_text = array_search($user_answer_value, $response_values);
+
+//         // Check if the answer is in the shaded responses for this question
+//         if (isset($shaded_responses[$i]) && in_array($user_answer_text, $shaded_responses[$i])) {
+//             $shaded_response_count++;
+//             $log[] = "Question {$i}: '{$user_answer_text}' is a shaded response. Count is now {$shaded_response_count}.";
+//         } else {
+//             $log[] = "Question {$i}: '{$user_answer_text}' is NOT a shaded response. Count remains {$shaded_response_count}.";
+//         }
+//     }
+
+//     return [
+//         'count' => $shaded_response_count,
+//         'log' => $log
+//     ];
+// }
+
 $url = $_SERVER['REQUEST_URI'];
 $segments = explode('/', rtrim($url, '/'));
 $result_id = intval(end($segments));
@@ -83,6 +136,34 @@ if ($result_id > 0):
                 $total_score = 0;
                 foreach ($categories as $cat_data) {
                     $total_score += $cat_data['score'];
+                }
+
+                // Define shaded responses criteria
+                $shaded_responses = [
+                    1 => ['Czasami', 'Często', 'Bardzo często'],
+                    2 => ['Czasami', 'Często', 'Bardzo często'],
+                    3 => ['Czasami', 'Często', 'Bardzo często'],
+                    4 => ['Często', 'Bardzo często'],
+                    5 => ['Często', 'Bardzo często'],
+                    6 => ['Często', 'Bardzo często'],
+                ];
+
+                // Get Part A questions
+                $part_a_questions = [];
+                $category_ids_array = array_keys($categories);
+                sort($category_ids_array);
+                if (!empty($category_ids_array)) {
+                    $first_category_id = $category_ids_array[0]; // First category is Part A
+                    $part_a_questions = array_slice($categories[$first_category_id]['questions'], 0, 6);
+                }
+
+                // Check shaded responses
+                $shaded_result = check_shaded_responses($part_a_questions, $shaded_responses);
+                $shaded_response_count = $shaded_result['count'];
+
+                // Log the results if needed
+                foreach ($shaded_result['log'] as $log_entry) {
+                    error_log($log_entry);
                 }
                 ?>
                 <style>
@@ -281,8 +362,10 @@ if ($result_id > 0):
                     <tfoot>
                         <tr class="table-footer" style="background-color: #F9E9DD;">
                             <td colspan="2" style="text-align: center; font-weight: bold;">Podsumowanie</td>
-                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[0]['label'] ?? ''); ?> <?php echo esc_html($totals[0]['score'] ?? ''); ?></td>
-                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[1]['label'] ?? ''); ?> <?php echo esc_html($totals[1]['score'] ?? ''); ?></td>
+                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[0]['label'] ?? ''); ?>
+                                <?php echo esc_html($totals[0]['score'] ?? ''); ?></td>
+                            <td colspan="2" style="text-align: center;"><?php echo esc_html($totals[1]['label'] ?? ''); ?>
+                                <?php echo esc_html($totals[1]['score'] ?? ''); ?></td>
                         </tr>
                     </tfoot>
                 </table>

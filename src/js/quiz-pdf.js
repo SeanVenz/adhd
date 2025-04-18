@@ -101,7 +101,6 @@
                 $('#download-pdf-btn-mobile').show();
                 document.querySelector('.result-score-holder').style.justifyContent = 'space-between';
             }).catch(function (error) {
-                console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
                 // Ensure breakdown is hidden if there was an error
                 // $('#pdf-breakdown').hide();
