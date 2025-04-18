@@ -41,16 +41,16 @@ if ($result_id > 0):
                 // Category 5 is Part A, Category 6 is Part B (change to 6 for category 5 when going live)
                 if (in_array(5, $categories)) {
                     $part_a_score += $points;
-                    $part_a_totalScore+=4;
+                    $part_a_totalScore += 4;
                 } elseif (in_array(7, $categories)) {
                     $part_b_score += $points;
-                    $part_b_totalScore+=4;
+                    $part_b_totalScore += 4;
                 } elseif (in_array(8, $categories)) {
                     $part_c_score += $points;
-                    $part_c_totalScore+=4;
+                    $part_c_totalScore += 4;
                 } elseif (in_array(9, $categories)) {
                     $part_d_score += $points;
-                    $part_d_totalScore+=4;
+                    $part_d_totalScore += 4;
                 }
             }
         }
@@ -63,35 +63,35 @@ if ($result_id > 0):
             5 => ['Często', 'Bardzo często'],
             6 => ['Często', 'Bardzo często'],
         ];
-        
+
         $shaded_count = 0;
 
         foreach ($questions_data as $question) {
             //change to 6 when going live
             if (isset($question['multicategories']) && in_array(5, $question['multicategories'])) {
                 $question_id = intval($question['id']);
-                
+
                 // Get the user answer from the associative array
                 $user_answer = '';
                 if (isset($question['user_answer']) && is_array($question['user_answer'])) {
                     // Get the first value from the user_answer array
                     $user_answer = reset($question['user_answer']);
                 }
-                
+
                 // Log the found answer                     // Log shaded responses for the question
                 $shaded = $shaded_responses[$question_id] ?? [];
-                
+
                 // Check if the user's answer is in the shaded responses
                 if (in_array($user_answer, $shaded)) {
                     $shaded_count++;
                 }
             }
         }
-        
-        
+
+
         // Determine the result
         $part_a_result = ($shaded_count >= 4) ? 'Positive' : 'Negative';
-        
+
 
         $total_score = $part_a_score + $part_b_score + $part_c_score + $part_d_score;
         $total_possible_points = $part_a_totalScore + $part_b_totalScore + $part_c_totalScore + $part_d_totalScore;
@@ -153,10 +153,45 @@ if ($result_id > 0):
                 'total' => $part_d_totalScore
             ]
         ];
+
+        $positive = [
+            'first' => [
+                'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
+                'title' => 'Co to oznacza',
+                'description' => 'Twoje odpowiedzi wskazują na objawy często związane z ADHD. Mogą one obejmować wzorce nieuwagi, niepokoju lub impulsywności.'
+            ],
+            'second' => [
+                'title' => 'Pozytywny',
+                'description' => 'Zidentyfikowano oznaki ADHD'
+            ],
+            'third' => [
+                'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
+                'title' => 'Co możesz zrobić dalej',
+                'description' => 'Rozważ rozmowę z licencjonowanym specjalistą zdrowia psychicznego w celu pełnej oceny. Dostępne są wsparcie, wskazówki i opcje leczenia — a wiele osób odczuwa ulgę dzięki odpowiedniej opiece.'
+            ],
+        ];
+
+        $negative = [
+            'first' => [
+                'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
+                'title' => 'Co to oznacza',
+                'description' => 'Twoje odpowiedzi nie wskazują na wyraźne oznaki ADHD. Wszelkie rozproszenia, których doświadczasz, mieszczą się w typowym zakresie.'
+            ],
+            'second' => [
+                'title' => 'Negatywny',
+                'description' => 'ADHD nie jest wskazane'
+            ],
+            'third' => [
+                'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
+                'title' => 'Chcesz Porozmawiać z Kimś?',
+                'description' => 'Jeśli wciąż masz pytania lub obawy, rozmowa z licencjonowanym specjalistą zdrowia psychicznego pomoże Ci zgłębić temat.'
+            ],
+        ];
+
+        $array_to_be_used = $part_a_result == 'Positive' ? $positive : $negative;
         ?>
 
-        <main class='quiz-result' id='quiz-result-container'
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/home/Test_assesstment_BG.webp');">
+        <main class='quiz-result' id='quiz-result-container'>
             <div class="header-holder">
                 <a href="<?php echo get_home_url(); ?>"> <span>Dom</span> <svg xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" fill="#17462B" class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -165,8 +200,9 @@ if ($result_id > 0):
                         <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
                     </svg></a>
                 <div class="text-holder">
-                    <h1>Podstawowa punktacja</h1>
-                    <span>Obiektywna ocena nasilenia objawów ADHD (Skala 0-<?php echo esc_html($total_possible_points); ?>)</span>
+                    <h1>Wynik Twojej Oceny ADHD</h1>
+                    <span>Ta ocena opiera się na Twoich odpowiedziach — wyróżnia to co działa dobrze, oraz na czym warto skupić
+                        uwagę.</span>
                 </div>
                 <div>
 
@@ -174,52 +210,31 @@ if ($result_id > 0):
             </div>
             <div class="min-width">
                 <div class="result-score-holder">
-                    <?php if ($current_description): ?>
-                        <div class="result-description">
-                            <span>Twój wynik</span>
-                            <div class="total">
-                                <p class="total-score"><span><?php echo esc_html($total_score); ?></span> z <?php echo esc_html($total_possible_points); ?></p>
-                                <p class="total-score"><span><?php echo esc_html($part_a_result); ?></span></p>
-
-                            </div>
-                            <div class="desc">
-                                <h2>
-                                    <?php echo esc_html($current_description['title']); ?>
-                                </h2>
-                                <p><?php echo esc_html($current_description['description']); ?></p>
-                            </div>
-                            <div class="action-buttons-mobile">
-                                <button id='download-pdf-btn-mobile' class='download'>Pobierz PDF</button>
-                                <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                    data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
-                                <button id='show-breakdown-btn-mobile' class='breakdown'>Zobacz odpowiedzi</button>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-
-                    <div class="result-details">
-                        <div class="header">
-                            <p><strong>Podsumowanie</strong></p>
-                            <ul>
-                                <?php foreach ($scores as $label => $data): ?>
-                                    <li>
-                                        <span><?php echo $data['icon']; ?><?php echo esc_html($label); ?></span>
-                                        <span><?php echo esc_html($data['score']); ?> / <?php echo esc_html($data['total']); ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button id='download-pdf-btn' class='download'>Pobierz PDF</button>
-                            <!-- <button id='share-result-btn' class='share' data-bs-toggle="modal"
-                                data-bs-target="#shareModal">Placówki diagnostyczne NFZ</button> -->
-                            <button id='show-breakdown-btn' class='breakdown'>Zobacz odpowiedzi</button>
-                        </div>
+                    <div class="print-header">
+                        <p>Oto Co Zauważyliśmy</p>
+                        <button id='download-pdf-btn' class='download'>Pobierz PDF</button>
                     </div>
 
+                    <ul class="result-descriptions">
+                        <?php foreach ($array_to_be_used as $key => $value): ?>
+                            <li <?php echo $part_a_result == 'Positive' ? 'class="positive"' : 'class="negative"'; ?>>
+                                <div class="result-description-icon">
+                                    <?php echo $value['svg']; ?>
+                                </div>
+                                <div class="result-description-text">
+                                    <p class="result-description-title"><?php echo $value['title']; ?></p>
+                                    <p class="result-description-description"><?php echo $value['description']; ?></p>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <div class=" d-flex flex-column gap-4">
+                    <button id='show-breakdown-btn' class='breakdown'>Zobacz Szczegółową Ocenę</button>
+                    <button id='download-pdf-btn-mobile' class='download mobile'>Pobierz PDF</button>
+                    </div>
                 </div>
-                <!-- Breakdown is hidden by default and will be shown only for PDF generation -->
+
+                <!-- Breakdown section -->
                 <div id="pdf-breakdown" class="offscreen" style="display: none;">
                     <h2>Tabela Odpowiedzi Użytkownika</h2>
                     <div class="all-parts-container">
@@ -308,9 +323,9 @@ if ($result_id > 0):
                     }
 
                     // Update text on both buttons if they exist
-                    breakdownBtn.textContent = isOpen ? 'Ukryj szczegóły' : 'Pokaż szczegóły';
+                    breakdownBtn.textContent = isOpen ? 'Ukryj szczegóły' : 'Zobacz Szczegółową Ocenę';
                     if (breakdownBtnMobile) {
-                        breakdownBtnMobile.textContent = isOpen ? 'Ukryj szczegóły' : 'Pokaż szczegóły';
+                        breakdownBtnMobile.textContent = isOpen ? 'Ukryj szczegóły' : 'Zobacz Szczegółową Ocenę';
                     }
                 }
 

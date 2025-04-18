@@ -19,8 +19,9 @@
             }
 
             $('#download-pdf-btn').hide();
+            $('#download-pdf-btn-mobile').hide();
             $('#show-breakdown-btn').hide();
-            document.querySelector('.result-details').style.justifyContent = 'center';
+            document.querySelector('.result-score-holder').style.justifyContent = 'center';
 
             // Temporarily show the breakdown section so it appears in the PDF
             // $('#pdf-breakdown').show();
@@ -97,7 +98,8 @@
                 button.html(originalText).prop('disabled', false);
                 $('#download-pdf-btn').show();
                 $('#show-breakdown-btn').show();
-                document.querySelector('.result-details').style.justifyContent = 'space-between';
+                $('#download-pdf-btn-mobile').show();
+                document.querySelector('.result-score-holder').style.justifyContent = 'space-between';
             }).catch(function (error) {
                 console.error('Error generating PDF:', error);
                 alert('Could not generate PDF. Please try again later.');
@@ -106,7 +108,8 @@
                 button.html(originalText).prop('disabled', false);
                 $('#download-pdf-btn').show();
                 $('#show-breakdown-btn').show();
-                document.querySelector('.result-details').style.justifyContent = 'space-between';
+                $('#download-pdf-btn-mobile').show();
+                document.querySelector('.result-score-holder').style.justifyContent = 'space-between';
             });
         }
     });
