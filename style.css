@@ -1763,3 +1763,15 @@ color: #17462B;
   background-size: cover;
   background-position: center;
 }
+
+#mlw_error_message,
+#mlw_error_message_bottom{
+  display: none !important;
+}
+
+.qsm-quiz-form .qmn_error .qmn_radio_answers, .qsm-quiz-form .qmn_error .qmn_check_answers, .qsm-quiz-form .qmn_error .qmn_accept_answers{
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+

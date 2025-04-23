@@ -116,3 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const el = document.querySelector('.pages_count');
+    if (el) {
+      el.textContent = el.textContent.replace(/\bof\b/, 'z');
+    }
+  });
+</script>
+
+
