@@ -135,57 +135,66 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
 
 <script>
   function updateNextButtonState() {
-    // 1) Only operate on *real* quiz pages (skip the intro)
+    // Find the currently visible quiz page (skip fully hidden ones)
     const currentPage = document.querySelector(".qsm-page:not([style*='display: none'])");
     if (!currentPage) {
       console.log("No visible .qsm-page found.");
       return;
     }
-    // if this visible page is still the intro, bail out
+
+    // If it’s still the intro, bail out
     if (currentPage.classList.contains('quiz_begin')) {
-      console.log("Intro page — skipping counter‑hide logic.");
+      console.log("Intro page — skipping logic.");
       return;
     }
 
-    // 2) Grab radios, next button and your counters
-    const options  = currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio");
-    const nextBtn  = document.querySelector("a.mlw_custom_next");
-    const counters = document.querySelectorAll("p.counter-quiz");
-
+    // Grab next button and test its visibility
+    const nextBtn = document.querySelector("a.mlw_custom_next");
     if (!nextBtn) {
-      console.log("❌ Next button not found.");
+      console.log("❌ Next button not in DOM.");
       return;
     }
 
-    // 3) Hide counters whenever Next exists on a *real* quiz page
-    counters.forEach(c => c.style.display = 'none');
-    console.log("ℹ️ Counters hidden");
+    // Only proceed if Next is actually visible
+    if (nextBtn.offsetParent === null) {
+      console.log("Next button is hidden — waiting.");
+      return;
+    }
 
-    // 4) Enable/disable Next based on selection
-    const checkSelection = () => {
+    console.log("✅ Next button is now visible — running logic.");
+
+    // Hide all counters once Next shows up
+    document.querySelectorAll("p.counter-quiz").forEach(c => {
+      c.style.display = 'none';
+    });
+
+    // Now wire up enable/disable based on selection
+    const options = currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio");
+
+    // Utility to toggle Next
+    function checkSelection() {
       const any = Array.from(options).some(o => o.checked);
       if (any) {
         nextBtn.classList.remove("qsm-disabled");
         nextBtn.style.pointerEvents = "auto";
-        console.log("✔ Option selected — Next enabled");
+        console.log("✔ Option chosen — Next enabled");
       } else {
         nextBtn.classList.add("qsm-disabled");
         nextBtn.style.pointerEvents = "none";
-        console.log("❌ No option — Next disabled");
+        console.log("❌ No choice — Next disabled");
       }
-    };
+    }
 
-    // initially disable
+    // Start disabled
     nextBtn.classList.add("qsm-disabled");
     nextBtn.style.pointerEvents = "none";
 
-    // tear down old listeners by replacing the inputs
+    // Tear down old listeners
     options.forEach(opt => {
-      const parent = opt.parentNode;
-      parent.replaceChild(opt.cloneNode(true), opt);
+      opt.parentNode.replaceChild(opt.cloneNode(true), opt);
     });
 
-    // re‑query and bind
+    // Re-query and bind once-only listeners
     currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio").forEach(opt => {
       opt.addEventListener("change", checkSelection, { once: true });
 
@@ -202,23 +211,30 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
       }
     });
 
-    // initial check
+    // Final initial check
     checkSelection();
   }
 
   window.addEventListener("load", () => {
+    // Kick off after a short delay
     setTimeout(updateNextButtonState, 300);
 
-    const obs = new MutationObserver(muts => {
-      for (const m of muts) {
-        if (m.type === 'childList') {
+    // Watch for DOM changes (e.g. QSM revealing the Next button)
+    new MutationObserver(mutations => {
+      for (let m of mutations) {
+        if (m.type === 'childList' || m.type === 'attributes') {
+          // try again shortly after any change
           setTimeout(updateNextButtonState, 100);
           break;
         }
       }
+    }).observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,      // catch style changes
+      attributeFilter: ['style', 'class']
     });
-
-    obs.observe(document.body, { childList: true, subtree: true });
   });
 </script>
+
 
