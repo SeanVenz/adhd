@@ -135,35 +135,37 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
 
 <script>
   function updateNextButtonState() {
+
+    // Show all counters initially (if any)
+    document.querySelectorAll("p.counter-quiz").forEach(c => {
+      c.style.display = 'block';
+    });
+
     // Find the currently visible quiz page (skip fully hidden ones)
     const currentPage = document.querySelector(".qsm-page:not([style*='display: none'])");
     if (!currentPage) {
-      console.log("No visible .qsm-page found.");
       return;
     }
 
     // If it’s still the intro, bail out
     if (currentPage.classList.contains('quiz_begin')) {
-      console.log("Intro page — skipping logic.");
       return;
     }
 
     // Grab next button and test its visibility
     const nextBtn = document.querySelector("a.mlw_custom_next");
     if (!nextBtn) {
-      console.log("❌ Next button not in DOM.");
       return;
     }
+
+    const prevBtn = document.querySelector("a.mlw_previous");
 
     // Only proceed if Next is actually visible
-    if (nextBtn.offsetParent === null) {
-      console.log("Next button is hidden — waiting.");
+    if (prevBtn.offsetParent === null) {
       return;
     }
 
-    console.log("✅ Next button is now visible — running logic.");
-
-    // Hide all counters once Next shows up
+    // Immediately hide all counters when the Next button is found and visible
     document.querySelectorAll("p.counter-quiz").forEach(c => {
       c.style.display = 'none';
     });
@@ -171,59 +173,57 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
     // Now wire up enable/disable based on selection
     const options = currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio");
 
-    // Utility to toggle Next
+    // Utility to toggle Next button state
     function checkSelection() {
       const any = Array.from(options).some(o => o.checked);
       if (any) {
         nextBtn.classList.remove("qsm-disabled");
         nextBtn.style.pointerEvents = "auto";
-        console.log("✔ Option chosen — Next enabled");
       } else {
         nextBtn.classList.add("qsm-disabled");
         nextBtn.style.pointerEvents = "none";
-        console.log("❌ No choice — Next disabled");
       }
     }
 
-    // Start disabled
+    // Start disabled state
     nextBtn.classList.add("qsm-disabled");
     nextBtn.style.pointerEvents = "none";
 
-    // Tear down old listeners
+    // Tear down old listeners by replacing radio options
     options.forEach(opt => {
       opt.parentNode.replaceChild(opt.cloneNode(true), opt);
     });
 
-    // Re-query and bind once-only listeners
+    // Re-query and bind listeners for each radio option
     currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio").forEach(opt => {
       opt.addEventListener("change", checkSelection, { once: true });
 
       if (opt.id) {
         const lbl = currentPage.querySelector(`label[for="${opt.id}"]`);
         if (lbl) {
-          lbl.addEventListener("click", () => setTimeout(checkSelection, 50), { once: true });
+          lbl.addEventListener("click", checkSelection, { once: true });
         }
       }
 
       const wrap = opt.closest('.qmn_mc_answer_wrap');
       if (wrap) {
-        wrap.addEventListener("click", () => setTimeout(checkSelection, 50), { once: true });
+        wrap.addEventListener("click", checkSelection, { once: true });
       }
     });
 
-    // Final initial check
+    // Final initial check for Next button state
     checkSelection();
   }
 
   window.addEventListener("load", () => {
-    // Kick off after a short delay
+    // Kick off after a short delay to allow initial page setup
     setTimeout(updateNextButtonState, 300);
 
     // Watch for DOM changes (e.g. QSM revealing the Next button)
     new MutationObserver(mutations => {
       for (let m of mutations) {
         if (m.type === 'childList' || m.type === 'attributes') {
-          // try again shortly after any change
+          // Try again shortly after any change
           setTimeout(updateNextButtonState, 100);
           break;
         }
@@ -231,10 +231,11 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
     }).observe(document.body, {
       childList: true,
       subtree: true,
-      attributes: true,      // catch style changes
+      attributes: true,      // Catch style changes
       attributeFilter: ['style', 'class']
     });
   });
 </script>
+
 
 
