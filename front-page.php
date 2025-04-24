@@ -92,18 +92,18 @@ $wellBeing = [
                                 pomóc odzyskać kontrolę. Warto także skonsultować się ze specjalistą w celu dalszej
                                 diagnozy i wsparcia.</p>
                         </div>
-                        <a href="<?php echo get_home_url(); ?>/centrum-wiedzy">Jak zdiagnozować?</a>
+                        <a href="#development">Jak zdiagnozować?</a>
                     </div>
-                    <div class="img-holder">
+                    <!-- <div class="img-holder">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
                             alt="Hero" loading="lazy">
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
         </section>
 
-        <section class="development">
+        <section class="development" id="development">
             <div class="min-width">
                 <div class="development-holder">
                     <div class="text-holder">
@@ -206,12 +206,15 @@ $wellBeing = [
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Samodzielna diagnostyka ADHD może być trudna, jednak warto obserwować pewne
-                                charakterystyczne objawy, takie jak trudności z koncentracją, impulsywność, nadmierną
-                                aktywność czy problemy z organizacją codziennych zadań. Zachęcamy do wykonania testu
-                                przesiewowego ASRS, który dostępny jest na naszej stronie. Ważne jest jednak, aby jego
-                                wyniki skonsultować się z lekarzem specjalistą, który przeprowadzi szczegółową diagnozę,
-                                opartą na strukturyzowanych kwestionariuszach i wywiadzie klinicznym.
+                                Leczenie ADHD obejmuje zarówno terapię farmakologiczną, jak i psychoterapię. <br><br>
+                                Najczęściej stosowane leki to substancje takie jak metylofenidat, które pomagają w
+                                kontroli objawów. Nowoczesne formy tych leków (np. OROS) dostępne są w różnych dawkach –
+                                18 mg, 27 mg, 36 mg – i zapewniają stabilne uwalnianie substancji przez cały dzień, co
+                                zwiększa komfort pacjenta.
+                                Psychoterapia – szczególnie terapia behawioralno-poznawcza (CBT) – pomaga pacjentom
+                                radzić sobie z codziennymi trudnościami i lepiej zarządzać objawami ADHD.
+                                W zależności od indywidualnych potrzeb, lekarz dobiera najlepsze podejście
+                                terapeutyczne, łącząc różne metody leczenia.
                             </div>
                         </div>
                     </div>
@@ -243,9 +246,12 @@ $wellBeing = [
                             <div class="accordion-body">
                                 Leczenie ADHD obejmuje zarówno terapie farmakologiczne, jak i psychoterapię. Najczęściej
                                 stosowanymi lekami są substancje, takie jak metylofenidat, które pomagają w kontroli
-                                objawów. Psychoterapia, w szczególności terapia behawioralno-poznawcza (CBT), pomaga
-                                pacjentom radzić sobie z codziennymi trudnościami i lepiej zarządzać objawami. W
-                                zależności od potrzeb, lekarz dobiera indywidualnie najlepsze podejście terapeutyczne.
+                                objawów. Nowoczesne formy o kontrolowanym uwalnianiu, np. OROS, dostępne w dawkach m.in.
+                                18 mg, 27 mg i 36 mg, zapewniają pacjentowi komfort dzięki stabilnemu uwalnianiu
+                                substancji przez cały dzień. Psychoterapia, w szczególności terapia
+                                behawioralno-poznawcza (CBT), pomaga pacjentom radzić sobie z codziennymi trudnościami i
+                                lepiej zarządzać objawami. W zależności od potrzeb, lekarz dobiera indywidualnie
+                                najlepsze podejście terapeutyczne.
                             </div>
                         </div>
                     </div>
@@ -261,7 +267,10 @@ $wellBeing = [
                     <div class="header">
                         <span>Centrum Wiedzy</span>
                         <h2>Poznaj praktyczne porady dla osób z diagnozą w kierunku ADHD</h2>
-                        <p>Skorzystaj z poradnika przygotowanego przez ekspertów: dr. Tomasza Gondka, założyciela Sekcji Kształcenia Specjalizacyjnego Polskiego Towarzystwa Psychiatrycznego i lek. Agaty Todzi-Kornaś. Pomoże on w zarządzaniu objawami ADHD i poprawie jakości życia, oferując skuteczne strategie terapeutyczne.</p>
+                        <p>Skorzystaj z poradnika przygotowanego przez ekspertów: dr. Tomasza Gondka, założyciela Sekcji
+                            Kształcenia Specjalizacyjnego Polskiego Towarzystwa Psychiatrycznego i lek. Agaty
+                            Todzi-Kornaś. Pomoże on w zarządzaniu objawami ADHD i poprawie jakości życia, oferując
+                            skuteczne strategie terapeutyczne.</p>
                     </div>
                     <p class="desc">Skuteczne zarządzanie ADHD wymaga odpowiednich technik i nastawienia. Odkryj
                         strategie opracowane przez ekspertów, wskazówki dotyczące produktywności oraz techniki regulacji

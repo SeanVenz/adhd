@@ -478,6 +478,9 @@ header ul .active {
   display: flex;
   flex-direction: column;
   gap: 54px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .what .texts {
@@ -492,6 +495,7 @@ header ul .active {
   font-weight: 400;
   font-size: 16px;
   color: #17462b;
+  text-align: center;
 }
 
 .what .img-holder img {
@@ -513,7 +517,8 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
-  max-width: 680px;
+  /* max-width: 680px; */
+  text-align: center;
 }
 
 .what .texts p {
@@ -539,7 +544,7 @@ header ul .active {
 
 
 
-@media (max-width: 1324px) {
+/* @media (max-width: 1324px) {
   .what .text-holder {
     max-width: 600px;
   }
@@ -547,9 +552,9 @@ header ul .active {
   .what .img-holder img {
     max-width: 600px;
   }
-}
+} */
 
-@media (max-width: 1250px) {
+/* @media (max-width: 1250px) {
   .what .text-holder {
     max-width: 500px;
   }
@@ -567,7 +572,7 @@ header ul .active {
   .what .img-holder img {
     max-width: 600px;
   }
-}
+} */
 
 @media (max-width: 1024px) {
   .what .what-holder {
@@ -1748,6 +1753,7 @@ color: #17462B;
 
 .qsm-quiz-container{
   width: 100%;
+  /* margin-top: -50px !important; */
 }
 
 @media (max-width: 480px) {
@@ -1775,3 +1781,8 @@ color: #17462B;
   padding: 0 !important;
 }
 
+@media (max-width:768px){
+  .qsm-quiz-container{
+    margin-top: 0 !important;
+  }
+}

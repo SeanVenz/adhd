@@ -275,7 +275,7 @@ $contact = [
       <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
         </a>
-        <div class="socials-holder">
+        <!-- <div class="socials-holder">
           <span>Media społecznościowe:</span>
           <ul class="socials">
             <?php foreach ($socials as $social): ?>
@@ -286,7 +286,7 @@ $contact = [
               </li>
             <?php endforeach; ?>
           </ul>
-        </div>
+        </div> -->
       </div>
       <div class="ql-holder">
         <ul class="navigation">

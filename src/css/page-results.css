@@ -519,7 +519,7 @@ color: #17462B;
 @media (max-width: 768px) {
   .quiz-result {
     padding: 0;
-    height: 100svh;
+    height: 100%;
     padding-top: 20px;
   }
 
