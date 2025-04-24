@@ -9,7 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <!-- CookieYes -->
+  <script id="cookieyes" type="text/javascript"
+    src="https://cdn-cookieyes.com/client_data/39c0dd27d0929bd7a9ba64b2/script.js"></script>
+  <!-- End CookieYes -->
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TJZ9KD8W');
+  </script>
+  <!-- End Google Tag Manager -->
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   </noscript>
@@ -19,8 +42,15 @@
 
 <body <?php body_class(); ?>>
 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJZ9KD8W" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <?php
-  $activePages = ['o-nas', 'rozpocznij-ocene', 'centrum-wiedzy'];
+  $activePages = ['o-projekcie', 'rozpocznij-ocene', 'centrum-wiedzy'];
   ?>
 
   <header class="<?php echo is_front_page() ? 'home-header' : 'default-header'; ?>">
@@ -47,14 +77,15 @@
           </svg>
         </button>
         <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-md-none">
-              <a class="nav-link <?php if (is_front_page())
-                echo 'active'; ?>" aria-current="page" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>">ADHD</a>
+              <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>"
+                aria-label="Go to Home Page">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())
@@ -62,12 +93,13 @@
                 główna</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if (is_page('o-nas'))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-nas">O nas</a>
+              <a class="nav-link <?php if (is_page('o-projekcie'))
+                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-projekcie">O
+                projekcie</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
-              if (is_page('rozpocznij-ocene')) {
+              if (is_page('rozpocznij-test')) {
                 echo 'active';
               }
               ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test">Test ASRS</a>

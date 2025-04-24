@@ -1,10 +1,10 @@
 /*
-Theme Name: ADHD
+Theme Name: ADHD5
 Theme URI: 
 Author: odysse
 Author URI: https://odysse.io/
 Description: Wordpress Theme
-Version: 1.0
+Version: 5.0
 */
 
 /* VARIABLES */
@@ -113,9 +113,12 @@ header .container {
   padding: 0;
 }
 
-.navbar-brand {
-  color: #17462b !important;
+@media(max-width: 480px){
+  .navbar-brand img {
+    width: 60%;
+  }
 }
+
 
 .burger-icon .cls-1 {
   fill: #17462b !important;
@@ -469,19 +472,22 @@ header ul .active {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  max-width: 850px;
 }
 
 .what .text-holder {
   display: flex;
   flex-direction: column;
   gap: 54px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .what .texts {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 850px;
 }
 
 .what .texts .header {
@@ -511,6 +517,7 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
+  /* max-width: 680px; */
   text-align: center;
 }
 
@@ -545,9 +552,9 @@ header ul .active {
   .what .img-holder img {
     max-width: 600px;
   }
-}
+} */
 
-@media (max-width: 1250px) {
+/* @media (max-width: 1250px) {
   .what .text-holder {
     max-width: 500px;
   }
@@ -602,6 +609,7 @@ header ul .active {
 
   .what .texts .desc {
     font-size: 18px; /* Reduce description size */
+    max-width: unset;
   }
 
   .what .texts p {
@@ -773,7 +781,7 @@ header ul .active {
   gap: 16px;
 }
 
-.development-holder .header-holder h5 {
+.development-holder .header-holder h3 {
   font-family: Manrope;
   font-weight: 600;
   font-size: 24px;
@@ -846,7 +854,7 @@ header ul .active {
     font-size: 28px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 20px;
   }
 
@@ -906,7 +914,7 @@ header ul .active {
     font-size: 24px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 18px;
   }
 
@@ -949,7 +957,7 @@ header ul .active {
     font-size: 20px;
   }
 
-  .development-holder .header-holder h5 {
+  .development-holder .header-holder h3 {
     font-size: 20px;
   }
 
@@ -1013,7 +1021,7 @@ header ul .active {
   font-weight: 400;
   font-size: 16px;
   color: #44674f;
-  max-width: 845px;
+  max-width: 880px;
 }
 
 .well-being-holder ul {
@@ -1039,7 +1047,7 @@ header ul .active {
   gap: 16px;
 }
 
-.well-being .header-holder h5 {
+.well-being .header-holder h3 {
   font-family: "Manrope";
   font-weight: 500;
   font-size: 34px;
@@ -1090,7 +1098,7 @@ header ul .active {
     gap: 32px;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 28px;
   }
 
@@ -1132,7 +1140,7 @@ header ul .active {
     gap: 24px;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 22px;
     text-align: left;
   }
@@ -1196,7 +1204,7 @@ header ul .active {
     height: 24px !important;
   }
 
-  .well-being .header-holder h5 {
+  .well-being .header-holder h3 {
     font-size: 18px;
     max-width: 121px;
     text-align: left;
@@ -1238,7 +1246,7 @@ header ul .active {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 947px;
+  max-width: 1388px;
   width: 100%;
   align-self: flex-start;
 }
@@ -1268,6 +1276,7 @@ header ul .active {
   font-weight: 400;
   font-size: 20px;
   color: #17462b;
+  max-width: 80%;
 }
 
 .knowledge-center-holder .text-holder .desc {
@@ -1304,6 +1313,7 @@ header ul .active {
 
   .knowledge-center-holder .header p {
     font-size: 16px;
+    max-width: unset;
     margin-bottom: 0;
   }
 
@@ -1741,11 +1751,38 @@ color: #17462B;
   max-width: 375px;
 }
 
+.qsm-quiz-container{
+  width: 100%;
+  /* margin-top: -50px !important; */
+}
+
 @media (max-width: 480px) {
 
   .qmn_btn,
   .qsm-quiz-container.qmn_quiz_container .qmn_btn,
   .qsm-quiz-container.qmn_quiz_container .btn {
     font-size: 12px !important;
+  }
+}
+
+.lazy-bg.loaded {
+  background-size: cover;
+  background-position: center;
+}
+
+#mlw_error_message,
+#mlw_error_message_bottom{
+  display: none !important;
+}
+
+.qsm-quiz-form .qmn_error .qmn_radio_answers, .qsm-quiz-form .qmn_error .qmn_check_answers, .qsm-quiz-form .qmn_error .qmn_accept_answers{
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+@media (max-width:768px){
+  .qsm-quiz-container{
+    margin-top: 0 !important;
   }
 }

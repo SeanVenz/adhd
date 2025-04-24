@@ -167,107 +167,107 @@ $query = new WP_Query($args);
     }
 
     /* 📌 Responsive Styles */
-@media (max-width: 1024px) {
+    @media (max-width: 1024px) {
 
-    .articles{
-        margin-top: 100px;
+        .articles {
+            margin-top: 100px;
+        }
+
+        .articles h1 {
+            font-size: 40px;
+            width: 100%;
+        }
+
+        .articles span {
+            width: 100%;
+        }
+
+        .article-item {
+            max-width: 100%;
+        }
+
+        .article-item img {
+            max-height: 400px;
+        }
     }
 
-    .articles h1 {
-        font-size: 40px;
-        width: 100%;
+    @media (max-width: 768px) {
+
+        .articles {
+            margin-top: 100px;
+            padding-bottom: 64px
+        }
+
+        .article-item .text-desc {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step .take-test {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        .articles h1 {
+            font-size: 32px;
+        }
+
+        .articles span {
+            font-size: 14px;
+        }
+
+        .article-item {
+            padding: 16px;
+            gap: 16px;
+            border-radius: 14px;
+        }
+
+        .article-item img {
+            max-height: 300px;
+        }
+
+        .article-item .text-desc a {
+            font-size: 20px;
+        }
+
+        .article-item .see-more {
+            font-size: 16px;
+            justify-content: space-between;
+        }
     }
 
-    .articles span{
-        width: 100%;
-    }
+    @media (max-width: 480px) {
+        .articles h1 {
+            font-size: 28px;
+        }
 
-    .article-item {
-        max-width: 100%;
-    }
+        .articles span {
+            font-size: 12px;
+        }
 
-    .article-item img {
-        max-height: 400px;
-    }
-}
+        .article-item {
+            padding: 12px;
+            gap: 12px;
+        }
 
-@media (max-width: 768px) {
+        .article-item img {
+            max-height: 250px;
+        }
 
-    .articles{
-        margin-top: 100px;
-        padding-bottom: 64px
-    }
+        .article-item .text-desc a {
+            font-size: 16px;
+        }
 
-    .article-item .text-desc{
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
+        .article-item .text-desc p {
+            font-size: 14px;
+        }
 
-    .step .take-test{
-        width: 100%;
-        font-size: 12px;
+        .article-item .see-more {
+            font-size: 14px;
+            width: 100%;
+        }
     }
-
-    .articles h1 {
-        font-size: 32px;
-    }
-
-    .articles span {
-        font-size: 14px;
-    }
-
-    .article-item {
-        padding: 16px;
-        gap: 16px;
-        border-radius: 14px;
-    }
-
-    .article-item img {
-        max-height: 300px;
-    }
-
-    .article-item .text-desc a {
-        font-size: 20px;
-    }
-
-    .article-item .see-more {
-        font-size: 16px;
-        justify-content: space-between;
-    }
-}
-
-@media (max-width: 480px) {
-    .articles h1 {
-        font-size: 28px;
-    }
-
-    .articles span {
-        font-size: 12px;
-    }
-
-    .article-item {
-        padding: 12px;
-        gap: 12px;
-    }
-
-    .article-item img {
-        max-height: 250px;
-    }
-
-    .article-item .text-desc a {
-        font-size: 16px;
-    }
-
-    .article-item .text-desc p {
-        font-size: 14px;
-    }
-
-    .article-item .see-more {
-        font-size: 14px;
-        width: 100%;
-    }
-}
 </style>
 
 <section class="articles">
@@ -288,8 +288,8 @@ $query = new WP_Query($args);
                         <div class="article-item">
                             <div class="img-container">
                                 <?php if (has_post_thumbnail()): ?>
-                                    <a href="<?php the_permalink(); ?>"><img
-                                            src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+                                    <a href="<?php the_permalink(); ?>">
+                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
                                             alt="<?php the_title(); ?>"></a>
                                 <?php else: ?>
                                     <a href="<?php the_permalink(); ?>"><img
@@ -322,8 +322,8 @@ $query = new WP_Query($args);
             <div class="">
                 <h2>Kompendium wiedzy</h2>
                 <?php get_template_part('template-parts/blogs', null, array(
-        'posts_per_page' => -1
-    )); ?>
+                    'posts_per_page' => -1
+                )); ?>
             </div>
         </div>
 
@@ -339,7 +339,7 @@ $query = new WP_Query($args);
                 <span>Oceń swoje kompetencje i uzyskaj natychmiastową analizę wyników.</span>
             </div>
             <div class="test-holder">
-                <a href="/rozpocznij-ocene" class="take-test">Rozpocznij test</a>
+                <a href="/rozpocznij-test" class="take-test">Rozpocznij test</a>
                 <span class="desc">
                     Szanujemy Twoją prywatność. Podane przez Ciebie informacje będą wykorzystywane wyłącznie do analizy
                     wyników testu oraz dostarczenia spersonalizowanego raportu. Twoje dane będą przetwarzane zgodnie z
