@@ -299,7 +299,7 @@ $contact = [
             </li>
           <?php endforeach; ?>
         </ul>
-        <ul class="navigation">
+        <!-- <ul class="navigation">
           <h3>Skontaktuj się z nami</h3>
           <?php foreach ($contact as $cont): ?>
             <li>
@@ -308,7 +308,7 @@ $contact = [
               </a>
             </li>
           <?php endforeach; ?>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>

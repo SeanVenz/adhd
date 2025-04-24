@@ -18,7 +18,7 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
 
 <section class="quiz">
   <div class="header-holder">
-    <a href="<?php echo get_home_url(); ?>"> <span>Dom</span> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+    <a href="<?php echo get_home_url(); ?>"> <span>Powrót</span> <svg xmlns="http://www.w3.org/2000/svg" width="24"
         height="24" fill="#17462B" class="bi bi-house-fill" viewBox="0 0 16 16">
         <path
           d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
@@ -98,17 +98,19 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
     });
 
     function updatePageIndicator() {
-      let pageIndicator = document.querySelector(".pages_count"); // Adjust class if needed
-      if (pageIndicator) {
-        let text = pageIndicator.innerText.trim(); // Get current text
-        let match = text.match(/(\d+)\s*out\s*of\s*(\d+)/i); // Match "X out of Y"
+      // Select all elements with the .pages_count class
+      const pageIndicators = document.querySelectorAll('.pages_count');
+
+      pageIndicators.forEach(el => {
+        const text = el.innerText.trim();
+        const match = text.match(/(\d+)\s*out\s*of\s*(\d+)/i);
 
         if (match) {
-          let currentPage = match[1];
-          let totalPages = match[2];
-          pageIndicator.innerText = `${currentPage} of ${totalPages}`; // Change format dynamically
+          const currentPage = match[1];
+          const totalPages = match[2];
+          el.innerText = `${currentPage} z ${totalPages}`;
         }
-      }
+      });
     }
 
     // Run immediately on page load
@@ -236,6 +238,3 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
     });
   });
 </script>
-
-
-

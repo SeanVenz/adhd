@@ -46,7 +46,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   color: #44674f;
-  margin-right: 70px;
+  margin-right: 150px;
   margin-bottom: 0;
 }
 
@@ -63,6 +63,7 @@ body {
   padding: 12px 24px;
   border: 1px solid #17462b;
   border-radius: 12px;
+  gap: 12px;
 }
 
 .short-code {

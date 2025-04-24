@@ -176,7 +176,7 @@ if ($result_id > 0):
                 $positive = [
                     'first' => [
                         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
-                        'title' => 'Co to oznacza',
+                        'title' => 'Co to oznacza?',
                         'description' => 'Twoje odpowiedzi wskazują na objawy często związane z ADHD. Mogą one obejmować wzorce nieuwagi, niepokoju lub impulsywności.'
                     ],
                     'second' => [
@@ -185,25 +185,25 @@ if ($result_id > 0):
                     ],
                     'third' => [
                         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
-                        'title' => 'Co możesz zrobić dalej',
-                        'description' => 'Rozważ rozmowę z licencjonowanym specjalistą zdrowia psychicznego w celu pełnej oceny. Dostępne są wsparcie, wskazówki i opcje leczenia — a wiele osób odczuwa ulgę dzięki odpowiedniej opiece.'
+                        'title' => 'Kontynuuj proces diagnostyczny',
+                        'description' => 'Zapoznaj się z informacjami zamieszczonymi na naszej stronie. Publikujemy pełen proces diagnostyczny rekomendowany przez Polskie Towarzystwo Psychiatryczne'
                     ],
                 ];
 
                 $negative = [
                     'first' => [
                         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
-                        'title' => 'Co to oznacza',
+                        'title' => 'Co to oznacza?',
                         'description' => 'Twoje odpowiedzi nie wskazują na wyraźne oznaki ADHD. Wszelkie rozproszenia, których doświadczasz, mieszczą się w typowym zakresie.'
                     ],
                     'second' => [
                         'title' => 'Negatywny',
-                        'description' => 'ADHD nie jest wskazane'
+                        'description' => 'Niskie prawdopodobieństwo ADHD'
                     ],
                     'third' => [
                         'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 256 256"><path fill="currentColor" d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 120L47.65 76L128 32l80.35 44Zm8 99.64v-85.81l80-43.78v85.76Z"/></svg>',
-                        'title' => 'Chcesz Porozmawiać z Kimś?',
-                        'description' => 'Jeśli wciąż masz pytania lub obawy, rozmowa z licencjonowanym specjalistą zdrowia psychicznego pomoże Ci zgłębić temat.'
+                        'title' => 'Chcesz skonsultować wyniki?',
+                        'description' => 'Jeśli wciąż masz pytania lub obawy, umów się na konsultację ze specjalistą.'
                     ],
                 ];
 
@@ -219,9 +219,8 @@ if ($result_id > 0):
                                 <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
                             </svg></a>
                         <div class="text-holder">
-                            <h1>Wynik Twojej Oceny ADHD</h1>
-                            <span>Ta ocena opiera się na Twoich odpowiedziach — wyróżnia to co działa dobrze, oraz na czym warto skupić
-                                uwagę.</span>
+                            <h1>Wynik twojego testu ASRS</h1>
+                            <span>Ta ocena opiera się na Twoich odpowiedziach. Zapoznaj się z poniższymi informacjami.</span>
                         </div>
                         <div>
 
@@ -255,7 +254,7 @@ if ($result_id > 0):
 
                         <!-- Breakdown section -->
                         <div id="pdf-breakdown" class="offscreen" style="display: none;">
-                            <h2>Tabela Odpowiedzi Użytkownika</h2>
+                            <h2>Szczegółowe wyniki testu ASRS</h2>
                             <div class="all-parts-container">
                                 <?php get_template_part('template-parts/breakdown'); ?>
                             </div>
