@@ -1786,3 +1786,18 @@ color: #17462B;
     margin-top: 0 !important;
   }
 }
+
+.navbar-brand img{
+  width: 154px;
+  height: 44px;
+  object-fit: contain;
+}
+
+@media(max-width: 280px){
+  .navbar-brand img{
+    width: 80px;
+    /* height: 30%; */
+    /* object-fit: contain; */
+  }
+  
+}
