@@ -313,7 +313,7 @@ $contact = [
     </div>
   </div>
   <div class="privacy">
-    <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a>
+    <!-- <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a> -->
     <a href="<?php echo get_home_url(); ?>/polityka-prywatnosci">Polityka prywatności</a>
   </div>
 </footer>

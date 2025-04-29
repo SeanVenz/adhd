@@ -188,7 +188,7 @@ $query = new WP_Query($args);
                     <div class="img-container">
                         <?php if (has_post_thumbnail()): ?>
                             <a href="<?php the_permalink(); ?>">
-                                <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+                                <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
                                     alt="<?php the_title(); ?>"></a>
                         <?php else: ?>
                             <img loading="lazy"
@@ -218,4 +218,4 @@ $query = new WP_Query($args);
     <?php endif; ?>
 
 </div>
-    <a href="/centrum-wiedzy" class="load-more">Odwiedź Centrum Wiedzy</a>
+    <a href="/centrum-wiedzy" class="load-more"><?php echo esc_html(get_field('knowledge_center_button')); ?></a>

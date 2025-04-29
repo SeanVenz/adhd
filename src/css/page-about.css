@@ -47,6 +47,11 @@
   color: #44674f;
 }
 
+.hero .text-holder a{
+  text-decoration: none !important;
+  color: #44674f !important;
+}
+
 .hero ul {
   list-style-type: none;
   padding-left: 0;

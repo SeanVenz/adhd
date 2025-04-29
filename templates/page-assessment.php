@@ -136,105 +136,146 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
 </script>
 
 <script>
-  function updateNextButtonState() {
+  // function updateNextButtonState() {
 
     // Show all counters initially (if any)
-    document.querySelectorAll("p.counter-quiz").forEach(c => {
-      c.style.display = 'block';
-    });
+  //   document.querySelectorAll("p.counter-quiz").forEach(c => {
+  //     c.style.display = 'block';
+  //   });
 
-    // Find the currently visible quiz page (skip fully hidden ones)
-    const currentPage = document.querySelector(".qsm-page:not([style*='display: none'])");
-    if (!currentPage) {
-      return;
-    }
+  //   // Find the currently visible quiz page (skip fully hidden ones)
+  //   const currentPage = document.querySelector(".qsm-page:not([style*='display: none'])");
+  //   if (!currentPage) {
+  //     return;
+  //   }
 
-    // If it’s still the intro, bail out
-    if (currentPage.classList.contains('quiz_begin')) {
-      return;
-    }
+  //   // If it’s still the intro, bail out
+  //   if (currentPage.classList.contains('quiz_begin')) {
+  //     return;
+  //   }
 
-    // Grab next button and test its visibility
-    const nextBtn = document.querySelector("a.mlw_custom_next");
-    if (!nextBtn) {
-      return;
-    }
+  //   // Grab next button and test its visibility
+  //   const nextBtn = document.querySelector("a.mlw_custom_next");
+  //   if (!nextBtn) {
+  //     return;
+  //   }
 
-    const prevBtn = document.querySelector("a.mlw_previous");
+  //   const prevBtn = document.querySelector("a.mlw_previous");
 
-    // Only proceed if Next is actually visible
-    if (prevBtn.offsetParent === null) {
-      return;
-    }
+  //   // Only proceed if Next is actually visible
+  //   //if (prevBtn.offsetParent === null) {
+  //   //  return;
+  //  //}
 
-    // Immediately hide all counters when the Next button is found and visible
-    document.querySelectorAll("p.counter-quiz").forEach(c => {
-      c.style.display = 'none';
-    });
+  //   // Immediately hide all counters when the Next button is found and visible
+  //   document.querySelectorAll("p.counter-quiz").forEach(c => {
+  //     c.style.display = 'none';
+  //   });
 
     // Now wire up enable/disable based on selection
-    const options = currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio");
+    // const options = currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio");
 
-    // Utility to toggle Next button state
-    function checkSelection() {
-      const any = Array.from(options).some(o => o.checked);
-      if (any) {
-        nextBtn.classList.remove("qsm-disabled");
-        nextBtn.style.pointerEvents = "auto";
-      } else {
-        nextBtn.classList.add("qsm-disabled");
-        nextBtn.style.pointerEvents = "none";
-      }
+    // // Utility to toggle Next button state
+    // function checkSelection() {
+    //   const any = Array.from(options).some(o => o.checked);
+    //   if (any) {
+    //     nextBtn.classList.remove("qsm-disabled");
+    //     nextBtn.style.pointerEvents = "auto";
+    //   } else {
+    //     nextBtn.classList.add("qsm-disabled");
+    //     nextBtn.style.pointerEvents = "none";
+    //   }
+    // }
+
+    // // Start disabled state
+    // nextBtn.classList.add("qsm-disabled");
+    // nextBtn.style.pointerEvents = "none";
+
+    // // Tear down old listeners by replacing radio options
+    // options.forEach(opt => {
+    //   opt.parentNode.replaceChild(opt.cloneNode(true), opt);
+    // });
+
+    // // Re-query and bind listeners for each radio option
+    // currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio").forEach(opt => {
+    //   opt.addEventListener("change", checkSelection, { once: true });
+
+    //   if (opt.id) {
+    //     const lbl = currentPage.querySelector(`label[for="${opt.id}"]`);
+    //     if (lbl) {
+    //       lbl.addEventListener("click", checkSelection, { once: true });
+    //     }
+    //   }
+
+    //   const wrap = opt.closest('.qmn_mc_answer_wrap');
+    //   if (wrap) {
+    //     wrap.addEventListener("click", checkSelection, { once: true });
+    //   }
+    // });
+
+    // // Final initial check for Next button state
+    // checkSelection();
+  // }
+
+  // window.addEventListener("load", () => {
+  //   // Kick off after a short delay to allow initial page setup
+  //   setTimeout(updateNextButtonState, 300);
+
+  //   // Watch for DOM changes (e.g. QSM revealing the Next button)
+  //   new MutationObserver(mutations => {
+  //     for (let m of mutations) {
+  //       if (m.type === 'childList' || m.type === 'attributes') {
+  //         // Try again shortly after any change
+  //         setTimeout(updateNextButtonState, 100);
+  //         break;
+  //       }
+  //     }
+  //   }).observe(document.body, {
+  //     childList: true,
+  //     subtree: true,
+  //     attributes: true,      // Catch style changes
+  //     attributeFilter: ['style', 'class']
+  //   });
+  // });
+</script>
+
+<script>
+  function updateCounterVisibility() {
+    const nextBtn = document.querySelector("a.mlw_custom_next");
+    const prevBtn = document.querySelector("a.qsm-previous");
+    const counters = document.querySelectorAll("p.counter-quiz");
+
+    if (nextBtn && nextBtn.offsetParent !== null || prevBtn && prevBtn.offsetParent !== null) {
+      // Next button is visible — hide counters
+      counters.forEach(c => {
+        c.style.display = 'none';
+      });
+    } else {
+      // Next button not visible — show counters
+      counters.forEach(c => {
+        c.style.display = 'block';
+      });
     }
-
-    // Start disabled state
-    nextBtn.classList.add("qsm-disabled");
-    nextBtn.style.pointerEvents = "none";
-
-    // Tear down old listeners by replacing radio options
-    options.forEach(opt => {
-      opt.parentNode.replaceChild(opt.cloneNode(true), opt);
-    });
-
-    // Re-query and bind listeners for each radio option
-    currentPage.querySelectorAll("input[type='radio'].qmn_quiz_radio").forEach(opt => {
-      opt.addEventListener("change", checkSelection, { once: true });
-
-      if (opt.id) {
-        const lbl = currentPage.querySelector(`label[for="${opt.id}"]`);
-        if (lbl) {
-          lbl.addEventListener("click", checkSelection, { once: true });
-        }
-      }
-
-      const wrap = opt.closest('.qmn_mc_answer_wrap');
-      if (wrap) {
-        wrap.addEventListener("click", checkSelection, { once: true });
-      }
-    });
-
-    // Final initial check for Next button state
-    checkSelection();
   }
 
   window.addEventListener("load", () => {
-    // Kick off after a short delay to allow initial page setup
-    setTimeout(updateNextButtonState, 300);
+    // Initial check
+    updateCounterVisibility();
 
-    // Watch for DOM changes (e.g. QSM revealing the Next button)
+    // Watch for DOM changes that might affect visibility
     new MutationObserver(mutations => {
       for (let m of mutations) {
         if (m.type === 'childList' || m.type === 'attributes') {
-          // Try again shortly after any change
-          setTimeout(updateNextButtonState, 100);
+          updateCounterVisibility();
           break;
         }
       }
     }).observe(document.body, {
       childList: true,
       subtree: true,
-      attributes: true,      // Catch style changes
+      attributes: true,
       attributeFilter: ['style', 'class']
     });
   });
 </script>
+
