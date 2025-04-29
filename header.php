@@ -11,10 +11,6 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/home/hero_bg.webp" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  <!-- CookieYes -->
-  <script id="cookieyes" type="text/javascript"
-    src="https://cdn-cookieyes.com/client_data/39c0dd27d0929bd7a9ba64b2/script.js"></script>
-  <!-- End CookieYes -->
 
   <!-- Google Tag Manager -->
   <script>
@@ -77,14 +73,14 @@
           </svg>
         </button>
         <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-md-none">
               <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>"
                 aria-label="Go to Home Page">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
               </a>
             </li>
             <li class="nav-item">

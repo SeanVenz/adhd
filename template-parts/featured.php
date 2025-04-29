@@ -121,23 +121,23 @@ $query = new WP_Query($args);
     }
 
     @media (max-width: 1024px) {
-        .featured-cointainer{
+        .featured-cointainer {
             padding-top: 64px;
             padding-bottom: 64px;
         }
 
-        .knowledge{
+        .knowledge {
             width: 100%;
         }
     }
 
     @media (max-width: 768px) {
 
-        .knowledge{
+        .knowledge {
             border-radius: 14px
         }
 
-        .knowledge .read-more{
+        .knowledge .read-more {
             justify-content: space-between;
         }
 
@@ -164,8 +164,10 @@ $query = new WP_Query($args);
                         <div class="img-container">
                             <?php if (has_post_thumbnail()): ?>
                                 <a href="<?php the_permalink(); ?>">
-                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
-                                        alt="<?php the_title(); ?>"></a>
+                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
+                                        alt="<?php echo esc_attr(get_the_title()); ?>">
+                                </a>
+
                             <?php else: ?>
                                 <img loading="lazy"
                                     src="<?php echo get_stylesheet_directory_uri() . "/src/images/default-thumbnail.jpg"; ?>"

@@ -273,7 +273,7 @@ $contact = [
     <div class="footer-holder">
       <div class="logo-holder">
       <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/adhd_Logo.png" alt="Logo">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
         </a>
         <!-- <div class="socials-holder">
           <span>Media społecznościowe:</span>
@@ -313,7 +313,7 @@ $contact = [
     </div>
   </div>
   <div class="privacy">
-    <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a>
+    <!-- <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a> -->
     <a href="<?php echo get_home_url(); ?>/polityka-prywatnosci">Polityka prywatności</a>
   </div>
 </footer>

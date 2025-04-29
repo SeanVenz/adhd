@@ -275,12 +275,8 @@ $query = new WP_Query($args);
         <div class="article-holder" id="article-container">
             <div class="main-content">
                 <div class="header">
-                    <h1>ADHD: Przewodnik po świadomości i wsparciu</h1>
-                    <span>Bądź na bieżąco dzięki eksperckim artykułom, szczegółowym przewodnikom i najnowszym
-                        wiadomościom o
-                        ADHD.Od diagnozy po codzienne zarządzanie – odkryjcenne informacje, które pomogą osobom z ADHD,
-                        ich
-                        rodzinom i specjalistomlepiej zrozumieć i skutecznie radzić sobie z tym wyzwaniem.</span>
+                    <h1><?php echo esc_html(get_field('article_header')); ?></h1>
+                    <span><?php echo esc_html(get_field('article_sub_header')); ?></span>
                 </div>
                 <?php if ($query->have_posts()): ?>
                     <?php while ($query->have_posts()):
@@ -289,8 +285,9 @@ $query = new WP_Query($args);
                             <div class="img-container">
                                 <?php if (has_post_thumbnail()): ?>
                                     <a href="<?php the_permalink(); ?>">
-                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
-                                            alt="<?php the_title(); ?>"></a>
+                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
+                                        alt="<?php echo esc_attr(get_the_title()); ?>">
+                                </a>
                                 <?php else: ?>
                                     <a href="<?php the_permalink(); ?>"><img
                                             src="<?php echo get_stylesheet_directory_uri() . "/src/images/default-thumbnail.jpg"; ?>"
@@ -315,12 +312,13 @@ $query = new WP_Query($args);
                 <?php else: ?>
                 <?php endif; ?>
 
+                
                 <?php get_template_part('template-parts/featured'); ?>
 
 
             </div>
-            <div class="">
-                <h2>Kompendium wiedzy</h2>
+            <div class="w-100">
+                <h2><?php echo esc_html(get_field('compendium_article')); ?></h2>
                 <?php get_template_part('template-parts/blogs', null, array(
                     'posts_per_page' => -1
                 )); ?>
@@ -331,29 +329,7 @@ $query = new WP_Query($args);
 
 </section>
 
-<section class="step">
-    <div class="min-width">
-        <div class="step-holder">
-            <div class="text-holder">
-                <h2>Sprawdź swoje umiejętności – <br> Rozpocznij test!</h2>
-                <span>Oceń swoje kompetencje i uzyskaj natychmiastową analizę wyników.</span>
-            </div>
-            <div class="test-holder">
-                <a href="/rozpocznij-test" class="take-test">Rozpocznij test</a>
-                <span class="desc">
-                    Szanujemy Twoją prywatność. Podane przez Ciebie informacje będą wykorzystywane wyłącznie do analizy
-                    wyników testu oraz dostarczenia spersonalizowanego raportu. Twoje dane będą przetwarzane zgodnie z
-                    naszą
-                    <a href="/polityka-prywatnosci">polityką prywatności.</a> <br>
-                    Ten formularz jest chroniony przez reCAPTCHA, a obowiązują <a href="/polityka-prywatnosci">Polityką
-                        prywatności.</a> i <a href="">Warunki korzystania z
-                        usług Google.</a>
-                </span>
-            </div>
-
-        </div>
-    </div>
-</section>
+<?php get_template_part('template-parts/step'); ?>
 
 
 <?php get_footer(); ?>

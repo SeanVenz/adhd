@@ -114,7 +114,7 @@ function load_more_posts()
         <div class="img-container">
           <?php if (has_post_thumbnail()): ?>
             <a href="<?php the_permalink(); ?>">
-              <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+              <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
                 alt="<?php the_title(); ?>"></a>
           <?php else: ?>
             <img loading="lazy" src="<?php echo get_stylesheet_directory_uri() . "/src/images/default-thumbnail.jpg"; ?>"
