@@ -319,10 +319,6 @@ body {
   .qmn_radio_answers {
     justify-content: center;
   }
-
-  .quiz {
-    height: 100svh;
-  }
 }
 
 @media (max-width: 768px) {
@@ -378,7 +374,6 @@ body {
   }
 
   .quiz {
-    height: 100svh;
     padding-top: 20px;
     overflow: auto;
   }
@@ -479,12 +474,6 @@ body {
 
   .qmn_mc_answer_wrap {
     gap: 12px !important;
-  }
-}
-
-@media (max-width: 500px) {
-  .quiz {
-    height: 100svh;
   }
 }
 
