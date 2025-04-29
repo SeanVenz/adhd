@@ -55,8 +55,7 @@ get_header(); ?>
                 <div class="what-holder">
                     <div class="text-holder">
                         <div class="texts">
-                            <span
-                                class="header"><?php echo esc_html(get_field('concentration_section_pre_title')); ?></span>
+                            <span class="header"><?php echo esc_html(get_field('concentration_section_pre_title')); ?></span>
                             <h2><?php echo esc_html(get_field('concentration_section_title')); ?></h2>
                             <span
                                 class="desc"><?php echo esc_html(get_field('concentration_section_sub_title')); ?></span>
@@ -64,11 +63,26 @@ get_header(); ?>
                         </div>
                         <a href="#development"><?php echo esc_html(get_field('concentration_section_button')); ?></a>
                     </div>
-                    <!-- <div class="img-holder">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Early_detection_image.webp"
-                            alt="Hero" loading="lazy">
-                    </div> -->
+                    <div class="frame">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Frame_3224.webp"
+                            alt="Young">
+                        <h2><?php echo esc_html(get_field('concentration_image_header')); ?></h2>
+
+                        <div class="cover"></div>
+                        <div class="red"></div>
+                        <div class="frame-text-holder">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15">
+                                <path fill="#17462B"
+                                    d="M2.5 1A1.5 1.5 0 0 0 1 2.5V10a4 4 0 0 0 4 4v-1a3 3 0 0 1-3-3V7h3.5A1.5 1.5 0 0 0 7 5.5v-3A1.5 1.5 0 0 0 5.5 1zm7 0A1.5 1.5 0 0 0 8 2.5V10a4 4 0 0 0 4 4v-1a3 3 0 0 1-3-3V7h3.5A1.5 1.5 0 0 0 14 5.5v-3A1.5 1.5 0 0 0 12.5 1z" />
+                            </svg>
+                            <p><?php echo esc_html(get_field('concentration_image_sub_header')); ?></p>
+                            <span><?php echo esc_html(get_field('concentration_image_description')); ?></span>
+                        </div>
+                    </div>
                 </div>
+
+
+
             </div>
 
         </section>
