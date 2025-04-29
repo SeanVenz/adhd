@@ -198,6 +198,7 @@
         display: flex;
         flex-direction: column;
         gap: 54px;
+        width: 100%;
     }
 
     .extra-article .text-holder {
@@ -329,7 +330,7 @@
         </div>
         <div class="extra-article">
             <div class="text-holder">
-                <h2><?php echo esc_html(get_field('article_recommended')); ?></h2>
+                <h2>Polecane dla Ciebie</h2>
                 <span>Ponieważ przeczytałeś tego typu artykuł, oto kilka rekomendowanych treści dopasowanych do Twoich
                     zainteresowań.</span>
             </div>

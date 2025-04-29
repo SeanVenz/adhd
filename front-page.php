@@ -42,7 +42,7 @@ get_header(); ?>
                     </ul>
                 </div>
                 <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Group_87.webp" alt="Hero">
+                    <img src="<?php echo esc_url(get_field('hero_banner_image')); ?>" alt="Hero">
                 </div>
             </div>
         </div>
@@ -55,7 +55,8 @@ get_header(); ?>
                 <div class="what-holder">
                     <div class="text-holder">
                         <div class="texts">
-                            <span class="header"><?php echo esc_html(get_field('concentration_section_pre_title')); ?></span>
+                            <span
+                                class="header"><?php echo esc_html(get_field('concentration_section_pre_title')); ?></span>
                             <h2><?php echo esc_html(get_field('concentration_section_title')); ?></h2>
                             <span
                                 class="desc"><?php echo esc_html(get_field('concentration_section_sub_title')); ?></span>
@@ -64,8 +65,8 @@ get_header(); ?>
                         <a href="#development"><?php echo esc_html(get_field('concentration_section_button')); ?></a>
                     </div>
                     <div class="frame">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Frame_3224.webp"
-                            alt="Young">
+                        <img src="<?php echo esc_url(get_field('concentration_image')); ?>"
+                            alt="Concentration">
                         <h2><?php echo esc_html(get_field('concentration_image_header')); ?></h2>
 
                         <div class="cover"></div>
@@ -80,11 +81,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
         </section>
 
         <section class="development" id="development">
