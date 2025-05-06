@@ -244,6 +244,7 @@ $total_results = $wpdb->get_var("SELECT COUNT(*) FROM {$table_results}");
     const nextBtn = document.querySelector("a.mlw_custom_next");
     const prevBtn = document.querySelector("a.qsm-previous");
     const counters = document.querySelectorAll("p.counter-quiz");
+    const errorMsg = document.getElementById("mlw_error_message");
 
     if (nextBtn && nextBtn.offsetParent !== null || prevBtn && prevBtn.offsetParent !== null) {
       // Next button is visible — hide counters

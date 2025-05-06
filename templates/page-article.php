@@ -89,6 +89,7 @@ $query = new WP_Query($args);
         max-height: 844px;
         height: auto;
         object-fit: cover;
+        border-radius: 24px;
     }
 
     .article-item .text-desc a {
@@ -267,6 +268,10 @@ $query = new WP_Query($args);
             font-size: 14px;
             width: 100%;
         }
+    }
+
+    .knowledge-container{
+        justify-content: left !important;
     }
 </style>
 

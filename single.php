@@ -273,6 +273,10 @@
             font-size: 20px;
         }
     }
+
+    .knowledge-container{
+        justify-content: left !important;
+    }
 </style>
 
 <section class="blog-content-section">

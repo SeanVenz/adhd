@@ -58,6 +58,7 @@ $query = new WP_Query($args);
         object-fit: cover;
         width: 100%;
         height: auto;
+        border-radius: 24px;
     }
 
     .knowledge .img-container a {

@@ -60,6 +60,7 @@ $query = new WP_Query($args);
     .knowledge img {
         object-fit: cover;
         width: 100%;
+        border-radius: 24px;
     }
 
     .knowledge .img-container a {
