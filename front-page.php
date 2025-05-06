@@ -155,12 +155,12 @@ get_header(); ?>
                                 </svg>
                                 <div class="texts">
                                     <span><?php echo esc_html(get_field('diagnosed_section_third_card_title')); ?></span>
-                                    <p><?php echo esc_html(get_field('diagnosed_third_second_card_sub_title')); ?></p>
+                                    <p><?php echo esc_html(get_field('diagnosed_section_third_card_sub_title')); ?></p>
                                 </div>
                             </div>
                             <div class="header-holder">
                                 <h3><?php echo esc_html(get_field('diagnosed_section_third_card_paragraph')); ?></h3>
-                                <p><?php echo esc_html(get_field('diagnosed_section_second_card_sub_paragraph')); ?></p>
+                                <p><?php echo esc_html(get_field('diagnosed_section_third_card_sub_paragraph')); ?></p>
                             </div>
                         </li>
                     </ul>

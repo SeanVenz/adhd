@@ -85,27 +85,25 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())
-                echo 'active'; ?>" aria-current="page" style="padding:5px;" href="<?php echo get_home_url(); ?>">Strona
-                główna</a>
+                echo 'active'; ?>" aria-current="page" style="padding:5px;" href="<?php echo get_home_url(); ?>"><?php echo esc_html(get_field('strona_glowna')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_page('o-projekcie'))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-projekcie">O
-                projekcie</a>
+                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-projekcie"><?php echo esc_html(get_field('o_projekcie')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
               if (is_page('rozpocznij-test')) {
                 echo 'active';
               }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test">Test ASRS</a>
+              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test"><?php echo esc_html(get_field('test_asrs')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
               if (is_page('centrum-wiedzy')) {
                 echo 'active';
               }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy">Centrum Wiedzy</a>
+              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
             </li>
           </ul>
         </div>

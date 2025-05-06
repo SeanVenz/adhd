@@ -162,8 +162,8 @@
     }
 
     .privacy a {
-    font-size: 12px;
-  }
+      font-size: 12px;
+    }
 
     .ql-holder .navigation {
       width: 100%;
@@ -272,8 +272,8 @@ $contact = [
   <div class="min-width">
     <div class="footer-holder">
       <div class="logo-holder">
-      <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
+        <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
         </a>
         <!-- <div class="socials-holder">
           <span>Media społecznościowe:</span>
@@ -291,13 +291,18 @@ $contact = [
       <div class="ql-holder">
         <ul class="navigation">
           <h3>Szybkie linki</h3>
-          <?php foreach ($homeLinks as $link): ?>
-            <li>
-              <a href="<?php echo get_home_url(); ?><?php echo htmlspecialchars($link['link']); ?>">
-                <?php echo htmlspecialchars($link['text']); ?>
-              </a>
-            </li>
-          <?php endforeach; ?>
+          <li>
+            <a href="<?php echo get_home_url(); ?>"><?php echo esc_html(get_field('strona_glowna')); ?></a>
+          </li>
+          <li>
+            <a href="<?php echo get_home_url(); ?>/o-projekcie"><?php echo esc_html(get_field('o_projekcie')); ?></a>
+          </li>
+          <li>
+            <a href="<?php echo get_home_url(); ?>/rozpocznij-test"><?php echo esc_html(get_field('test_asrs')); ?></a>
+          </li>
+          <li>
+            <a href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
+          </li>
         </ul>
         <!-- <ul class="navigation">
           <h3>Skontaktuj się z nami</h3>
