@@ -480,7 +480,7 @@ header ul .active {
   gap: 54px;
   width: 100%;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   max-width: 961px;
 }
 
@@ -539,6 +539,7 @@ header ul .active {
   font-size: 20px;
   color: #ffffff;
   text-decoration: none;
+  align-items: flex-start;
 }
 
 /* @media (max-width: 1324px) {
@@ -1663,6 +1664,8 @@ header ul .active {
   font-size: 16px;
   color: #44674f;
   padding-left: 0px !important;
+  max-width: 1285px;
+  width: 100%;
 }
 .accordion-item:last-of-type {
   border-bottom-right-radius: 0 !important;
@@ -1764,9 +1767,39 @@ header ul .active {
   background-position: center;
 }
 
-#mlw_error_message,
 #mlw_error_message_bottom {
   display: none !important;
+}
+
+.qmn_error_message{
+  width: max-content !important;
+  margin: 0 auto !important;
+  padding: 5px 10px !important;
+  border: 1px solid #DA4F49 !important;
+  background-color: #DA4F491F !important;
+  border-radius: 8px !important;
+  margin-top: -42px !important;
+  font-size: 16px !important;
+}
+
+@media(max-width:768px){
+  .qmn_error_message{
+    margin-top: 10px !important;
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    display: flex !important;
+    padding: 3px 6px !important;
+  }
+}
+
+@media(max-width:400px){
+  .qmn_error_message{
+    font-size: 10px !important;
+  }
+}
+
+.qmn_pagination, .qsm_auto_pagination_enabled .qmn_pagination{
+  flex-wrap: nowrap !important;
 }
 
 .qsm-quiz-form .qmn_error .qmn_radio_answers,
@@ -1869,45 +1902,43 @@ header ul .active {
   margin-top: -21px;
 }
 
-.frame-text-holder p{
+.frame-text-holder p {
   font-family: Manrope;
-font-weight: 400;
-font-size: 20px;
-color: #17462B;
-margin-bottom: 0;
-
+  font-weight: 400;
+  font-size: 20px;
+  color: #17462b;
+  margin-bottom: 0;
 }
 
-.frame-text-holder span{
+.frame-text-holder span {
   font-family: Manrope;
   font-weight: 400;
   font-size: 16px;
-  color: #44674F;
-
+  color: #44674f;
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
   .frame,
-  .frame-text-holder{
+  .frame-text-holder {
     max-height: unset;
   }
 
-  .frame h2{
+  .frame h2 {
     font-size: 20px;
   }
 
-  .frame-text-holder{
+  .frame-text-holder {
     padding: 22px;
     gap: 6px;
   }
 
-  .frame-text-holder p{
+  .frame-text-holder p {
     font-size: 16px;
   }
 }
 
-@media(max-width:400px){
-  .frame-text-holder span{
+@media (max-width: 400px) {
+  .frame-text-holder span {
     font-size: 12px;
   }
 }

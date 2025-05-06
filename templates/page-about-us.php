@@ -82,7 +82,7 @@ $hero = [
                     </ul>
                 </div>
                 <div class="img-holder">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/about.webp" alt="Hero"
+                    <img src="<?php echo esc_url(get_field('about_us_image')); ?>" alt="Hero"
                         loading="lazy">
                 </div>
             </div>

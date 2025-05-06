@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100svh;
+  min-height: 100svh;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: right;
   overflow: hidden;
@@ -15,7 +16,7 @@
 }
 
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .min-width {
@@ -261,12 +262,19 @@ body {
 .quiz_begin .start .list-holder .with-svg img {
   width: 24px;
   height: 24px;
+  border-radius: 0px;
+}
+
+.qsm-quiz-form .qmn_error:after{
+  display: none !important;
 }
 
 .quiz_begin .start img {
   width: 100%;
   object-fit: cover;
   max-height: 273px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 }
 
 .quiz_begin .start .list-holder p {
@@ -317,10 +325,6 @@ body {
 
   .qmn_radio_answers {
     justify-content: center;
-  }
-
-  .quiz {
-    height: 100svh;
   }
 }
 
@@ -377,7 +381,6 @@ body {
   }
 
   .quiz {
-    height: 100svh;
     padding-top: 20px;
     overflow: auto;
   }
@@ -478,12 +481,6 @@ body {
 
   .qmn_mc_answer_wrap {
     gap: 12px !important;
-  }
-}
-
-@media (max-width: 500px) {
-  .quiz {
-    height: 100svh;
   }
 }
 
