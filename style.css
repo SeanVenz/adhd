@@ -1779,6 +1779,27 @@ header ul .active {
   background-color: #DA4F491F !important;
   border-radius: 8px !important;
   margin-top: -42px !important;
+  font-size: 16px !important;
+}
+
+@media(max-width:768px){
+  .qmn_error_message{
+    margin-top: 10px !important;
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    display: flex !important;
+    padding: 3px 6px !important;
+  }
+}
+
+@media(max-width:400px){
+  .qmn_error_message{
+    font-size: 10px !important;
+  }
+}
+
+.qmn_pagination, .qsm_auto_pagination_enabled .qmn_pagination{
+  flex-wrap: nowrap !important;
 }
 
 .qsm-quiz-form .qmn_error .qmn_radio_answers,

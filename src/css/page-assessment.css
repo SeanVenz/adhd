@@ -262,6 +262,11 @@ body {
 .quiz_begin .start .list-holder .with-svg img {
   width: 24px;
   height: 24px;
+  border-radius: 0px;
+}
+
+.qsm-quiz-form .qmn_error:after{
+  display: none !important;
 }
 
 .quiz_begin .start img {
