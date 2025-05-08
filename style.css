@@ -104,10 +104,42 @@ header .container {
   padding-left: 5%;
 }
 
-/* Make sure the burger and X icons are styled properly */
+.logo-holders {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.exeltis-logo-holder {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.exeltis-logo-holder img {
+  object-fit: contain !important;
+  width: auto !important;
+  cursor: pointer !important;
+  z-index: 99;
+  position: relative;
+}
+
+.exeltis-logo-holder span {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 16px;
+  color: #17462b;
+  font-weight: 700;
+  margin-top: 7px;
+}
+
 .navbar-toggler {
   position: relative;
-  z-index: 1001; /* Higher than the navbar-collapse */
+  z-index: 1001;
   border: none;
   background: none;
   padding: 0;
@@ -121,6 +153,38 @@ header .container {
 
 .burger-icon .cls-1 {
   fill: #17462b !important;
+}
+
+.navbar-nav {
+  margin-left: -134px !important;
+}
+
+@media(max-width: 1400px){
+  .navbar-nav {
+    margin-left: 0px !important;
+  }
+}
+
+@media(max-width: 1200px){
+  header .container, .container-lg, .container-md, .container-sm {
+    max-width: 1120px;
+}
+}
+
+@media(max-width: 1068px){
+  .logo-holders{
+    gap: 0px;
+  }
+}
+
+@media(max-width: 768px){
+  .exeltis-logo-holder{
+    display: none;
+  }
+
+  .exeltis{
+    margin-left: -26px;
+  }
 }
 
 .burger-icon,
@@ -1771,19 +1835,19 @@ header ul .active {
   display: none !important;
 }
 
-.qmn_error_message{
+.qmn_error_message {
   width: max-content !important;
   margin: 0 auto !important;
   padding: 5px 10px !important;
-  border: 1px solid #DA4F49 !important;
-  background-color: #DA4F491F !important;
+  border: 1px solid #da4f49 !important;
+  background-color: #da4f491f !important;
   border-radius: 8px !important;
   margin-top: -42px !important;
   font-size: 16px !important;
 }
 
-@media(max-width:768px){
-  .qmn_error_message{
+@media (max-width: 768px) {
+  .qmn_error_message {
     margin-top: 10px !important;
     font-size: 12px !important;
     word-wrap: break-word !important;
@@ -1792,13 +1856,14 @@ header ul .active {
   }
 }
 
-@media(max-width:400px){
-  .qmn_error_message{
+@media (max-width: 400px) {
+  .qmn_error_message {
     font-size: 10px !important;
   }
 }
 
-.qmn_pagination, .qsm_auto_pagination_enabled .qmn_pagination{
+.qmn_pagination,
+.qsm_auto_pagination_enabled .qmn_pagination {
   flex-wrap: nowrap !important;
 }
 
