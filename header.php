@@ -122,6 +122,14 @@
               ?>" style="padding:5px;"
                 href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link <?php
+              if (is_page('doctors')) {
+                echo 'active';
+              }
+              ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/doctors"><?php echo esc_html(get_field('doctors')); ?></a>
+            </li>
           </ul>
         </div>
 
