@@ -28,6 +28,7 @@ $pins = is_array($pins) ? $pins : [];
   margin: 0 auto;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin-top: 100px;
 }
 
 /* Page Title */
@@ -226,33 +227,6 @@ $pins = is_array($pins) ? $pins : [];
   opacity: 0.5;
 }
 
-/* Stats bar */
-.stats-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding: 16px;
-  background: linear-gradient(135deg, #f8faff 0%, #f0f8ff 100%);
-  border-radius: 12px;
-  border: 1px solid #e0f2fe;
-  margin-bottom: 8px;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: #475569;
-}
-
-.stat-number {
-  font-weight: 700;
-  color: #0073aa;
-  font-size: 1.1rem;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
   .doctors-page {
@@ -274,11 +248,6 @@ $pins = is_array($pins) ? $pins : [];
   
   #doctorSearch {
     font-size: 16px; /* Prevents zoom on iOS */
-  }
-  
-  .stats-bar {
-    flex-direction: column;
-    gap: 12px;
   }
 }
 
@@ -307,6 +276,7 @@ $pins = is_array($pins) ? $pins : [];
 .wp_mapit_multipin_map {
   margin-bottom: 0 !important;
   border-radius: 16px !important;
+  margin-top: 0px !important;
 }
 
 /* Enhanced popup styles */
@@ -360,31 +330,10 @@ $pins = is_array($pins) ? $pins : [];
 </style>
 
 <main class="doctors-page" data-map-id="260">
-  <!-- PAGE TITLE -->
-  <div class="page-title">
-    <h1>Find ADHD Specialists</h1>
-    <p>Connect with qualified healthcare professionals in your area</p>
-  </div>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <span>📍</span>
-      <span>Available Locations: <span class="stat-number" id="locationCount"><?php echo count($pins); ?></span></span>
-    </div>
-    <div class="stat-item">
-      <span>👨‍⚕️</span>
-      <span>Healthcare Providers: <span class="stat-number" id="doctorCount"><?php echo count($pins); ?></span></span>
-    </div>
-    <div class="stat-item">
-      <span>🔍</span>
-      <span>Search & Filter Available</span>
-    </div>
-  </div>
 
   <!-- MAP -->
   <div class="map-container">
-    <?php echo do_shortcode('[wp_mapit_map id="94"]'); ?>
+    <?php echo do_shortcode('[wp_mapit_map id="503"]'); ?>
   </div>
 
   <!-- SEARCH -->
