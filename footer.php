@@ -88,6 +88,9 @@
     font-weight: 400;
     font-size: 16px;
     color: #17462B;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .privacy a {
@@ -192,7 +195,7 @@
     }
 
     .privacy {
-      gap: 44px;
+      gap: 22px;
       flex-direction: row;
       width: 100%;
       justify-content: center;
@@ -316,11 +319,17 @@ $contact = [
         </ul> -->
       </div>
     </div>
-  </div>
-  <div class="privacy">
+    <div class="privacy">
+            <!-- <div></div> -->
     <!-- <a href="<?php echo get_home_url(); ?>/regulamin">Regulamin</a> -->
     <a href="<?php echo get_home_url(); ?>/polityka-prywatnosci">Polityka prywatności</a>
+
+
+    <span>developed by <a href="https://odysse.io/" class="odysse" target="_blank">odysse.io</a></span>
+</div>
   </div>
+
+
 </footer>
 
 <?php wp_footer(); ?>

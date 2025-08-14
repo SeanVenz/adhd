@@ -126,6 +126,7 @@ header .container {
   cursor: pointer !important;
   z-index: 99;
   position: relative;
+  height: 65px !important;
 }
 
 .exeltis-logo-holder span {
@@ -184,6 +185,16 @@ header .container {
 
   .exeltis{
     margin-left: -26px;
+    margin-top: -6rem;
+  }
+
+  .adhd{
+    margin-top: -6rem;
+  }
+
+
+  .logo-holder-mobile{
+    margin-top: -50px;
   }
 }
 
@@ -2006,4 +2017,9 @@ header ul .active {
   .frame-text-holder span {
     font-size: 12px;
   }
+}
+
+.odysse{
+  text-decoration: underline !important;
+  color: #00A6F4 !important;
 }
