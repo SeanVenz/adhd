@@ -80,14 +80,31 @@ $pins = is_array($pins) ? $pins : [];
 
 /* Enhanced search bar */
 .search-container {
+  margin-bottom: 20px;
+}
+
+.search-header {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.search-title h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #17462B;
+}
+
+.search-field {
+  flex: 0 0 300px;
   position: relative;
 }
 
 #doctorSearch {
   width: 100%;
-  max-width: 600px;
   padding: 16px 20px 16px 50px;
   border: 2px solid #e5e7eb;
   border-radius: 16px;
@@ -106,15 +123,33 @@ $pins = is_array($pins) ? $pins : [];
   transform: translateY(-1px);
 }
 
-.search-container::before {
+.search-field::before {
   content: '🔍';
   position: absolute;
-  left: calc(50% - 300px + 18px);
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 18px;
   pointer-events: none;
   z-index: 2;
+}
+
+/* Responsive design for search header */
+@media (max-width: 768px) {
+  .search-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .search-field {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  
+  .search-title h2 {
+    font-size: 1.5rem;
+  }
 }
 
 /* Enhanced doctor list grid */
@@ -128,11 +163,15 @@ $pins = is_array($pins) ? $pins : [];
   background: #ffffff;
   border: 1px solid #f1f5f9;
   border-radius: 16px;
-  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 4px 4px 12px 0px #00000014;
 }
 
 .doctor-item::before {
@@ -142,7 +181,7 @@ $pins = is_array($pins) ? $pins : [];
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #0073aa, #00a0d2);
+  background: linear-gradient(90deg, #17462B, #2a6f41);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -160,11 +199,11 @@ $pins = is_array($pins) ? $pins : [];
 }
 
 .doctor-item.active {
-  border-color: #0073aa;
-  background: linear-gradient(135deg, #f8faff 0%, #f0f8ff 100%);
+  border-color: #17462B;
+  background: linear-gradient(135deg, #f8fff8 0%, #f0fff0 100%);
   box-shadow: 
-    0 20px 25px -5px rgba(0, 115, 170, 0.15),
-    0 10px 10px -5px rgba(0, 115, 170, 0.1);
+    0 20px 25px -5px rgba(23, 70, 43, 0.15),
+    0 10px 10px -5px rgba(23, 70, 43, 0.1);
   transform: translateY(-4px);
 }
 
@@ -176,27 +215,22 @@ $pins = is_array($pins) ? $pins : [];
   margin: 0 0 8px 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #17462B;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.doctor-item h3::before {
-  content: '👨‍⚕️';
-  font-size: 1.1rem;
-}
-
 .doctor-item p {
   margin: 0;
-  color: #64748b;
+  color: #17462B;
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .doctor-item .doctor-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #0073aa, #005177);
+  background: #17462B;
   color: white;
   font-size: 0.75rem;
   font-weight: 500;
@@ -240,10 +274,6 @@ $pins = is_array($pins) ? $pins : [];
   
   .doctor-list {
     grid-template-columns: 1fr;
-  }
-  
-  .search-container::before {
-    left: 18px;
   }
   
   #doctorSearch {
@@ -333,12 +363,19 @@ $pins = is_array($pins) ? $pins : [];
 
   <!-- MAP -->
   <div class="map-container">
-    <?php echo do_shortcode('[wp_mapit_map id="503"]'); ?>
+    <?php echo do_shortcode('[wp_mapit_map id="94"]'); ?>
   </div>
 
   <!-- SEARCH -->
   <div class="search-container">
-    <input type="text" id="doctorSearch" placeholder="Search for a doctor...">
+    <div class="search-header">
+      <div class="search-title">
+        <h2>Znajdź Specjalistę</h2>
+      </div>
+      <div class="search-field">
+        <input type="text" id="doctorSearch" placeholder="Wyszukaj placówkę">
+      </div>
+    </div>
   </div>
 
   <!-- LIST -->
@@ -359,8 +396,8 @@ $pins = is_array($pins) ? $pins : [];
           data-desc="<?php echo esc_attr($desc); ?>"
         >
           <h3><?php echo esc_html($title); ?></h3>
-          <p><?php echo esc_html($desc); ?></p>
-          <span class="doctor-badge">ADHD Specialist</span>
+          <!-- <p><?php echo esc_html($desc); ?></p> -->
+          <span class="doctor-badge"><?php echo esc_html($desc); ?></span>
         </div>
       <?php endforeach; ?>
       <div class="no-results" id="noResults" style="display:none;">No doctors match your search.</div>
