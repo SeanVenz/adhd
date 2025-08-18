@@ -979,13 +979,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
               }
               
-              // Center map on marker
+              // Center map on marker with smooth animation
               try {
                 const markerLatLng = marker.getLatLng();
-                map.setView(markerLatLng, Math.max(map.getZoom(), 15), { animate: true });
+                map.setView(markerLatLng, Math.max(map.getZoom(), 15), { 
+                  animate: true,
+                  duration: 1.0, // 1 second animation
+                  easeLinearity: 0.1 // Smooth easing
+                });
               } catch(e) {
                 console.warn('[Doctors] Could not center map on marker:', e);
-                map.setView([lat, lng], Math.max(map.getZoom(), 15), { animate: true });
+                map.setView([lat, lng], Math.max(map.getZoom(), 15), { 
+                  animate: true,
+                  duration: 1.0,
+                  easeLinearity: 0.1
+                });
               }
             }
 
@@ -996,9 +1004,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 popupOpened = true;
               }
               
-              // Center map on coordinates
+              // Center map on coordinates with smooth animation
               try {
-                map.setView([lat, lng], Math.max(map.getZoom(), 15), { animate: true });
+                map.setView([lat, lng], Math.max(map.getZoom(), 15), { 
+                  animate: true,
+                  duration: 1.0, // 1 second animation
+                  easeLinearity: 0.1 // Smooth easing
+                });
               } catch(e) {
                 console.error('[Doctors] Could not center map:', e);
               }
