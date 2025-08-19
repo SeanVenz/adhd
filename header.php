@@ -72,38 +72,63 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
-        </a>
+        <div class="logo-holders">
+          <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>" aria-label="Go to Home Page">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="ADHD Logo">
+          </a>
+          <div class="exeltis-logo-holder">
+            <span>Partner</span>
+          <a class="navbar-brand" style="padding:0px" href="https://exeltis.pl" target="_blank" aria-label="Go to Exeltis Page">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Exeltis-Logo.png" alt="Exeltis Logo">
+          </a>
+          </div>
+        </div>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-md-none">
               <a class="navbar-brand" style="padding:0px" href="<?php echo get_home_url(); ?>"
                 aria-label="Go to Home Page">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
+                <img class="adhd" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/ADHDowcy-logo.png" alt="Logo">
               </a>
+            </li>
+            <li class="nav-item d-block d-md-none">
+            <a class="navbar-brand" style="padding:0px" href="https://exeltis.pl" target="_blank" aria-label="Go to Exeltis Page">
+            <img class="exeltis" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/home/Exeltis-Logo.png" alt="Exeltis Logo">
+          </a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_front_page())
-                echo 'active'; ?>" aria-current="page" style="padding:5px;" href="<?php echo get_home_url(); ?>"><?php echo esc_html(get_field('strona_glowna')); ?></a>
+                echo 'active'; ?>" aria-current="page" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>"><?php echo esc_html(get_field('strona_glowna')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if (is_page('o-projekcie'))
-                echo 'active'; ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/o-projekcie"><?php echo esc_html(get_field('o_projekcie')); ?></a>
+                echo 'active'; ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/o-projekcie"><?php echo esc_html(get_field('o_projekcie')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
               if (is_page('rozpocznij-test')) {
                 echo 'active';
               }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/rozpocznij-test"><?php echo esc_html(get_field('test_asrs')); ?></a>
+              ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/rozpocznij-test"><?php echo esc_html(get_field('test_asrs')); ?></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <?php
+              if (is_page('doctors')) {
+                echo 'active';
+              }
+              ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/doctors"><?php echo esc_html(get_field('doctors')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
               if (is_page('centrum-wiedzy')) {
                 echo 'active';
               }
-              ?>" style="padding:5px;" href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
+              ?>" style="padding:5px;"
+                href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
             </li>
           </ul>
         </div>

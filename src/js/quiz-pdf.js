@@ -91,7 +91,7 @@
                     doc.setFontSize(10);
                 }
 
-                doc.save('wyniki_quizu.pdf');
+                doc.save('wyniki_testu_ASRS.pdf');
 
                 // Hide the breakdown after PDF generation
                 // $('#pdf-breakdown').hide();
