@@ -23,12 +23,14 @@ $pins = is_array($pins) ? $pins : [];
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px;
-  max-width: 1200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  max-width: 1700px;
   margin: 0 auto;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin-top: 100px;
+  padding-bottom: 100px;
 }
 
 /* Page Title */
@@ -363,7 +365,7 @@ $pins = is_array($pins) ? $pins : [];
 
   <!-- MAP -->
   <div class="map-container">
-    <?php echo do_shortcode('[wp_mapit_map id="94"]'); ?>
+    <?php echo do_shortcode('[wp_mapit_map id="503"]'); ?>
   </div>
 
   <!-- SEARCH -->
