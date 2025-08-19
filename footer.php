@@ -304,10 +304,10 @@ $contact = [
             <a href="<?php echo get_home_url(); ?>/rozpocznij-test"><?php echo esc_html(get_field('test_asrs')); ?></a>
           </li>
           <li>
-            <a href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
+            <a href="<?php echo get_home_url(); ?>/lekarze"><?php echo esc_html(get_field('doctors')); ?></a>
           </li>
           <li>
-            <a href="<?php echo get_home_url(); ?>/doctors"><?php echo esc_html(get_field('doctors')); ?></a>
+            <a href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
           </li>
         </ul>
         <!-- <ul class="navigation">

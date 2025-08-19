@@ -120,7 +120,7 @@
                 echo 'active';
               }
               ?>" style="padding:5px;"
-                href="<?php echo get_home_url(); ?>/doctors"><?php echo esc_html(get_field('doctors')); ?></a>
+                href="<?php echo get_home_url(); ?>/lekarze"><?php echo esc_html(get_field('doctors')); ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
