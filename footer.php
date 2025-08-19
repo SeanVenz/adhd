@@ -306,6 +306,9 @@ $contact = [
           <li>
             <a href="<?php echo get_home_url(); ?>/centrum-wiedzy"><?php echo esc_html(get_field('centrum_wiedzy')); ?></a>
           </li>
+          <li>
+            <a href="<?php echo get_home_url(); ?>/doctors"><?php echo esc_html(get_field('doctors')); ?></a>
+          </li>
         </ul>
         <!-- <ul class="navigation">
           <h3>Skontaktuj się z nami</h3>
